@@ -44,6 +44,6 @@
     <Compile Include="..\Zuma's Revenge!\ZumasRevenge.Sound\**\*.cs" Link="ZumasRevenge.Sound\%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="..\Zuma's Revenge!\Content\**\*" Link="Content\%(RecursiveDir)%(Filename)%(Extension)" />
+    <AndroidAsset Include="..\Zuma's Revenge!\Content\**\*" Exclude="..\Zuma's Revenge!\Content\music\*.wma" Link="Content\%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 </Project>
