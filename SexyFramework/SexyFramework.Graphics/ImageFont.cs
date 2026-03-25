@@ -135,7 +135,11 @@ public class ImageFont : Font
 			}
 			else
 			{
-				SerializeRead(theBuffer.GetDataPtr(), theBuffer.GetDataLen() - 16, 16);
+				bool flag3 = SerializeRead(theBuffer.GetDataPtr(), theBuffer.GetDataLen() - 16, 16);
+				if (flag3)
+				{
+					mFontData.mInitialized = false;
+				}
 				flag2 = true;
 			}
 		}
@@ -878,16 +882,17 @@ public class ImageFont : Font
 			value2.mImageFileName = SerializeReadStr(thePtr, num, num10);
 			num += num10;
 			bool flag = false;
+			string text = "";
 			SharedImageRef sharedImageRef = new SharedImageRef();
 			if (GlobalMembers.gSexyAppBase.mResourceManager != null && string.IsNullOrEmpty(mFontData.mImagePathPrefix))
 			{
-				string idByPath = GlobalMembers.gSexyAppBase.mResourceManager.GetIdByPath(value2.mImageFileName);
-				if (!string.IsNullOrEmpty(idByPath))
+				text = GlobalMembers.gSexyAppBase.mResourceManager.GetIdByPath(value2.mImageFileName);
+				if (!string.IsNullOrEmpty(text))
 				{
-					sharedImageRef = GlobalMembers.gSexyAppBase.mResourceManager.GetImage(idByPath);
+					sharedImageRef = GlobalMembers.gSexyAppBase.mResourceManager.GetImage(text);
 					if (sharedImageRef.GetDeviceImage() == null)
 					{
-						sharedImageRef = GlobalMembers.gSexyAppBase.mResourceManager.LoadImage(idByPath);
+						sharedImageRef = GlobalMembers.gSexyAppBase.mResourceManager.LoadImage(text);
 					}
 					if (sharedImageRef.GetDeviceImage() != null)
 					{
@@ -902,6 +907,7 @@ public class ImageFont : Font
 			value2.mImage = new SharedImageRef(sharedImageRef);
 			if (value2.mImage.GetDeviceImage() == null)
 			{
+				mFontData.mError = "Missing font layer image '" + value2.mImageFileName + "' (resource id: '" + text + "').";
 				result = true;
 			}
 			value2.mDrawMode = BitConverter.ToInt32(thePtr, num);

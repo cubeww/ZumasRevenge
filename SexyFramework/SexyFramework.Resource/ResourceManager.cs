@@ -1105,7 +1105,12 @@ public class ResourceManager
 		{
 			if (imageFont2.mFontData == null || !imageFont2.mFontData.mInitialized)
 			{
+				string text3 = imageFont2?.mFontData?.mError;
 				font?.Dispose();
+				if (!string.IsNullOrEmpty(text3))
+				{
+					return Fail($"Failed to load font: {text}. {text3}");
+				}
 				return Fail($"Failed to load font: {text}");
 			}
 			imageFont2.mTagVector.Clear();
@@ -1880,31 +1885,78 @@ public class ResourceManager
 
 	public string GetIdByPath(string thePath)
 	{
-		string text = thePath.Replace('/', '\\');
-		for (int i = 0; i < 7; i++)
+		if (string.IsNullOrEmpty(thePath))
 		{
-			Dictionary<string, BaseRes>.Enumerator enumerator = mResMaps[i].GetEnumerator();
+			return "";
+		}
+		string[] array = BuildPathLookupCandidates(thePath);
+		for (int i = 0; i < array.Length; i++)
+		{
+			if (mResFromPathMap.TryGetValue(array[i], out var value))
+			{
+				return value.mId;
+			}
+		}
+		string text = NormalizeResourcePathForLookup(thePath);
+		for (int j = 0; j < 7; j++)
+		{
+			Dictionary<string, BaseRes>.Enumerator enumerator = mResMaps[j].GetEnumerator();
 			while (enumerator.MoveNext())
 			{
-				if (enumerator.Current.Value.mPath == text)
+				if (NormalizeResourcePathForLookup(enumerator.Current.Value.mPath) == text)
 				{
 					return enumerator.Current.Value.mId;
 				}
 			}
 		}
-		text = text.ToUpper();
-		for (int j = 0; j < 7; j++)
+		return "";
+	}
+
+	private static string NormalizeResourcePathForLookup(string path)
+	{
+		if (string.IsNullOrEmpty(path))
 		{
-			Dictionary<string, BaseRes>.Enumerator enumerator2 = mResMaps[j].GetEnumerator();
-			while (enumerator2.MoveNext())
+			return "";
+		}
+		return path.Replace('/', '\\').Trim().ToUpperInvariant();
+	}
+
+	private static string StripResourceExtension(string path)
+	{
+		if (string.IsNullOrEmpty(path))
+		{
+			return "";
+		}
+		int num = path.LastIndexOf('.');
+		if (num > 0)
+		{
+			return path.Substring(0, num);
+		}
+		return path;
+	}
+
+	private static string[] BuildPathLookupCandidates(string path)
+	{
+		List<string> list = new List<string>();
+		void AddCandidate(string value)
+		{
+			string text = NormalizeResourcePathForLookup(value);
+			if (!string.IsNullOrEmpty(text) && !list.Contains(text))
 			{
-				if (enumerator2.Current.Value.mPath.ToUpper() == text)
-				{
-					return enumerator2.Current.Value.mId;
-				}
+				list.Add(text);
 			}
 		}
-		return "";
+		AddCandidate(path);
+		AddCandidate(path.Replace('\\', '/'));
+		AddCandidate(path.Replace('/', '\\'));
+		string text2 = StripResourceExtension(path);
+		if (text2 != path)
+		{
+			AddCandidate(text2);
+			AddCandidate(text2.Replace('\\', '/'));
+			AddCandidate(text2.Replace('/', '\\'));
+		}
+		return list.ToArray();
 	}
 
 	public Dictionary<string, string> GetImageAttributes(string theId)

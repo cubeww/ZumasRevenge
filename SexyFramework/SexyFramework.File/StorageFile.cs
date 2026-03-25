@@ -1,6 +1,10 @@
 using System;
 using System.IO;
+#if ANDROID
+using Android.App;
+#else
 using System.IO.IsolatedStorage;
+#endif
 using System.Text;
 using SexyFramework.Misc;
 
@@ -10,33 +14,94 @@ public class StorageFile
 {
 	private FileMode m_nMode;
 
+#if ANDROID
+	private Stream fp;
+#else
 	private IsolatedStorageFile m_userStore = IsolatedStorageFile.GetUserStoreForApplication();
 
 	private IsolatedStorageFileStream fp;
+#endif
+
+#if ANDROID
+	private static string GetStorageRoot()
+	{
+		return Application.Context.FilesDir?.AbsolutePath ?? AppContext.BaseDirectory;
+	}
+
+	private static string NormalizePath(string path)
+	{
+		if (string.IsNullOrWhiteSpace(path))
+		{
+			return string.Empty;
+		}
+		return path.Replace('\\', Path.DirectorySeparatorChar).TrimStart(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+	}
+
+	private static string GetAbsolutePath(string path)
+	{
+		return Path.Combine(GetStorageRoot(), NormalizePath(path));
+	}
+
+	private static void EnsureParentDirectory(string path)
+	{
+		string directoryName = Path.GetDirectoryName(path);
+		if (!string.IsNullOrEmpty(directoryName))
+		{
+			Directory.CreateDirectory(directoryName);
+		}
+	}
+#endif
 
 	public static void DeleteFile(string theFileName)
 	{
+#if ANDROID
+		string absolutePath = GetAbsolutePath(theFileName);
+		if (System.IO.File.Exists(absolutePath))
+		{
+			System.IO.File.Delete(absolutePath);
+		}
+#else
 		IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication();
 		userStoreForApplication.DeleteFile(theFileName);
+#endif
 	}
 
 	public static bool FileExists(string theFileName)
 	{
+#if ANDROID
+		return System.IO.File.Exists(GetAbsolutePath(theFileName));
+#else
 		IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication();
 		return userStoreForApplication.FileExists(theFileName);
+#endif
 	}
 
 	public static void MakeDir(string theFolderName)
 	{
+#if ANDROID
+		Directory.CreateDirectory(GetAbsolutePath(theFolderName));
+#else
 		IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication();
 		if (!userStoreForApplication.DirectoryExists(theFolderName))
 		{
 			userStoreForApplication.CreateDirectory(theFolderName);
 		}
+#endif
 	}
 
 	public static bool ReadBufferFromFile(string theFileName, SexyFramework.Misc.Buffer theBuffer)
 	{
+#if ANDROID
+		string absolutePath = GetAbsolutePath(theFileName);
+		if (!System.IO.File.Exists(absolutePath))
+		{
+			return false;
+		}
+		byte[] array = System.IO.File.ReadAllBytes(absolutePath);
+		theBuffer.Clear();
+		theBuffer.SetData(array, array.Length);
+		return true;
+#else
 		IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication();
 		if (!userStoreForApplication.FileExists(theFileName))
 		{
@@ -54,10 +119,18 @@ public class StorageFile
 		theBuffer.SetData(array, num);
 		isolatedStorageFileStream.Close();
 		return true;
+#endif
 	}
 
 	public static bool WriteBufferToFile(string theFileName, SexyFramework.Misc.Buffer theBuffer)
 	{
+#if ANDROID
+		string absolutePath = GetAbsolutePath(theFileName);
+		EnsureParentDirectory(absolutePath);
+		byte[] dataPtr = theBuffer.GetDataPtr();
+		System.IO.File.WriteAllBytes(absolutePath, dataPtr);
+		return true;
+#else
 		IsolatedStorageFile userStoreForApplication = IsolatedStorageFile.GetUserStoreForApplication();
 		if (!userStoreForApplication.DirectoryExists("/users"))
 		{
@@ -72,6 +145,7 @@ public class StorageFile
 		isolatedStorageFileStream.Write(dataPtr, 0, dataPtr.Length);
 		isolatedStorageFileStream.Close();
 		return true;
+#endif
 	}
 
 	public void clear()
@@ -101,6 +175,14 @@ public class StorageFile
 	public bool openRead(string fName, bool bSilent, bool bFromDocs)
 	{
 		clear();
+#if ANDROID
+		string absolutePath = GetAbsolutePath(fName);
+		if (!System.IO.File.Exists(absolutePath))
+		{
+			return false;
+		}
+		fp = System.IO.File.OpenRead(absolutePath);
+#else
 		if (!m_userStore.FileExists(fName))
 		{
 			return false;
@@ -110,6 +192,7 @@ public class StorageFile
 		{
 			return false;
 		}
+#endif
 		m_nMode = FileMode.MODE_READ;
 		return true;
 	}
@@ -205,7 +288,13 @@ public class StorageFile
 	public bool openWrite(string fName, bool bFromDocs)
 	{
 		clear();
+#if ANDROID
+		string absolutePath = GetAbsolutePath(fName);
+		EnsureParentDirectory(absolutePath);
+		fp = new FileStream(absolutePath, System.IO.FileMode.Create, FileAccess.Write, FileShare.None);
+#else
 		fp = m_userStore.OpenFile(fName, System.IO.FileMode.Create);
+#endif
 		if (fp == null)
 		{
 			return false;

@@ -1,4 +1,5 @@
 using System;
+using Microsoft.Xna.Framework.Content;
 using SexyFramework.Drivers.App;
 
 namespace SexyFramework.Drivers.File;
@@ -50,7 +51,9 @@ public class XNAFile : IFile
 	{
 		try
 		{
-			mData = mFileDriver.GetContentManager().Load<byte[]>(mFileName);
+			ContentManager contentManager = mFileDriver.GetContentManager();
+			string assetName = ((contentManager as WP7ContentManager) != null) ? ((WP7ContentManager)contentManager).ResolveAssetName(mFileName) : mFileName;
+			mData = contentManager.Load<byte[]>(assetName);
 			mStatus = Status.READ_COMPLETE;
 			return true;
 		}

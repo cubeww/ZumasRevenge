@@ -131,20 +131,24 @@ public class BaseXNARenderDevice : RenderDevice3D
 	{
 		width = Math.Max(width, 1);
 		height = Math.Max(height, 1);
-		if (mDevice.PreferredBackBufferWidth == width && mDevice.PreferredBackBufferHeight == height)
+		bool flag = mDevice.PreferredBackBufferWidth != width || mDevice.PreferredBackBufferHeight != height;
+		if (flag)
 		{
-			return;
+			mDevice.IsFullScreen = false;
+			mDevice.PreferredBackBufferWidth = width;
+			mDevice.PreferredBackBufferHeight = height;
+			mScreenWidth = width;
+			mScreenHeight = height;
+			mDevice.ApplyChanges();
 		}
-		mDevice.IsFullScreen = false;
-		mDevice.PreferredBackBufferWidth = width;
-		mDevice.PreferredBackBufferHeight = height;
-		mScreenWidth = width;
-		mScreenHeight = height;
-		mDevice.ApplyChanges();
 		UpdatePresentationRect();
 		if (mCurrentContex == null)
 		{
-			SetViewport(mRenderRect.X, mRenderRect.Y, mRenderRect.Width, mRenderRect.Height, 0f, 1f);
+			Viewport viewport = mDevice.GraphicsDevice.Viewport;
+			if (flag || viewport.X != mRenderRect.X || viewport.Y != mRenderRect.Y || viewport.Width != mRenderRect.Width || viewport.Height != mRenderRect.Height)
+			{
+				SetViewport(mRenderRect.X, mRenderRect.Y, mRenderRect.Width, mRenderRect.Height, 0f, 1f);
+			}
 		}
 	}
 

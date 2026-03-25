@@ -848,10 +848,14 @@ public class SexyAppBase : ButtonListener, DialogListener
 		theBuffer.Clear();
 		try
 		{
-			Stream stream = TitleContainer.OpenStream("Content\\" + theFileName);
-			byte[] array = new byte[stream.Length];
-			stream.Read(array, 0, (int)stream.Length);
-			stream.Close();
+			string text = WP7ContentManager.ResolveAssetStreamPath(theFileName);
+			byte[] array;
+			using (Stream stream = TitleContainer.OpenStream("Content/" + text))
+			{
+				using MemoryStream memoryStream = new MemoryStream();
+				stream.CopyTo(memoryStream);
+				array = memoryStream.ToArray();
+			}
 			theBuffer.SetData(array, array.Length);
 		}
 		catch (Exception)

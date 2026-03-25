@@ -241,10 +241,17 @@ public class XNAGraphicsDriver : IGraphicsDriver
 	public virtual DeviceImage GetOptimizedImage(string theFileName, bool commitBits, bool allowTriReps)
 	{
 		PFILE pFILE = new PFILE(theFileName, "");
-		pFILE.Open<Texture2D>();
+		if (!pFILE.Open<Texture2D>())
+		{
+			throw new InvalidOperationException("Failed to load texture asset '" + theFileName + "'.");
+		}
 		Texture2D texture2D = pFILE.GetObject() as Texture2D;
+		if (texture2D == null)
+		{
+			throw new InvalidOperationException("Texture asset '" + theFileName + "' loaded as null.");
+		}
 		texture2D.Name = theFileName;
-		return mXNARenderDevice.GetOptimizedImage(pFILE.GetObject() as Texture2D, commitBits, allowTriReps);
+		return mXNARenderDevice.GetOptimizedImage(texture2D, commitBits, allowTriReps);
 	}
 
 	public virtual DeviceImage GetOptimizedImage(Stream stream, bool commitBits, bool allowTriReps)

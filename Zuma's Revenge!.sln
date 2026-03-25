@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zuma's Revenge!", "Zuma's R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SexyFramework", "SexyFramework\SexyFramework.csproj", "{29EDEB75-5C47-46A7-94BD-818B05C01863}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SexyFramework.Android", "SexyFramework\SexyFramework.Android.csproj", "{70E47FFD-39AB-4030-8092-03F4A7BC988F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zuma's Revenge.Android", "Zuma's Revenge.Android\Zuma's Revenge.Android.csproj", "{035065D2-3580-403A-8CBC-67E99EBB7338}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AnyCPU = Debug|AnyCPU
@@ -20,6 +24,14 @@ Global
 		{29EDEB75-5C47-46A7-94BD-818B05C01863}.Debug|AnyCPU.Build.0 = Debug|AnyCPU
 		{29EDEB75-5C47-46A7-94BD-818B05C01863}.Release|AnyCPU.ActiveCfg = Release|AnyCPU
 		{29EDEB75-5C47-46A7-94BD-818B05C01863}.Release|AnyCPU.Build.0 = Release|AnyCPU
+		{70E47FFD-39AB-4030-8092-03F4A7BC988F}.Debug|AnyCPU.ActiveCfg = Debug|AnyCPU
+		{70E47FFD-39AB-4030-8092-03F4A7BC988F}.Debug|AnyCPU.Build.0 = Debug|AnyCPU
+		{70E47FFD-39AB-4030-8092-03F4A7BC988F}.Release|AnyCPU.ActiveCfg = Release|AnyCPU
+		{70E47FFD-39AB-4030-8092-03F4A7BC988F}.Release|AnyCPU.Build.0 = Release|AnyCPU
+		{035065D2-3580-403A-8CBC-67E99EBB7338}.Debug|AnyCPU.ActiveCfg = Debug|AnyCPU
+		{035065D2-3580-403A-8CBC-67E99EBB7338}.Debug|AnyCPU.Build.0 = Debug|AnyCPU
+		{035065D2-3580-403A-8CBC-67E99EBB7338}.Release|AnyCPU.ActiveCfg = Release|AnyCPU
+		{035065D2-3580-403A-8CBC-67E99EBB7338}.Release|AnyCPU.Build.0 = Release|AnyCPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

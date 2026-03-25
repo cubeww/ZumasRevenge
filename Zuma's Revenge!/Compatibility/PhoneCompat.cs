@@ -1,5 +1,10 @@
 using System;
+#if ANDROID
+using Android.App;
+using Android.Content;
+#else
 using System.Diagnostics;
+#endif
 
 namespace Microsoft.Phone.Shell
 {
@@ -49,11 +54,17 @@ namespace Microsoft.Phone.Tasks
 			}
 			try
 			{
+#if ANDROID
+				Intent intent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(uri.ToString()));
+				intent.AddFlags(ActivityFlags.NewTask);
+				Application.Context.StartActivity(intent);
+#else
 				Process.Start(new ProcessStartInfo
 				{
 					FileName = uri.ToString(),
 					UseShellExecute = true
 				});
+#endif
 			}
 			catch
 			{

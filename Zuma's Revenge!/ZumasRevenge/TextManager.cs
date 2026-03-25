@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Threading;
 using Microsoft.Xna.Framework;
+using SexyFramework.Drivers.App;
 using SexyFramework.Misc;
 
 namespace ZumasRevenge;
@@ -63,7 +64,8 @@ public class TextManager
 		Stream stream = null;
 		try
 		{
-			stream = TitleContainer.OpenStream("Content\\" + file);
+			string text2 = WP7ContentManager.ResolveAssetStreamPath(file);
+			stream = TitleContainer.OpenStream("Content/" + text2);
 			using StreamReader streamReader = new StreamReader(stream);
 			for (string text = streamReader.ReadLine(); text != null; text = streamReader.ReadLine())
 			{

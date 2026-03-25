@@ -1247,13 +1247,23 @@ public class GameApp : SexyApp, NewUserDialogListener, ProfileEventListener
 	{
 		if (!mResourceManager.IsGroupLoaded("MainSounds"))
 		{
-			mResourceManager.LoadResources("MainSounds");
+			if (!mResourceManager.LoadResources("MainSounds"))
+			{
+				throw new InvalidOperationException("Failed to load resource group 'MainSounds': " + mResourceManager.mError);
+			}
 		}
 		if (!mResourceManager.IsGroupLoaded("Text"))
 		{
-			mResourceManager.LoadResources("Text");
+			if (!mResourceManager.LoadResources("Text"))
+			{
+				throw new InvalidOperationException("Failed to load resource group 'Text': " + mResourceManager.mError);
+			}
 		}
 		Font fontByName = GetFontByName("FONT_SHAGEXOTICA68_BASE");
+		if (fontByName == null)
+		{
+			throw new InvalidOperationException("Required font 'FONT_SHAGEXOTICA68_BASE' was not loaded.");
+		}
 		((ImageFont)fontByName).PushLayerColor("Stroke", new SexyFramework.Graphics.Color(0, 0, 0, 255));
 		((ImageFont)fontByName).PushLayerColor("Shadow", new SexyFramework.Graphics.Color(0, 0, 0, 255));
 		Font fontByName2 = GetFontByName("FONT_SHAGEXOTICA68_BLACK");

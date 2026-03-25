@@ -130,7 +130,12 @@ public class ImageRes : BaseRes
 		}
 		if (mAtlasName != null)
 		{
-			deviceImage.mAtlasImage = GlobalMembers.gSexyAppBase.mResourceManager.LoadImage(mAtlasName).GetImage();
+			SharedImageRef sharedImageRef = GlobalMembers.gSexyAppBase.mResourceManager.LoadImage(mAtlasName);
+			if ((sharedImageRef == null || sharedImageRef.GetImage() == null) && mArtRes != 0 && mAtlasName.IndexOf('|') == -1)
+			{
+				sharedImageRef = GlobalMembers.gSexyAppBase.mResourceManager.LoadImage(mAtlasName + "|" + mArtRes);
+			}
+			deviceImage.mAtlasImage = sharedImageRef?.GetImage();
 			deviceImage.mAtlasStartX = mAtlasX;
 			deviceImage.mAtlasStartY = mAtlasY;
 			deviceImage.mAtlasEndX = mAtlasX + mAtlasW;

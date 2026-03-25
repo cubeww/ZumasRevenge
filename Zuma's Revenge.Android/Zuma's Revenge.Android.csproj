@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>ZumasRevengeWin</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0-android</TargetFramework>
+    <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
+    <Nullable>disable</Nullable>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <ApplicationId>com.zumasrevenge.android</ApplicationId>
+    <ApplicationTitle>Zuma's Revenge!</ApplicationTitle>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>ZumasRevengeAndroid</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="..\Zuma's Revenge!\Microsoft.Xna.Framework.RuntimeProfile" />
+    <None Remove="..\Zuma's Revenge!\Microsoft.Xna.Framework.XlastConfiguration" />
+    <EmbeddedResource Include="..\Zuma's Revenge!\Microsoft.Xna.Framework.RuntimeProfile" LogicalName="Microsoft.Xna.Framework.RuntimeProfile" Link="Microsoft.Xna.Framework.RuntimeProfile" />
+    <EmbeddedResource Include="..\Zuma's Revenge!\Microsoft.Xna.Framework.XlastConfiguration" LogicalName="Microsoft.Xna.Framework.XlastConfiguration" Link="Microsoft.Xna.Framework.XlastConfiguration" />
+    <EmbeddedResource Include="..\Zuma's Revenge!\ZumasRevenge.AppResources.resx" Link="ZumasRevenge.AppResources.resx" LogicalName="ZumasRevenge.AppResources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.Android" Version="3.8.4.1" />
+    <ProjectReference Include="..\SexyFramework\SexyFramework.Android.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Zuma's Revenge!\StringID.cs" Link="StringID.cs" />
+    <Compile Include="..\Zuma's Revenge!\Compatibility\*.cs" Link="Compatibility\%(Filename)%(Extension)" />
+    <Compile Include="..\Zuma's Revenge!\Properties\AssemblyInfo.cs" Link="Properties\%(Filename)%(Extension)" />
+    <Compile Include="..\Zuma's Revenge!\ZumasRevenge\**\*.cs" Exclude="..\Zuma's Revenge!\ZumasRevenge\GameMain.cs" Link="ZumasRevenge\%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Include="..\Zuma's Revenge!\ZumasRevenge.Achievement\**\*.cs" Link="ZumasRevenge.Achievement\%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Include="..\Zuma's Revenge!\ZumasRevenge.Profile\**\*.cs" Link="ZumasRevenge.Profile\%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Include="..\Zuma's Revenge!\ZumasRevenge.Sound\**\*.cs" Link="ZumasRevenge.Sound\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\Zuma's Revenge!\Content\**\*" Link="Content\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>
