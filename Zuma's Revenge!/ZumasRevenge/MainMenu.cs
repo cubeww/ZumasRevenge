@@ -11,7 +11,7 @@ namespace ZumasRevenge;
 
 public class MainMenu : Widget, ButtonListener, DialogListener, PopAnimListener
 {
-	private const string WatermarkText = "by bilibili NyaCube";
+	private const string WatermarkText = "Ported by bilibili NyaCube";
 
 	public class VolcanoProjectile
 	{
