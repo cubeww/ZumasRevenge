@@ -66,11 +66,15 @@ public class GameMain : Game
 
 	private Rectangle mDisplayRect = new Rectangle(0, 0, 800, 480);
 
-	private int mLastClientWidth = -1;
+	private int mLastViewportWidth = -1;
 
-	private int mLastClientHeight = -1;
+	private int mLastViewportHeight = -1;
 
-	private bool mWindowSizeAppliedToRenderer;
+	private int mLastTargetWidth = -1;
+
+	private int mLastTargetHeight = -1;
+
+	private bool mViewportSizeAppliedToRenderer;
 
 	private SexyAppBase.Touch touch = new SexyAppBase.Touch();
 
@@ -170,7 +174,11 @@ public class GameMain : Game
 		{
 			SexyZuma.ShowLoadingScreen();
 			isLoading = false;
-			mWindowSizeAppliedToRenderer = false;
+			mLastViewportWidth = -1;
+			mLastViewportHeight = -1;
+			mLastTargetWidth = -1;
+			mLastTargetHeight = -1;
+			mViewportSizeAppliedToRenderer = false;
 		}
 	}
 
@@ -203,6 +211,11 @@ public class GameMain : Game
 
 	protected override void OnActivated(object sender, EventArgs args)
 	{
+		mLastViewportWidth = -1;
+		mLastViewportHeight = -1;
+		mLastTargetWidth = -1;
+		mLastTargetHeight = -1;
+		mViewportSizeAppliedToRenderer = false;
 		SexyZuma.OnActivated();
 		base.OnActivated(sender, args);
 	}
@@ -220,6 +233,11 @@ public class GameMain : Game
 
 	protected void OnServiceActivated(object sender, EventArgs args)
 	{
+		mLastViewportWidth = -1;
+		mLastViewportHeight = -1;
+		mLastTargetWidth = -1;
+		mLastTargetHeight = -1;
+		mViewportSizeAppliedToRenderer = false;
 		SexyZuma.OnServiceActivated();
 	}
 
@@ -338,20 +356,9 @@ public class GameMain : Game
 
 	private void UpdateDisplayRect()
 	{
-		int clientWidth = Math.Max(base.Window.ClientBounds.Width, 1);
-		int clientHeight = Math.Max(base.Window.ClientBounds.Height, 1);
-		if (clientWidth == mLastClientWidth && clientHeight == mLastClientHeight)
-		{
-			if (!isLoading && !mWindowSizeAppliedToRenderer && SexyZuma?.mGraphicsDriver is XNAGraphicsDriver xNAGraphicsDriver2)
-			{
-				xNAGraphicsDriver2.WindowResize(clientWidth, clientHeight);
-				mWindowSizeAppliedToRenderer = true;
-			}
-			return;
-		}
-		mLastClientWidth = clientWidth;
-		mLastClientHeight = clientHeight;
-		mWindowSizeAppliedToRenderer = false;
+		int viewportWidth = GetViewportWidth();
+		int viewportHeight = GetViewportHeight();
+		SyncTouchPanelDisplaySize(viewportWidth, viewportHeight);
 		int targetWidth = 800;
 		int targetHeight = 480;
 		if (SexyZuma != null && SexyZuma.mWidgetManager != null)
@@ -360,15 +367,52 @@ public class GameMain : Game
 			targetWidth = Math.Max(screenRect.mWidth, 1);
 			targetHeight = Math.Max(screenRect.mHeight, 1);
 		}
-		float num = Math.Min((float)clientWidth / (float)targetWidth, (float)clientHeight / (float)targetHeight);
+		if (viewportWidth == mLastViewportWidth && viewportHeight == mLastViewportHeight && targetWidth == mLastTargetWidth && targetHeight == mLastTargetHeight)
+		{
+			if (!isLoading && SexyZuma?.mGraphicsDriver is XNAGraphicsDriver xNAGraphicsDriver2 && (!mViewportSizeAppliedToRenderer || !RendererMatchesViewport(xNAGraphicsDriver2, viewportWidth, viewportHeight)))
+			{
+				xNAGraphicsDriver2.WindowResize(viewportWidth, viewportHeight);
+				mViewportSizeAppliedToRenderer = RendererMatchesViewport(xNAGraphicsDriver2, viewportWidth, viewportHeight);
+			}
+			return;
+		}
+		mLastViewportWidth = viewportWidth;
+		mLastViewportHeight = viewportHeight;
+		mLastTargetWidth = targetWidth;
+		mLastTargetHeight = targetHeight;
+		mViewportSizeAppliedToRenderer = false;
+		float num = Math.Min((float)viewportWidth / (float)targetWidth, (float)viewportHeight / (float)targetHeight);
 		int width = Math.Max(1, (int)Math.Round((float)targetWidth * num));
 		int height = Math.Max(1, (int)Math.Round((float)targetHeight * num));
-		mDisplayRect = new Rectangle((clientWidth - width) / 2, (clientHeight - height) / 2, width, height);
+		mDisplayRect = new Rectangle((viewportWidth - width) / 2, (viewportHeight - height) / 2, width, height);
 		if (!isLoading && SexyZuma?.mGraphicsDriver is XNAGraphicsDriver xNAGraphicsDriver)
 		{
-			xNAGraphicsDriver.WindowResize(clientWidth, clientHeight);
-			mWindowSizeAppliedToRenderer = true;
+			xNAGraphicsDriver.WindowResize(viewportWidth, viewportHeight);
+			mViewportSizeAppliedToRenderer = RendererMatchesViewport(xNAGraphicsDriver, viewportWidth, viewportHeight);
 		}
+	}
+
+	private void SyncTouchPanelDisplaySize(int viewportWidth, int viewportHeight)
+	{
+		viewportWidth = Math.Max(viewportWidth, 1);
+		viewportHeight = Math.Max(viewportHeight, 1);
+		if (TouchPanel.DisplayWidth == viewportWidth && TouchPanel.DisplayHeight == viewportHeight)
+		{
+			return;
+		}
+		TouchPanel.DisplayWidth = viewportWidth;
+		TouchPanel.DisplayHeight = viewportHeight;
+	}
+
+	private bool RendererMatchesViewport(XNAGraphicsDriver graphicsDriver, int viewportWidth, int viewportHeight)
+	{
+		if (graphicsDriver?.mXNARenderDevice?.mDevice?.GraphicsDevice == null)
+		{
+			return false;
+		}
+		int backBufferWidth = graphicsDriver.mXNARenderDevice.mDevice.GraphicsDevice.PresentationParameters.BackBufferWidth;
+		int backBufferHeight = graphicsDriver.mXNARenderDevice.mDevice.GraphicsDevice.PresentationParameters.BackBufferHeight;
+		return backBufferWidth == viewportWidth && backBufferHeight == viewportHeight;
 	}
 
 	private bool TryGetPointerLocation(int rawX, int rawY, bool clampToDisplayRect, out SexyFramework.Misc.Point point)
@@ -408,6 +452,32 @@ public class GameMain : Game
 		float y2 = (float)(num4 - rectangle.Y) * (float)num6 / (float)num2;
 		point = new SexyFramework.Misc.Point((int)Math.Clamp(x2, 0f, num5 - 1f), (int)Math.Clamp(y2, 0f, num6 - 1f));
 		return true;
+	}
+
+	private int GetViewportWidth()
+	{
+		int backBufferWidth = 0;
+		int viewportWidth = 0;
+		if (base.GraphicsDevice != null)
+		{
+			backBufferWidth = Math.Max(base.GraphicsDevice.PresentationParameters.BackBufferWidth, 0);
+			viewportWidth = Math.Max(base.GraphicsDevice.Viewport.Width, 0);
+		}
+		int clientWidth = Math.Max(base.Window.ClientBounds.Width, 0);
+		return Math.Max(Math.Max(backBufferWidth, viewportWidth), Math.Max(clientWidth, 1));
+	}
+
+	private int GetViewportHeight()
+	{
+		int backBufferHeight = 0;
+		int viewportHeight = 0;
+		if (base.GraphicsDevice != null)
+		{
+			backBufferHeight = Math.Max(base.GraphicsDevice.PresentationParameters.BackBufferHeight, 0);
+			viewportHeight = Math.Max(base.GraphicsDevice.Viewport.Height, 0);
+		}
+		int clientHeight = Math.Max(base.Window.ClientBounds.Height, 0);
+		return Math.Max(Math.Max(backBufferHeight, viewportHeight), Math.Max(clientHeight, 1));
 	}
 
 	public void DrawSysString(string str, float x, float y)
