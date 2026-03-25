@@ -47,6 +47,12 @@ public class LeaderBoards : Widget, ButtonListener
 
 	protected int mAspectOffset = 30;
 
+	protected Image IMAGE_UI_CHALLENGESCREEN_HOME_SELECT = Res.GetImageByID(ResID.IMAGE_UI_CHALLENGESCREEN_HOME_SELECT);
+
+	protected Image IMAGE_UI_CHALLENGESCREEN_HOME = Res.GetImageByID(ResID.IMAGE_UI_CHALLENGESCREEN_HOME);
+
+	protected Image IMAGE_UI_CHALLENGESCREEN_HOME_BACKING = Res.GetImageByID(ResID.IMAGE_UI_CHALLENGESCREEN_HOME_BACKING);
+
 	protected Image IMAGE_UI_CHALLENGE_PAGE_INDICATOR = Res.GetImageByID(ResID.IMAGE_UI_CHALLENGE_PAGE_INDICATOR);
 
 	protected Image IMAGE_UI_CHALLENGESCREEN_CEILING_PIECE = Res.GetImageByID(ResID.IMAGE_UI_CHALLENGESCREEN_CEILING_PIECE);
@@ -163,6 +169,7 @@ public class LeaderBoards : Widget, ButtonListener
 		AddWidget(mLeaderBoardsPageControl);
 		mLeaderBoardsScrollWidget.SetPageControl(mLeaderBoardsPageControl);
 		AddWidget(mLeaderBoardsScrollWidget);
+		InitHomeButton();
 		mUpButton = new ButtonWidget(7, this);
 		Image imageByID = Res.GetImageByID(ResID.IMAGE_UI_LEADERBOARDS_ARROW_LIGHT);
 		mUpButton.mButtonImage = imageByID;
@@ -199,6 +206,21 @@ public class LeaderBoards : Widget, ButtonListener
 		mFrogStr = TextManager.getInstance().getString(57);
 		mScoreStr = TextManager.getInstance().getString(669);
 		mScoreStr = mScoreStr.Substring(0, mScoreStr.Length - 1);
+	}
+
+	private void InitHomeButton()
+	{
+		mHomeButton = new ButtonWidget((int)ButtonState.Back_Btn, this);
+		mHomeButton.mDoFinger = true;
+		mHomeButton.mPriority = 2;
+		mHomeButton.mButtonImage = IMAGE_UI_CHALLENGESCREEN_HOME;
+		mHomeButton.mDownImage = IMAGE_UI_CHALLENGESCREEN_HOME_SELECT;
+		float num = (float)(IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetWidth() - IMAGE_UI_CHALLENGESCREEN_HOME.GetWidth()) / 2f;
+		float num2 = (float)(IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetHeight() - IMAGE_UI_CHALLENGESCREEN_HOME.GetHeight()) / 2f;
+		mHomeButton.Resize((int)num, Common._DS(Res.GetOffsetYByID(ResID.IMAGE_UI_CHALLENGESCREEN_HOME_SELECT)) + (int)num2, IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetWidth(), IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetHeight());
+		mHomeButton.mNormalRect = new Rect(0, 0, IMAGE_UI_CHALLENGESCREEN_HOME.GetWidth(), IMAGE_UI_CHALLENGESCREEN_HOME.GetHeight());
+		mHomeButton.mDownRect = new Rect((int)num, (int)num2, IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetWidth() - (int)num, IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetHeight() - (int)num2);
+		AddWidget(mHomeButton);
 	}
 
 	public void PageLoading(int ranking)
@@ -517,6 +539,10 @@ public class LeaderBoards : Widget, ButtonListener
 	public override void DrawOverlay(Graphics g)
 	{
 		g.Translate(mX / 2, 0);
+		if (mHomeButton != null)
+		{
+			g.DrawImage(IMAGE_UI_CHALLENGESCREEN_HOME_BACKING, 0, 0);
+		}
 		g.DrawImage(IMAGE_UI_CHALLENGESCREEN_BG_SIDE, -GameApp.gApp.mWideScreenXOffset, Common._DS(Res.GetOffsetYByID(ResID.IMAGE_UI_CHALLENGESCREEN_BG_SIDE)));
 		g.DrawImageMirror(IMAGE_UI_CHALLENGESCREEN_BG_SIDE, GameApp.gApp.GetScreenWidth() + GameApp.gApp.mWideScreenXOffset - IMAGE_UI_CHALLENGESCREEN_BG_SIDE.GetWidth(), Common._DS(Res.GetOffsetYByID(ResID.IMAGE_UI_CHALLENGESCREEN_BG_SIDE)));
 		g.DrawImageMirror(IMAGE_GUI_LeaderBoards_PEDESTAL, Common._DS(Res.GetOffsetXByID(ResID.IMAGE_UI_CHALLENGESCREEN_TIKI_POLE_1)) - GameApp.gApp.mWideScreenXOffset - Common._DS(30), Common._DS(Res.GetOffsetYByID(ResID.IMAGE_UI_CHALLENGESCREEN_TIKI_POLE_1)) + IMAGE_UI_CHALLENGESCREEN_TIKI_POLE_1.GetHeight() + Common._DS(15));

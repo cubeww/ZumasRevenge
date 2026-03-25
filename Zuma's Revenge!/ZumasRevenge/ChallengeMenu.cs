@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SexyFramework;
 using SexyFramework.Graphics;
 using SexyFramework.Misc;
@@ -504,6 +504,7 @@ public class ChallengeMenu : Widget, ButtonListener, PopAnimListener
 		AddWidget(mChallengeScrollPageControl);
 		mChallengeScrollWidget.SetPageControl(mChallengeScrollPageControl);
 		AddWidget(mChallengeScrollWidget);
+		InitHomeButton();
 		if (mFromMainMenu)
 		{
 			mChallengeScrollWidget.SetPageHorizontal(mChallengePages.NumPages(), animated: false);
@@ -522,6 +523,21 @@ public class ChallengeMenu : Widget, ButtonListener, PopAnimListener
 		mChallengeLevelInfoWidget.SetVisible(isVisible: false);
 		mChallengeLevelInfoWidget.SetDisabled(isDisabled: true);
 		AddWidget(mChallengeLevelInfoWidget);
+	}
+
+	private void InitHomeButton()
+	{
+		mHomeButton = new ButtonWidget(0, this);
+		mHomeButton.mDoFinger = true;
+		mHomeButton.mPriority = 2;
+		mHomeButton.mButtonImage = IMAGE_UI_CHALLENGESCREEN_HOME;
+		mHomeButton.mDownImage = IMAGE_UI_CHALLENGESCREEN_HOME_SELECT;
+		float num = (float)(IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetWidth() - IMAGE_UI_CHALLENGESCREEN_HOME.GetWidth()) / 2f;
+		float num2 = (float)(IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetHeight() - IMAGE_UI_CHALLENGESCREEN_HOME.GetHeight()) / 2f;
+		mHomeButton.Resize((int)num, Common._DS(Res.GetOffsetYByID(ResID.IMAGE_UI_CHALLENGESCREEN_HOME_SELECT)) + (int)num2, IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetWidth(), IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetHeight());
+		mHomeButton.mNormalRect = new Rect(0, 0, IMAGE_UI_CHALLENGESCREEN_HOME.GetWidth(), IMAGE_UI_CHALLENGESCREEN_HOME.GetHeight());
+		mHomeButton.mDownRect = new Rect((int)num, (int)num2, IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetWidth() - (int)num, IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetHeight() - (int)num2);
+		AddWidget(mHomeButton);
 	}
 
 	public void RehupChallengeButtons()
