@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using JeffLib;
@@ -11,6 +11,8 @@ namespace ZumasRevenge;
 
 public class MainMenu : Widget, ButtonListener, DialogListener, PopAnimListener
 {
+	private const string WatermarkText = "by bilibili NyaCube";
+
 	public class VolcanoProjectile
 	{
 		public PIEffect mProjectile;
@@ -1086,7 +1088,39 @@ public class MainMenu : Widget, ButtonListener, DialogListener, PopAnimListener
 			{
 				mTip.Draw(g);
 			}
+			DeferOverlay(20);
 		}
+	}
+
+	public override void DrawOverlay(Graphics g)
+	{
+		if (mApp.mCredits != null && MathUtils._geq(mApp.mCredits.mAlpha, 255f))
+		{
+			return;
+		}
+		if (mChallengeMenu != null || mTikiTemple != null || (mApp != null && mApp.mMapScreen != null))
+		{
+			return;
+		}
+		DrawWatermark(g);
+	}
+
+	private void DrawWatermark(Graphics g)
+	{
+		Font fontByID = Res.GetFontByID(ResID.FONT_SHAGLOUNGE28_BASE);
+		if (fontByID == null)
+		{
+			return;
+		}
+		Rect screenRect = mApp.GetScreenRect();
+		int num = Common._DS(Common._M(24));
+		int num2 = Common._DS(Common._M1(20));
+		int num3 = fontByID.StringWidth(WatermarkText);
+		int num4 = Math.Max(screenRect.mX + screenRect.mWidth - num3 - num, screenRect.mX + Common._DS(Common._M(8)));
+		int num5 = Math.Max(screenRect.mY + screenRect.mHeight - fontByID.GetHeight() - num2, screenRect.mY + Common._DS(Common._M(8))) + fontByID.GetAscent();
+		g.SetFont(fontByID);
+		g.SetColor(new Color(255, 255, 255, 184));
+		g.WriteString(WatermarkText, num4, num5);
 	}
 
 	public void DrawTikiTalk(Graphics g)

@@ -10,6 +10,7 @@ namespace ZumasRevenge.AndroidHost;
 
 [Activity(
 	Label = "Zuma's Revenge!",
+	Icon = "@mipmap/appicon",
 	MainLauncher = true,
 	AlwaysRetainTaskState = true,
 	LaunchMode = LaunchMode.SingleTask,

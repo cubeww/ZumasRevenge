@@ -46,4 +46,7 @@
   <ItemGroup>
     <AndroidAsset Include="..\Zuma's Revenge!\Content\**\*" Exclude="..\Zuma's Revenge!\Content\music\*.wma" Link="Content\%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\**\*" />
+  </ItemGroup>
 </Project>
