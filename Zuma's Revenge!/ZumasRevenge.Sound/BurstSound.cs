@@ -50,12 +50,9 @@ internal class BurstSound : BasicSound
 
 	private void SetAttributes(SoundInstance inInstance)
 	{
-		if (mPan != 0)
-		{
-			inInstance.SetPan(mPan);
-		}
+		inInstance.SetPan(mPan);
 		inInstance.AdjustPitch(mPitch);
-		inInstance.SetVolume(m_SoundManager.GetMasterVolume());
+		inInstance.SetVolume(m_SoundManager.GetMasterVolume() * mVolume);
 	}
 
 	private bool ReleaseInstance()
@@ -121,17 +118,28 @@ internal class BurstSound : BasicSound
 	public override void SetPan(int inPan)
 	{
 		mPan = inPan;
+		if (mSoundInstance != null)
+		{
+			mSoundInstance.SetPan(inPan);
+		}
 	}
 
 	public override void SetPitch(float inPitch)
 	{
 		mPitch = inPitch;
+		if (mSoundInstance != null)
+		{
+			mSoundInstance.AdjustPitch(inPitch);
+		}
 	}
 
 	public override void SetVolume(float inVolume)
 	{
 		mVolume = inVolume;
-		m_SoundManager.SetVolume(mVolume);
+		if (mSoundInstance != null)
+		{
+			mSoundInstance.SetVolume(m_SoundManager.GetMasterVolume() * mVolume);
+		}
 	}
 
 	public override void EnableAutoUnload()

@@ -25,6 +25,44 @@ public class XSoundInstance : SoundInstance
 
 	private bool mIsReleased;
 
+	private void ApplyAttributes()
+	{
+		if (m_SoundInstance == null)
+		{
+			return;
+		}
+		float volume = mBaseVolume * mVolume;
+		if (volume < 0f)
+		{
+			volume = 0f;
+		}
+		else if (volume > 1f)
+		{
+			volume = 1f;
+		}
+		float pan = mBasePan + mPan;
+		if (pan < -1f)
+		{
+			pan = -1f;
+		}
+		else if (pan > 1f)
+		{
+			pan = 1f;
+		}
+		float pitch = mPitch / 12f;
+		if (pitch < -1f)
+		{
+			pitch = -1f;
+		}
+		else if (pitch > 1f)
+		{
+			pitch = 1f;
+		}
+		m_SoundInstance.Volume = volume;
+		m_SoundInstance.Pan = pan;
+		m_SoundInstance.Pitch = pitch;
+	}
+
 	public static XSoundInstance GetNewXSoundInstance(int id, SoundEffectInstance instance)
 	{
 		if (unusedObjects.Count > 0)
@@ -68,11 +106,13 @@ public class XSoundInstance : SoundInstance
 	public override void SetBaseVolume(double theBaseVolume)
 	{
 		mBaseVolume = (float)theBaseVolume;
+		ApplyAttributes();
 	}
 
 	public override void SetBasePan(int theBasePan)
 	{
 		mBasePan = (float)theBasePan / 100f;
+		ApplyAttributes();
 	}
 
 	public override void SetBaseRate(double theBaseRate)
@@ -82,15 +122,13 @@ public class XSoundInstance : SoundInstance
 	public override void AdjustPitch(double theNumSteps)
 	{
 		mPitch = (float)theNumSteps;
+		ApplyAttributes();
 	}
 
 	public override void SetVolume(double theVolume)
 	{
 		mVolume = (float)theVolume;
-		if (m_SoundInstance != null)
-		{
-			m_SoundInstance.Volume = (float)theVolume;
-		}
+		ApplyAttributes();
 	}
 
 	public override void SetMasterVolumeIdx(int theVolumeIdx)
@@ -100,6 +138,7 @@ public class XSoundInstance : SoundInstance
 	public override void SetPan(int thePosition)
 	{
 		mPan = (float)thePosition / 10000f;
+		ApplyAttributes();
 	}
 
 	public override bool Play(bool looping, bool autoRelease)
@@ -110,6 +149,7 @@ public class XSoundInstance : SoundInstance
 		{
 			m_SoundInstance.IsLooped = looping;
 		}
+		ApplyAttributes();
 		m_SoundInstance.Play();
 		return true;
 	}

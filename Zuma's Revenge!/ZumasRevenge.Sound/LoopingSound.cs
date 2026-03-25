@@ -12,6 +12,10 @@ internal class LoopingSound : BasicSound
 
 	private float mVolume = 1f;
 
+	private int mPan;
+
+	private float mPitch;
+
 	public LoopingSound(int inSoundID, SoundManager inSoundManager)
 	{
 		m_SoundID = inSoundID;
@@ -27,8 +31,9 @@ internal class LoopingSound : BasicSound
 	{
 		if (mSoundInstance == null && FindFreeSoundInstance(ref mSoundInstance))
 		{
-			mVolume = (float)m_SoundManager.GetMasterVolume();
-			mSoundInstance.SetVolume(GetVolume());
+			mSoundInstance.SetPan(mPan);
+			mSoundInstance.AdjustPitch(mPitch);
+			mSoundInstance.SetVolume(m_SoundManager.GetMasterVolume() * mVolume);
 			mSoundInstance.Play(looping: true, autoRelease: false);
 		}
 	}
@@ -102,10 +107,20 @@ internal class LoopingSound : BasicSound
 
 	public override void SetPan(int inPan)
 	{
+		mPan = inPan;
+		if (mSoundInstance != null)
+		{
+			mSoundInstance.SetPan(inPan);
+		}
 	}
 
 	public override void SetPitch(float inPitch)
 	{
+		mPitch = inPitch;
+		if (mSoundInstance != null)
+		{
+			mSoundInstance.AdjustPitch(inPitch);
+		}
 	}
 
 	public override void SetVolume(float inVolume)
@@ -113,7 +128,7 @@ internal class LoopingSound : BasicSound
 		mVolume = inVolume;
 		if (mSoundInstance != null)
 		{
-			mSoundInstance.SetVolume(inVolume);
+			mSoundInstance.SetVolume(m_SoundManager.GetMasterVolume() * inVolume);
 		}
 	}
 

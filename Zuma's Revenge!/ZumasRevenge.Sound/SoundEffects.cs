@@ -52,6 +52,9 @@ public class SoundEffects : IDisposable
 			sound = ((inAttribs.stagger <= 0) ? SoundFactory.GetSound(inSoundID, inAttribs.delay) : SoundFactory.GetStaggeredSound(inSoundID, inAttribs.stagger));
 			mSounds[inSoundID] = sound;
 		}
+		sound.SetPan(inAttribs.pan);
+		sound.SetPitch(inAttribs.pitch);
+		sound.SetVolume(inAttribs.volume);
 		sound.Play();
 	}
 
@@ -76,6 +79,9 @@ public class SoundEffects : IDisposable
 			sound = SoundFactory.GetLoopingSound(inSoundID, inAttribs.delay, inAttribs.fadein, inAttribs.fadeout);
 			mSounds[inSoundID] = sound;
 		}
+		sound.SetPan(inAttribs.pan);
+		sound.SetPitch(inAttribs.pitch);
+		sound.SetVolume(inAttribs.volume);
 		sound.Play();
 		mCurrentLoopSound = inSoundID;
 	}
