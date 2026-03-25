@@ -55,9 +55,9 @@ namespace Microsoft.Phone.Tasks
 			try
 			{
 #if ANDROID
-				Intent intent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(uri.ToString()));
+				Intent intent = new Intent(Intent.ActionView, global::Android.Net.Uri.Parse(uri.ToString()));
 				intent.AddFlags(ActivityFlags.NewTask);
-				Application.Context.StartActivity(intent);
+				global::Android.App.Application.Context.StartActivity(intent);
 #else
 				Process.Start(new ProcessStartInfo
 				{

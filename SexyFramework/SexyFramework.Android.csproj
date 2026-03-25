@@ -4,7 +4,7 @@
     <AssemblyName>SexyFramework</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <GenerateTargetFrameworkAttribute>False</GenerateTargetFrameworkAttribute>
-    <TargetFramework>net9.0-android</TargetFramework>
+    <TargetFramework>net10.0-android</TargetFramework>
     <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
     <Nullable>disable</Nullable>
   </PropertyGroup>
@@ -12,6 +12,7 @@
     <LangVersion>12.0</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <NoWarn>$(NoWarn);CA1416</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <RootNamespace>SexyFrameworkAndroid</RootNamespace>
