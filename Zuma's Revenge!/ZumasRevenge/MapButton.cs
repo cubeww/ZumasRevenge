@@ -1,0 +1,186 @@
+using JeffLib;
+using SexyFramework.Graphics;
+using SexyFramework.Misc;
+using SexyFramework.Widget;
+
+namespace ZumasRevenge;
+
+public class MapButton : ExtraSexyButton
+{
+	public string mLevel;
+
+	public string mScore;
+
+	public string mLives;
+
+	public MapScreen mMapScreen;
+
+	public MapButton(int id, ButtonListener l)
+		: base(id, l)
+	{
+	}
+
+	public override void Draw(Graphics g)
+	{
+		bool flag = mIsDown && mIsOver && !mDisabled;
+		flag ^= mInverted;
+		int num = 0;
+		if (flag)
+		{
+			num = 1;
+		}
+		Font fontByID = Res.GetFontByID(ResID.FONT_SHAGEXOTICA38_GREEN_STROKE);
+		Font fontByID2 = Res.GetFontByID(ResID.FONT_SHAGEXOTICA38_BLACK_GLOW);
+		Font fontByID3 = Res.GetFontByID(ResID.FONT_SHAGLOUNGE28_STROKE_GREEN);
+		Image imageByID = Res.GetImageByID(ResID.IMAGE_UI_MAP_CONTINUE_BUTTON);
+		Image imageByID2 = Res.GetImageByID(ResID.IMAGE_UI_MAP_CONTINUE);
+		Image imageByID3 = Res.GetImageByID(ResID.IMAGE_UI_MAP_RIMGLOW);
+		Image imageByID4 = Res.GetImageByID(ResID.IMAGE_UI_MAP_LEVELINFO);
+		Image imageByID5 = Res.GetImageByID(ResID.IMAGE_UI_MAP_STARTNEWGAME);
+		g.ClearClipRect();
+		g.SetClipRect(0, 0, GetRect().mWidth, GetRect().mHeight);
+		g.SetFont(fontByID2);
+		g.SetColor(Common._M(255), Common._M1(255), Common._M2(255), (int)((float)Common._M3(255) * (float)(double)mMapScreen.mAlpha));
+		g.SetColorizeImages(colorizeImages: true);
+		int num2 = 0;
+		int num3 = 6;
+		g.DrawImage(imageByID, Common._DS(Common._M(0)), Common._DS(Common._M1(num3)));
+		int num4 = Res.GetOffsetXByID(ResID.IMAGE_UI_MAP_CONTINUE) - Res.GetOffsetXByID(ResID.IMAGE_UI_MAP_CONTINUE_BUTTON);
+		int num5 = Res.GetOffsetYByID(ResID.IMAGE_UI_MAP_CONTINUE) - Res.GetOffsetYByID(ResID.IMAGE_UI_MAP_CONTINUE_BUTTON);
+		if (((!GameApp.gApp.mUserProfile.mFirstTimeReplayingNormalMode && !GameApp.gApp.mClickedHardMode) || (GameApp.gApp.mClickedHardMode && !GameApp.gApp.mUserProfile.mFirstTimeReplayingHardMode)) && !GameApp.gApp.mUserProfile.GetAdvModeVars().mFirstTimeInZone[0])
+		{
+			g.DrawImageCel(imageByID2, Common._DS(Common._M(num2 + num4)), Common._DS(Common._M1(num3 + num5)), num);
+			if (num == 0)
+			{
+				int num6 = Common._M(0) + JeffLib.Common.GetAlphaFromUpdateCount(mUpdateCnt, Common._M1(128));
+				if (num6 > 255)
+				{
+					num6 = 255;
+				}
+				else if (num6 < 0)
+				{
+					num6 = 0;
+				}
+				int num7 = 255;
+				if (num7 < num6)
+				{
+					num6 = num7;
+				}
+				g.PushState();
+				g.SetColor(255, 255, 0, num6);
+				g.DrawImageCel(imageByID2, Common._DS(Common._M(num2 + num4)), Common._DS(Common._M1(num3 + num5)), num);
+				g.SetDrawMode(1);
+				g.SetColor(255, 255, 255, num6);
+				g.DrawImage(imageByID3, Common._DS(Common._M(-2)), Common._DS(Common._M1(0)));
+				g.PopState();
+			}
+			if (mScore.Length > 0)
+			{
+				g.DrawImage(imageByID4, Common._DS(Common._M(124)), Common._DS(Common._M1(134)));
+			}
+			int num8 = 0;
+			if (Localization.GetCurrentLanguage() == Localization.LanguageType.Language_CHT || Localization.GetCurrentLanguage() == Localization.LanguageType.Language_CH || Localization.GetCurrentLanguage() == Localization.LanguageType.Language_RU || Localization.GetCurrentLanguage() == Localization.LanguageType.Language_PL)
+			{
+				num8 = 10;
+			}
+			g.SetColor(253, 220, 0, (int)mMapScreen.mAlpha.GetOutVal() * 255);
+			g.SetFont(fontByID);
+			if (mLevel.Length > 0)
+			{
+				if (Localization.GetCurrentLanguage() == Localization.LanguageType.Language_RU || Localization.GetCurrentLanguage() == Localization.LanguageType.Language_PL || Localization.GetCurrentLanguage() == Localization.LanguageType.Language_FR)
+				{
+					int num9 = 128;
+					int num10 = 120;
+					float num11 = 0.75f;
+					Graphics3D graphics3D = g.Get3D();
+					SexyTransform2D sexyTransform2D = new SexyTransform2D(init: false);
+					sexyTransform2D.Scale(num11, num11);
+					sexyTransform2D.Translate(num9, num10);
+					graphics3D.PushTransform(sexyTransform2D);
+					g.DrawString(mLevel, (mWidth - g.GetFont().StringWidth(mLevel)) / 2, num8 + Common._S(Common._M1(108)));
+					graphics3D.PopTransform();
+				}
+				else
+				{
+					g.DrawString(mLevel, (mWidth - g.GetFont().StringWidth(mLevel)) / 2, num8 + Common._S(Common._M1(108)));
+				}
+			}
+			g.SetColor(253, 48, 0, (int)mMapScreen.mAlpha.GetOutVal() * 255);
+			if (mLives.Length > 0)
+			{
+				g.DrawString(mLives, (mLives.Length == 2) ? Common._DS(Common._M(242)) : Common._DS(Common._M1(230)), Common._DS(Common._M2(326)));
+			}
+			g.SetFont(fontByID3);
+			if (mScore.Length > 0)
+			{
+				g.DrawString(mScore, (mWidth - g.GetFont().StringWidth(mScore)) / 2, Common._S(Common._M1(133)));
+			}
+		}
+		else
+		{
+			if (mMapScreen.mRemove)
+			{
+				return;
+			}
+			if (num == 0)
+			{
+				int num12 = Common._M(0) + JeffLib.Common.GetAlphaFromUpdateCount(mUpdateCnt, Common._M1(128));
+				if (num12 > 255)
+				{
+					num12 = 255;
+				}
+				else if (num12 < 0)
+				{
+					num12 = 0;
+				}
+				int num13 = (int)(double)mMapScreen.mAlpha * 255;
+				if (num13 < num12)
+				{
+					num12 = num13;
+				}
+				g.PushState();
+				g.SetColor(255, 255, 255, num12);
+				g.DrawImage(imageByID3, Common._DS(Common._M(-2)), Common._DS(Common._M1(0)));
+				g.PopState();
+			}
+			int num14 = 0;
+			int num15 = 0;
+			if (Localization.GetCurrentLanguage() == Localization.LanguageType.Language_PGB || Localization.GetCurrentLanguage() == Localization.LanguageType.Language_PG || Localization.GetCurrentLanguage() == Localization.LanguageType.Language_SPC)
+			{
+				num14 = 20;
+				num15 = -20;
+			}
+			else if (Localization.GetCurrentLanguage() == Localization.LanguageType.Language_PL)
+			{
+				num14 = 30;
+				num15 = -30;
+			}
+			else if (Localization.GetCurrentLanguage() == Localization.LanguageType.Language_SP)
+			{
+				num14 = 15;
+				num15 = -10;
+			}
+			else if (Localization.GetCurrentLanguage() == Localization.LanguageType.Language_GR)
+			{
+				num14 = 16;
+				num15 = 0;
+			}
+			else if (Localization.GetCurrentLanguage() == Localization.LanguageType.Language_RU)
+			{
+				num14 = 16;
+				num15 = -5;
+			}
+			else if (Localization.GetCurrentLanguage() == Localization.LanguageType.Language_FR)
+			{
+				num14 = 17;
+				num15 = -20;
+			}
+			else if (Localization.GetCurrentLanguage() == Localization.LanguageType.Language_CH || Localization.GetCurrentLanguage() == Localization.LanguageType.Language_CHT)
+			{
+				num14 = 15;
+				num15 = -15;
+			}
+			g.DrawImage(imageByID5, Common._DS(Common._M(130)) + num15, Common._DS(Common._M1(110)) + num14);
+		}
+	}
+}

@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zuma's Revenge!", "Zuma's Revenge!\Zuma's Revenge!.csproj", "{4343B13F-7374-475B-969E-0F0845303323}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SexyFramework", "SexyFramework\SexyFramework.csproj", "{29EDEB75-5C47-46A7-94BD-818B05C01863}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AnyCPU = Debug|AnyCPU
+		Release|AnyCPU = Release|AnyCPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4343B13F-7374-475B-969E-0F0845303323}.Debug|AnyCPU.ActiveCfg = Debug|AnyCPU
+		{4343B13F-7374-475B-969E-0F0845303323}.Debug|AnyCPU.Build.0 = Debug|AnyCPU
+		{4343B13F-7374-475B-969E-0F0845303323}.Release|AnyCPU.ActiveCfg = Release|AnyCPU
+		{4343B13F-7374-475B-969E-0F0845303323}.Release|AnyCPU.Build.0 = Release|AnyCPU
+		{29EDEB75-5C47-46A7-94BD-818B05C01863}.Debug|AnyCPU.ActiveCfg = Debug|AnyCPU
+		{29EDEB75-5C47-46A7-94BD-818B05C01863}.Debug|AnyCPU.Build.0 = Debug|AnyCPU
+		{29EDEB75-5C47-46A7-94BD-818B05C01863}.Release|AnyCPU.ActiveCfg = Release|AnyCPU
+		{29EDEB75-5C47-46A7-94BD-818B05C01863}.Release|AnyCPU.Build.0 = Release|AnyCPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

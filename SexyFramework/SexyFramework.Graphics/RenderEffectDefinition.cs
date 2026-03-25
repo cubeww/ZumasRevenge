@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+
+namespace SexyFramework.Graphics;
+
+public class RenderEffectDefinition
+{
+	public List<byte> mData = new List<byte>();
+
+	public string mSrcFileName;
+
+	public string mDataFormat;
+
+	public bool LoadFromMem(uint inDataLen, byte[] inData, string inSrcFileName, string inDataFormat)
+	{
+		throw new NotImplementedException();
+	}
+
+	public bool LoadFromFile(string inFileName, string inSrcFileName)
+	{
+		throw new NotImplementedException();
+	}
+
+	public virtual void Dispose()
+	{
+		mData = null;
+	}
+}

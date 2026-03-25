@@ -1,0 +1,41 @@
+using Microsoft.Xna.Framework;
+using SexyFramework.Graphics;
+
+namespace SexyFramework.Drivers.Graphics;
+
+public class XNAVertex
+{
+	public SexyFramework.Graphics.Color mColor;
+
+	public static float GetCoord(SexyVertex2D theVertex, int theCoord)
+	{
+		return theCoord switch
+		{
+			0 => theVertex.x, 
+			1 => theVertex.y, 
+			2 => theVertex.z, 
+			3 => theVertex.u, 
+			4 => theVertex.v, 
+			_ => 0f, 
+		};
+	}
+
+	public static SexyFramework.Graphics.Color UnPackColor(uint color)
+	{
+		return new SexyFramework.Graphics.Color(((int)color >> 16) & 0xFF, ((int)color >> 8) & 0xFF, (int)(color & 0xFF), ((int)color >> 24) & 0xFF);
+	}
+
+	public Microsoft.Xna.Framework.Color GetXNAColor()
+	{
+		return new Microsoft.Xna.Framework.Color(mColor.mRed, mColor.mGreen, mColor.mBlue, mColor.mAlpha);
+	}
+
+	public void SetPosition(float theX, float theY, float theZ)
+	{
+	}
+
+	public static uint TexCoordOffset()
+	{
+		return 24u;
+	}
+}

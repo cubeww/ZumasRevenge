@@ -1,0 +1,1034 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+<resheader name="resmimetype"><value>text/microsoft-resx</value></resheader><resheader name="version"><value>1.3</value></resheader><resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader><data name="TEXT_TEXT_ACHIEVEMENT_DES_11" xml:space="preserve"><value>Defeat Baron Digo and his Skeleton Crew</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_DES_10" xml:space="preserve"><value>Defeat Kolo Kamari and his Swarm of Bugs</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_DES_13" xml:space="preserve"><value>Defeat the Cluttonous Kahtiki Khan</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_DES_12" xml:space="preserve"><value>Defeat Maga Maga and his Tiki Minions</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_DES_14" xml:space="preserve"><value>Beat a lily pad level without jumping lily pads</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_9" xml:space="preserve"><value>Perfect Levels</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_8" xml:space="preserve"><value>Number of Deaths</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_7" xml:space="preserve"><value>Levels Aced</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_6" xml:space="preserve"><value>None</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_5" xml:space="preserve"><value>Best Adventure Score</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_4" xml:space="preserve"><value>Best Adventure Time</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_3" xml:space="preserve"><value>Highest Level Reached</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_2" xml:space="preserve"><value>ADVENTURE</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_1" xml:space="preserve"><value>HEROIC FROG</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_21" xml:space="preserve"><value>Points This Level</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_20" xml:space="preserve"><value>Level Complete!</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_23" xml:space="preserve"><value>Perfect Level Bonus</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_22" xml:space="preserve"><value>Total Points</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_18" xml:space="preserve"><value>Level Aced!</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_19" xml:space="preserve"><value>Challenge: $1  Ace: $2  </value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_12" xml:space="preserve"><value>Your Best Score: $1</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_13" xml:space="preserve"><value>level</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_10" xml:space="preserve"><value>A new high score!</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_11" xml:space="preserve"><value>Your Best Score: None</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_16" xml:space="preserve"><value>New best time!</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_17" xml:space="preserve"><value>New high score!</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_14" xml:space="preserve"><value>SO YOU HAVE UNCOVERED MY TRUE FORM.</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_15" xml:space="preserve"><value>TREMBLE, MORTAL, AND NOW BURN!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_8" xml:space="preserve"><value>You're not good enough for this mode!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_9" xml:space="preserve"><value>I gnash my teeth
+in anticipation!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_4" xml:space="preserve"><value>You won't lay a
+ball on me!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_5" xml:space="preserve"><value>Much harder
+now, right?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_6" xml:space="preserve"><value>Feeling the
+pressure yet?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_7" xml:space="preserve"><value>No way you're a hero!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_1" xml:space="preserve"><value>Roar! You're back!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_2" xml:space="preserve"><value>Growl! This time
+I'm ready!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_3" xml:space="preserve"><value>I'm going to
+dodge all over!</value></data>
+  <data name="TEXT_TEXT_BOSS_STONE_HEAD_4" xml:space="preserve"><value>Actually, this never was my true face.</value></data>
+  <data name="TEXT_TEXT_BOSS_STONE_HEAD_5" xml:space="preserve"><value>I was just trying out my Hallowe'en costume</value></data>
+  <data name="TEXT_TEXT_BOSS_STONE_HEAD_6" xml:space="preserve"><value>Let's dance one more time!</value></data>
+  <data name="TEXT_TEXT_BOSS_STONE_HEAD_1" xml:space="preserve"><value>Maybe that wasn't my true face.</value></data>
+  <data name="TEXT_TEXT_BOSS_STONE_HEAD_2" xml:space="preserve"><value>I have an even truer one!</value></data>
+  <data name="TEXT_TEXT_BOSS_STONE_HEAD_3" xml:space="preserve"><value>You cannot defeat the truest face of Zhaka Mu!</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_14" xml:space="preserve"><value>Frog Statue</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_10" xml:space="preserve"><value>Pestilence Pacifier</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_11" xml:space="preserve"><value>Bone Picker</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_12" xml:space="preserve"><value>Tiki Trampler</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_13" xml:space="preserve"><value>Jaw Breaker</value></data>
+  <data name="TEXT_TEXT_PLAY_EX_11" xml:space="preserve"><value>Ace Target Reached!</value></data>
+  <data name="TEXT_TEXT_PLAY_EX_10" xml:space="preserve"><value>Point Target Reached!</value></data>
+  <data name="TEXT_TEXT_PLAY_EX_13" xml:space="preserve"><value>Tikis return! Protect me!</value></data>
+  <data name="TEXT_TEXT_PLAY_EX_12" xml:space="preserve"><value>Next Level Tip:</value></data>
+  <data name="TEXT_TEXT_NEXT_LEVEL_TEXT_HARD_2" xml:space="preserve"><value>You've awakened Village Boss from his slumber! Use the lilypads to take shots at his heads when they glow. Be sure to keep the balls out of the skull!</value></data>
+  <data name="TEXT_TEXT_NEXT_LEVEL_TEXT_HARD_1" xml:space="preserve"><value>Oh no! Jungle Boss is on a rampage! Blast him through holes in the curve when his shield is down. But don't let the curve reach the skull!</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_HELP_10" xml:space="preserve"><value>3 MINUTES.</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_HELP_11" xml:space="preserve"><value>Bonus Bar</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_HELP_7" xml:space="preserve"><value>MULTIPLY POINTS</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_HELP_6" xml:space="preserve"><value>Bonus Balls</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_HELP_5" xml:space="preserve"><value>BONUS BALLS.</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_HELP_4" xml:space="preserve"><value>to earn</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_HELP_3" xml:space="preserve"><value>BONUS BAR</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_HELP_2" xml:space="preserve"><value>Fill</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_HELP_1" xml:space="preserve"><value>HOW TO PLAY</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_HELP_9" xml:space="preserve"><value>Good luck, you have only</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_HELP_8" xml:space="preserve"><value>earned!</value></data>
+  <data name="TEXT_TEXT_DIALOG_EX_1" xml:space="preserve"><value>CANCEL</value></data>
+  <data name="TEXT_TEXT_DIALOG_EX_2" xml:space="preserve"><value>Play</value></data>
+  <data name="TEXT_TEXT_DIALOG_EX_3" xml:space="preserve"><value>Back To Menu</value></data>
+  <data name="TEXT_TEXT_DIALOG_EX_4" xml:space="preserve"><value>Replay</value></data>
+  <data name="TEXT_TEXT_DIALOG_EX_5" xml:space="preserve"><value>Cancel</value></data>
+  <data name="TEXT_TEXT_POINTS" xml:space="preserve"><value>pts</value></data>
+  <data name="TEXT_TEXT_ZONE_CUP_5" xml:space="preserve"><value>Undersea Undertaking</value></data>
+  <data name="TEXT_TEXT_ZONE_CUP_4" xml:space="preserve"><value>Marsh Madness</value></data>
+  <data name="TEXT_TEXT_ZONE_CUP_7" xml:space="preserve"><value>Peacock's Provocation</value></data>
+  <data name="TEXT_TEXT_ZONE_CUP_6" xml:space="preserve"><value>Serpent Scuffle</value></data>
+  <data name="TEXT_TEXT_ZONE_CUP_1" xml:space="preserve"><value>Mettle of the Monkey</value></data>
+  <data name="TEXT_TEXT_ZONE_CUP_3" xml:space="preserve"><value>Jackal Jam</value></data>
+  <data name="TEXT_TEXT_ZONE_CUP_2" xml:space="preserve"><value>Rooster Rumble</value></data>
+  <data name="TEXT_TEXT_POWERUP_11" xml:space="preserve"><value>LIGHTNING</value></data>
+  <data name="TEXT_TEXT_POWERUP_10" xml:space="preserve"><value>Tri-Shot</value></data>
+  <data name="TEXT_TEXT_POWERUP_13" xml:space="preserve"><value>LASER</value></data>
+  <data name="TEXT_TEXT_POWERUP_12" xml:space="preserve"><value>Lightning</value></data>
+  <data name="TEXT_TEXT_POWERUP_15" xml:space="preserve"><value>BONUS BALL</value></data>
+  <data name="TEXT_TEXT_POWERUP_14" xml:space="preserve"><value>Laser</value></data>
+  <data name="TEXT_TEXT_POWERUP_16" xml:space="preserve"><value>Bonus Ball</value></data>
+  <data name="TEXT_TEXT_FAKECREDITS_EX_6" xml:space="preserve"><value>But you've almost finished Heroic Mode!</value></data>
+  <data name="TEXT_TEXT_FAKECREDITS_EX_5" xml:space="preserve"><value>These levels are really really hard.</value></data>
+  <data name="TEXT_TEXT_FAKECREDITS_EX_4" xml:space="preserve"><value>I must say you are the Zuma-est Champion.</value></data>
+  <data name="TEXT_TEXT_FAKECREDITS_EX_3" xml:space="preserve"><value>Now gaze upon the true face of Zhaka Mu!</value></data>
+  <data name="TEXT_TEXT_FAKECREDITS_EX_2" xml:space="preserve"><value>You only battled my chef!</value></data>
+  <data name="TEXT_TEXT_FAKECREDITS_EX_1" xml:space="preserve"><value>Foolish frog! He was not Zhaka Mu!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_48" xml:space="preserve"><value>I feel the anger welling up again!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_49" xml:space="preserve"><value>I can't take much more waiting!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_40" xml:space="preserve"><value>Now my tiny friends will FEED!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_41" xml:space="preserve"><value>ARRRG! I'm so angry!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_42" xml:space="preserve"><value>Now I'm even
+angrier!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_43" xml:space="preserve"><value>I'm calm now, but only for a second.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_44" xml:space="preserve"><value>Pow! Even angrier than I was!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_45" xml:space="preserve"><value>Can you face my rage?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_46" xml:space="preserve"><value>Your approach
+insults me, Frog!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_47" xml:space="preserve"><value>I'm not afraid of you!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_60" xml:space="preserve"><value>Now we see how a frog DIES!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_59" xml:space="preserve"><value>We will never give up our mysteries.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_58" xml:space="preserve"><value>I wear the
+mysterious robe.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_51" xml:space="preserve"><value>Five champions have you defeated.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_50" xml:space="preserve"><value>Let's begin our
+furious battle!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_53" xml:space="preserve"><value>Yet still you are
+not satisfied.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_52" xml:space="preserve"><value>Five chiefs you have humbled.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_55" xml:space="preserve"><value>This island is
+only doom.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_54" xml:space="preserve"><value>Still you seek
+our summit.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_57" xml:space="preserve"><value>I wear the
+mysterious mask.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_56" xml:space="preserve"><value>Your road is only pain.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_28" xml:space="preserve"><value>Has nobody told you my name?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_29" xml:space="preserve"><value>To repeat: I am
+Baron Digo!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_26" xml:space="preserve"><value>Run now while
+you can!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_27" xml:space="preserve"><value>What? You still come?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_24" xml:space="preserve"><value>Baron Digo is
+super wicked!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_25" xml:space="preserve"><value>I'm immune to balls!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_22" xml:space="preserve"><value>All who smell the Baron know fear!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_23" xml:space="preserve"><value>I'll have your
+soul, Frog!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_20" xml:space="preserve"><value>Time for
+sorcerous judgment!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_21" xml:space="preserve"><value>They call me
+Baron Digo!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_19" xml:space="preserve"><value>Are you brave enough?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_18" xml:space="preserve"><value>Do you feel it?
+The terror?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_15" xml:space="preserve"><value>My spells will
+blind you!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_14" xml:space="preserve"><value>My slave tikis will deal big pain!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_17" xml:space="preserve"><value>'Maga Maga' is short for 'Mashed Enemy'!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_16" xml:space="preserve"><value>My magic is pure evil!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_11" xml:space="preserve"><value>They call me
+Maga Maga!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_10" xml:space="preserve"><value>At last! Let's eat!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_13" xml:space="preserve"><value>I've got loads of magic on me!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_12" xml:space="preserve"><value>I'm a Witch Doctor, y'know!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_39" xml:space="preserve"><value>You are tough but not enough, Frog!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_38" xml:space="preserve"><value>So glad you're coming my way!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_37" xml:space="preserve"><value>Insects follow
+my advice!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_36" xml:space="preserve"><value>I'm an insect god,
+by the by!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_35" xml:space="preserve"><value>Bee stings:
+great or fantastic?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_34" xml:space="preserve"><value>How do you like wasps?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_33" xml:space="preserve"><value>What's your take
+on bugs?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_32" xml:space="preserve"><value>Say, how do you like pestilence?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_31" xml:space="preserve"><value>Bzzzzzzz! Bzt!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_30" xml:space="preserve"><value>Baron Digo is the name of your DOOM!</value></data>
+  <data name="TEXT_TEXT_RETURN_TO_MENU" xml:space="preserve"><value>Returning to Menu</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_49" xml:space="preserve"><value>Balls Fired</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_48" xml:space="preserve"><value>Balls Swapped</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_43" xml:space="preserve"><value>Bombs Detonated</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_42" xml:space="preserve"><value>Fruits Collected</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_41" xml:space="preserve"><value>Triple Gap Shots</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_40" xml:space="preserve"><value>Double Gap Shots</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_47" xml:space="preserve"><value>MORE STATS</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_46" xml:space="preserve"><value>Tri-Shots Tripped</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_45" xml:space="preserve"><value>Lightning Unleashed</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_44" xml:space="preserve"><value>Lasers Landed</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_58" xml:space="preserve"><value>Deaths After Zuma</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_52" xml:space="preserve"><value>Chain Bonus Points</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_53" xml:space="preserve"><value>Gap Shot Points</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_50" xml:space="preserve"><value>Favorite Powerup</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_51" xml:space="preserve"><value>Combo Bonus Points</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_56" xml:space="preserve"><value>Fruit Bombed</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_57" xml:space="preserve"><value>Balls Discarded</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_54" xml:space="preserve"><value>Powerup Points</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_55" xml:space="preserve"><value>Total Time Played</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_29" xml:space="preserve"><value>Best Time</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_28" xml:space="preserve"><value>Number of Victories</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_25" xml:space="preserve"><value>$1 (Played $2x)</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_24" xml:space="preserve"><value>Favorite Curve</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_27" xml:space="preserve"><value>Number of Attempts</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_26" xml:space="preserve"><value>IRON FROG</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_21" xml:space="preserve"><value>Stone Coins Earned</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_20" xml:space="preserve"><value>Ace Scores Achieved</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_23" xml:space="preserve"><value>Highest Multiplier Bonus</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_22" xml:space="preserve"><value>Gold Coins Earned</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_38" xml:space="preserve"><value>Largest Gap Score</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_39" xml:space="preserve"><value>Gap Shots</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_34" xml:space="preserve"><value>Total Time Played</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_35" xml:space="preserve"><value>STATS</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_36" xml:space="preserve"><value>Longest Chain</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_37" xml:space="preserve"><value>Largest Combo</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_30" xml:space="preserve"><value>Best Score</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_31" xml:space="preserve"><value>Highest Level</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_32" xml:space="preserve"><value>Greatest Nemesis</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_33" xml:space="preserve"><value>Level $1 (Died $2x)</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_18" xml:space="preserve"><value>Highest Score</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_19" xml:space="preserve"><value>Challenge Scores Achieved</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_16" xml:space="preserve"><value>TIKI TEMPLE</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_17" xml:space="preserve"><value>CHALLENGE</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_14" xml:space="preserve"><value>$1 (Died $2x)</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_15" xml:space="preserve"><value>Total Time Played</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_12" xml:space="preserve"><value>Deadliest Curve</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_13" xml:space="preserve"><value>Boss $1 (Died $2x)</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_10" xml:space="preserve"><value>Clear Curve Bonuses</value></data>
+  <data name="TEXT_TEXT_TIKI_TEMPLE_11" xml:space="preserve"><value>Deadliest Boss</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_8" xml:space="preserve"><value>No skill can cheat your death!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_9" xml:space="preserve"><value>Almost suppertime!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_4" xml:space="preserve"><value>Dare you approach?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_5" xml:space="preserve"><value>Getting closer!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_6" xml:space="preserve"><value>I'm readying for you!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_7" xml:space="preserve"><value>Frog soup, I love it for sure!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_1" xml:space="preserve"><value>Who are you,
+tasty frog?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_2" xml:space="preserve"><value>Roar! I'm famished!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_3" xml:space="preserve"><value>Trespassers will
+be eaten!</value></data>
+  <data name="TEXT_TEXT_MENU_ABOUT" xml:space="preserve"><value>About</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_MENU_EX_7" xml:space="preserve"><value>Select A Zone</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_MENU_EX_6" xml:space="preserve"><value>Beat an available challenge
+to unlock more levels.</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_MENU_EX_5" xml:space="preserve"><value>Beat level  $1 in Adventure Mode
+to unlock this cup.</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_MENU_EX_4" xml:space="preserve"><value>Difficulty:</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_MENU_EX_3" xml:space="preserve"><value>Your Best:</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_MENU_EX_2" xml:space="preserve"><value>Ace Score:</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_MENU_EX_1" xml:space="preserve"><value>Challenge Score:</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_MENU_EX_9" xml:space="preserve"><value>Reach this level in Iron Frog Gauntlet to play.</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_MENU_EX_8" xml:space="preserve"><value>Beat this zone in Adventure Mode to unlock this cup.</value></data>
+  <data name="TEXT_TEXT_ZONE_4" xml:space="preserve"><value>Mosquito Coast</value></data>
+  <data name="TEXT_TEXT_ZONE_5" xml:space="preserve"><value>Underwater Grotto</value></data>
+  <data name="TEXT_TEXT_ZONE_6" xml:space="preserve"><value>Volcano Temple</value></data>
+  <data name="TEXT_TEXT_ZONE_1" xml:space="preserve"><value>Jungle of Mystery</value></data>
+  <data name="TEXT_TEXT_ZONE_2" xml:space="preserve"><value>Quiet Village</value></data>
+  <data name="TEXT_TEXT_ZONE_3" xml:space="preserve"><value>Lost City</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENTS_HEADER" xml:space="preserve"><value>ACHIEVEMENTS</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_9" xml:space="preserve"><value>Jeff</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_8" xml:space="preserve"><value>John</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_5" xml:space="preserve"><value>Chad</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_4" xml:space="preserve"><value>Shawn</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_7" xml:space="preserve"><value>Liv</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_6" xml:space="preserve"><value>Rick</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_1" xml:space="preserve"><value>Franzi</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_3" xml:space="preserve"><value>Tanya</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_2" xml:space="preserve"><value>Sophia</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_4" xml:space="preserve"><value>Ooga! With a helping of booga sauce!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_5" xml:space="preserve"><value>My slave tikis completely flopped on the job.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_6" xml:space="preserve"><value>Where did all my magic go?</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_7" xml:space="preserve"><value>You beat me so hard I forgot my own name!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_1" xml:space="preserve"><value>You broke my mouth!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_2" xml:space="preserve"><value>My tongue's hanging out all like glahhhh.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_3" xml:space="preserve"><value>My four brothers will avenge my tongue!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_8" xml:space="preserve"><value>And I was really attached to it, too!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_9" xml:space="preserve"><value>Some day, some way, I'll make you pay!</value></data>
+  <data name="TEXT_TEXT_LEADERBOARDS_HEADER" xml:space="preserve"><value>LEADERBOARDS</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_3" xml:space="preserve"><value>No way you beat me twice!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_2" xml:space="preserve"><value>Give up this  time, frog!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_1" xml:space="preserve"><value>Your puny spheres cannot stop me!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_7" xml:space="preserve"><value>I've been taking magic night classes!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_6" xml:space="preserve"><value>My magic is stronger now!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_5" xml:space="preserve"><value>My teeth are feeling gnashy!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_4" xml:space="preserve"><value>I lull you into false confidence!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_9" xml:space="preserve"><value>Sorcerous power is ready to defeat you!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_8" xml:space="preserve"><value>Bah!</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_9" xml:space="preserve"><value>Feeling kinda seasick...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_8" xml:space="preserve"><value>Feeling upbeat about chances...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_7" xml:space="preserve"><value>Expecting storm clouds to pass...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_6" xml:space="preserve"><value>Considering strategy...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_5" xml:space="preserve"><value>Bobbing back and forth...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_4" xml:space="preserve"><value>Calculating parallaxes...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_3" xml:space="preserve"><value>Hungering for gap bonuses...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_2" xml:space="preserve"><value>Thinking about cheese...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_1" xml:space="preserve"><value>Passing time while game loads...</value></data>
+  <data name="TEXT_TEXT_OPTION_10" xml:space="preserve"><value>Legal</value></data>
+  <data name="TEXT_TEXT_OPTION_11" xml:space="preserve"><value>Time:</value></data>
+  <data name="TEXT_TEXT_OPTION_12" xml:space="preserve"><value>Colorblind Assist</value></data>
+  <data name="TEXT_TEXT_OPTION_13" xml:space="preserve"><value>Keep Going!</value></data>
+  <data name="TEXT_TEXT_OPTION_14" xml:space="preserve"><value>Music Volume (off)</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_7" xml:space="preserve"><value>Start New Game</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_6" xml:space="preserve"><value>Other Destinations</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_5" xml:space="preserve"><value>TIKI TEMPLE</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_4" xml:space="preserve"><value>UNLOCK FULL GAME</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_3" xml:space="preserve"><value>LEADERBOARDS</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_2" xml:space="preserve"><value>HELP</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_1" xml:space="preserve"><value>ACHIEVEMENTS</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_9" xml:space="preserve"><value>ON</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_8" xml:space="preserve"><value>OFF</value></data>
+  <data name="TEXT_TEXT_BOSS_TIGER_TUTORIAL_6" xml:space="preserve"><value>BRING FORTH THE BALLS!</value></data>
+  <data name="TEXT_TEXT_BOSS_TIGER_TUTORIAL_7" xml:space="preserve"><value>Fiesty meal! Break through the wall and hit me again!</value></data>
+  <data name="TEXT_TEXT_BOSS_TIGER_TUTORIAL_4" xml:space="preserve"><value>Do you have fight in you? Shoot me if you dare!</value></data>
+  <data name="TEXT_TEXT_BOSS_TIGER_TUTORIAL_5" xml:space="preserve"><value>You dared! How dare you?</value></data>
+  <data name="TEXT_TEXT_BOSS_TIGER_TUTORIAL_2" xml:space="preserve"><value>NOW HE WILL REAP THE PAIN! RAAAAAAAR!</value></data>
+  <data name="TEXT_TEXT_BOSS_TIGER_TUTORIAL_3" xml:space="preserve"><value>I will munch your power and add it to mine!</value></data>
+  <data name="TEXT_TEXT_BOSS_TIGER_TUTORIAL_1" xml:space="preserve"><value>LITTLE FROG HAS CALLED DOWN THE TIGER!</value></data>
+  <data name="TEXT_TEXT_BOSS_TIGER_TUTORIAL_8" xml:space="preserve"><value>Puny frog! Your weakness is of legends!</value></data>
+  <data name="TEXT_TEXT_BOSS_TIGER_TUTORIAL_9" xml:space="preserve"><value>What foolishness to think you can hurt me!</value></data>
+  <data name="TEXT_TEXT_OPTION_9" xml:space="preserve"><value>Credits</value></data>
+  <data name="TEXT_TEXT_OPTION_8" xml:space="preserve"><value>Main Menu</value></data>
+  <data name="TEXT_TEXT_OPTION_1" xml:space="preserve"><value>Score:</value></data>
+  <data name="TEXT_TEXT_OPTION_3" xml:space="preserve"><value>(Ace: $1)</value></data>
+  <data name="TEXT_TEXT_OPTION_2" xml:space="preserve"><value>Lives:</value></data>
+  <data name="TEXT_TEXT_OPTION_5" xml:space="preserve"><value>Sound Effects</value></data>
+  <data name="TEXT_TEXT_OPTION_4" xml:space="preserve"><value>Music Volume</value></data>
+  <data name="TEXT_TEXT_OPTION_7" xml:space="preserve"><value>OK</value></data>
+  <data name="TEXT_TEXT_OPTION_6" xml:space="preserve"><value>Help</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_1" xml:space="preserve"><value>Shipwrecked!</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_3" xml:space="preserve"><value>Echo Beach</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_2" xml:space="preserve"><value>Castaway</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_5" xml:space="preserve"><value>Switchback Slider</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_4" xml:space="preserve"><value>Bones of an Idol</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_7" xml:space="preserve"><value>Sand Trap</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_6" xml:space="preserve"><value>Jungle Clearing</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_9" xml:space="preserve"><value>Creeper Copse</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_8" xml:space="preserve"><value>Nasal Passage</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_11" xml:space="preserve"><value>The Laser powerup slows time so
+you can make precise shots.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_10" xml:space="preserve"><value>Beating Ace Time on a level will
+give you a bonus.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_13" xml:space="preserve"><value>Fill the Zuma bar to stop new
+balls from coming.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_12" xml:space="preserve"><value>The Laser powerup can be used to
+collect fruit!</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_15" xml:space="preserve"><value>You receive a Chain Bonus for
+each consecutive match after
+five in a row.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_14" xml:space="preserve"><value>The Accuracy powerup makes your
+shots faster for a short period.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_16" xml:space="preserve"><value>Get multiple matches in a single
+shot for a Combo Bonus.</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_9" xml:space="preserve"><value>Final Score: $1 </value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_8" xml:space="preserve"><value>You cleared $1 of 10 levels.</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_3" xml:space="preserve"><value>Score $1 points</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_2" xml:space="preserve"><value>CHALLENGE!</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_1" xml:space="preserve"><value>Lives Replenished!</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_7" xml:space="preserve"><value>You didn't clear any levels.</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_6" xml:space="preserve"><value>+$1 points</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_5" xml:space="preserve"><value>MULTIPLIER BONUS: +$1%%</value></data>
+  <data name="TEXT_TEXT_BOARD_PLAYING_4" xml:space="preserve"><value>TIME!</value></data>
+  <data name="TEXT_TEXT_BOSS_DOCTOR_EX_3" xml:space="preserve"><value>As long as my shield stands, you shall fail!</value></data>
+  <data name="TEXT_TEXT_BOSS_DOCTOR_EX_2" xml:space="preserve"><value>Try and breach my defences!</value></data>
+  <data name="TEXT_TEXT_BOSS_DOCTOR_EX_1" xml:space="preserve"><value>Do you think to best me so easily? Minions, come hither!</value></data>
+  <data name="TEXT_STRING_LIVE_ERROR" xml:space="preserve"><value>Error communicating with Xbox LIVE</value></data>
+  <data name="TEXT_TEXT_NEXT_LEVEL_TEXT_2" xml:space="preserve"><value>You've awakened Village Boss from his slumber! Use the lilypads to take shots at his heads when they glow. Be sure to keep the balls out of the skull!</value></data>
+  <data name="TEXT_TEXT_NEXT_LEVEL_TEXT_1" xml:space="preserve"><value>Oh no! Jungle Boss is on a rampage! Blast him through holes in the curve when his shield is down. But don't let the curve reach the skull!</value></data>
+  <data name="TEXT_TEXT_CHECK_POINT_3" xml:space="preserve"><value>If you lose all your lives, you can restart from this level!</value></data>
+  <data name="TEXT_TEXT_CHECK_POINT_2" xml:space="preserve"><value>( Tap to continue! )</value></data>
+  <data name="TEXT_TEXT_CHECK_POINT_1" xml:space="preserve"><value>Checkpoint Reached!</value></data>
+  <data name="TEXT_TEXT_UNLOCK_FULL_GAME_6" xml:space="preserve"><value>Unlock Challenge Mode by
+defeating level 10 in Adventure Mode.</value></data>
+  <data name="TEXT_TEXT_UNLOCK_FULL_GAME_5" xml:space="preserve"><value>Tip:</value></data>
+  <data name="TEXT_TEXT_UNLOCK_FULL_GAME_4" xml:space="preserve"><value>Buy Zuma's Revenge to unlock this feature?</value></data>
+  <data name="TEXT_TEXT_UNLOCK_FULL_GAME_3" xml:space="preserve"><value>Unlock Zuma's Revenge?</value></data>
+  <data name="TEXT_TEXT_UNLOCK_FULL_GAME_2" xml:space="preserve"><value>Unlock full game to continue Zuma's adventures ?</value></data>
+  <data name="TEXT_TEXT_BOARD_INTRO_1" xml:space="preserve"><value>Strange Frog, why do you intrude on us?</value></data>
+  <data name="TEXT_TEXT_BOARD_INTRO_3" xml:space="preserve"><value>Five fierce chiefs guard our mysteries!</value></data>
+  <data name="TEXT_TEXT_BOARD_INTRO_2" xml:space="preserve"><value>This island is no holiday resort!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_30" xml:space="preserve"><value>I love watching a master at work!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_31" xml:space="preserve"><value>I'm constantly amazed!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_32" xml:space="preserve"><value>How do you do it?</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_33" xml:space="preserve"><value>You should write a strategy guide!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_34" xml:space="preserve"><value>Your Zuma moves inspire me! </value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_35" xml:space="preserve"><value>This Devil costume's pretty scary, huh?</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_12" xml:space="preserve"><value>The Baron fears no hero frog</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_13" xml:space="preserve"><value>In case you forgot, I'm Baron Digo!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_10" xml:space="preserve"><value>Stop hitting me, frog!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_11" xml:space="preserve"><value>Ha! The Baron deals defeat!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_16" xml:space="preserve"><value>Insects are the dominant lifeform!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_17" xml:space="preserve"><value>We owe everything to bees and ants!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_14" xml:space="preserve"><value>Digo's the name, pain's the game!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_15" xml:space="preserve"><value>Make way for magnificent me!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_18" xml:space="preserve"><value>I'm fully pestilent!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_19" xml:space="preserve"><value>Six legs good, four legs bad!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_21" xml:space="preserve"><value>My rage is like ice.</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_20" xml:space="preserve"><value>Amphibians are our enemies!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_23" xml:space="preserve"><value>Your insult only hardens my resolve.</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_22" xml:space="preserve"><value>Nothing can make me lose my cool.</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_25" xml:space="preserve"><value>I am master of my temper.</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_24" xml:space="preserve"><value>LOSING IT! RRAARRRRG!!!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_27" xml:space="preserve"><value>You're doing great!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_26" xml:space="preserve"><value>Keep it up, Frog!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_29" xml:space="preserve"><value>Almost time for my devil form!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_HARD_28" xml:space="preserve"><value>Match those crazy orbs!</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_30" xml:space="preserve"><value>Riding waves...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_31" xml:space="preserve"><value>Regretting abandoning ship...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_32" xml:space="preserve"><value>Getting teensy bit worried...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_18" xml:space="preserve"><value>Updating loading bar...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_19" xml:space="preserve"><value>Effecting particles...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_16" xml:space="preserve"><value>Steeling self for challenge...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_17" xml:space="preserve"><value>Anticipating fun...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_14" xml:space="preserve"><value>Staying confident...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_15" xml:space="preserve"><value>Being green...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_12" xml:space="preserve"><value>Shuttling electrons...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_13" xml:space="preserve"><value>Loving being a frog...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_10" xml:space="preserve"><value>Smiling happily...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_11" xml:space="preserve"><value>Squaring circles...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_29" xml:space="preserve"><value>Sharpening senses...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_28" xml:space="preserve"><value>Burping uncontrollably...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_25" xml:space="preserve"><value>Sizing up the situation...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_24" xml:space="preserve"><value>Reading readmes...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_27" xml:space="preserve"><value>Reviewing tiki knowledge...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_26" xml:space="preserve"><value>Hoping for lots of powerups...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_21" xml:space="preserve"><value>Dreaming of greatness...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_20" xml:space="preserve"><value>Wishing for a pony...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_23" xml:space="preserve"><value>Floating points...</value></data>
+  <data name="TEXT_TEXT_LOADING_SCREEN_22" xml:space="preserve"><value>Saying "Ribbit"</value></data>
+  <data name="TEXT_TEXT_GENERIC_HELP_EX_6" xml:space="preserve"><value>LASER</value></data>
+  <data name="TEXT_TEXT_GENERIC_HELP_EX_5" xml:space="preserve"><value>TRI-SHOT</value></data>
+  <data name="TEXT_TEXT_GENERIC_HELP_EX_4" xml:space="preserve"><value>LIGHTNING</value></data>
+  <data name="TEXT_TEXT_GENERIC_HELP_EX_3" xml:space="preserve"><value>SLOWDOWN</value></data>
+  <data name="TEXT_TEXT_GENERIC_HELP_EX_2" xml:space="preserve"><value>REWIND</value></data>
+  <data name="TEXT_TEXT_GENERIC_HELP_EX_1" xml:space="preserve"><value>BOMB</value></data>
+  <data name="TEXT_TEXT_BOARD_BOSS6_1" xml:space="preserve"><value>Well, that didn't go quite like I planned.</value></data>
+  <data name="TEXT_TEXT_BOARD_BOSS6_2" xml:space="preserve"><value>But I'm a bad loser. And I have one more trick.</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENTS_EX_1" xml:space="preserve"><value>Achievements</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENTS_EX_2" xml:space="preserve"><value>G</value></data>
+  <data name="TEXT_STR_INTERRUPT_MUSIC" xml:space="preserve"><value>Do you want to interrupt your music and use game background music?</value></data>
+  <data name="TEXT_TEXT_ZONE_RATING_4" xml:space="preserve"><value>Hard</value></data>
+  <data name="TEXT_TEXT_ZONE_RATING_5" xml:space="preserve"><value>Very Hard</value></data>
+  <data name="TEXT_TEXT_ZONE_RATING_6" xml:space="preserve"><value>Seriously Hard</value></data>
+  <data name="TEXT_TEXT_ZONE_RATING_7" xml:space="preserve"><value>INSANE</value></data>
+  <data name="TEXT_TEXT_ZONE_RATING_1" xml:space="preserve"><value>Easy</value></data>
+  <data name="TEXT_TEXT_ZONE_RATING_2" xml:space="preserve"><value>Medium</value></data>
+  <data name="TEXT_TEXT_ZONE_RATING_3" xml:space="preserve"><value>Extra Medium</value></data>
+  <data name="TEXT_STRING_UPDATE_NOW" xml:space="preserve"><value>An update is available! This update is required to connect to Xbox LIVE. Update now?</value></data>
+  <data name="TEXT_TEXT_MAINMENU_WELCOME_BACK" xml:space="preserve"><value>Welcome back, $1!</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_1" xml:space="preserve"><value>Use the right mouse button to
+cancel the Laser powerup.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_2" xml:space="preserve"><value>When changing lily pads try
+using the right mouse button.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_3" xml:space="preserve"><value>Use the right mouse button to
+swap between ball colors.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_4" xml:space="preserve"><value>You can jump to an empty lilypad
+by clicking on it.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_5" xml:space="preserve"><value>Use the Laser powerup to trigger
+other powerups!</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_6" xml:space="preserve"><value>Shoot fruit for extra points
+and a Zuma bar boost.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_7" xml:space="preserve"><value>Shooting through gaps increases
+the points you get for a match!</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_8" xml:space="preserve"><value>The Lightning powerup
+destroys all balls of
+your target's color.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_HARD_9" xml:space="preserve"><value>Beating a level without
+losing a life will earn a
+Perfect Level Bonus.</value></data>
+  <data name="TEXT_TEXT_BOARD_ADDTEXT_3" xml:space="preserve"><value>MULTIPLIER ACTIVE!</value></data>
+  <data name="TEXT_TEXT_BOARD_ADDTEXT_2" xml:space="preserve"><value>10 SECONDS!</value></data>
+  <data name="TEXT_TEXT_BOARD_ADDTEXT_1" xml:space="preserve"><value>BONUS! +$1</value></data>
+  <data name="TEXT_TEXT_BOARD_ADDTEXT_7" xml:space="preserve"><value>QUAD GAP BONUS!!!!</value></data>
+  <data name="TEXT_TEXT_BOARD_ADDTEXT_6" xml:space="preserve"><value>COMBO </value></data>
+  <data name="TEXT_TEXT_BOARD_ADDTEXT_5" xml:space="preserve"><value>CURVE CLEARED</value></data>
+  <data name="TEXT_TEXT_BOARD_ADDTEXT_4" xml:space="preserve"><value>New High Score!</value></data>
+  <data name="TEXT_TEXT_BOARD_ADDTEXT_9" xml:space="preserve"><value>DOUBLE GAP BONUS!!</value></data>
+  <data name="TEXT_TEXT_BOARD_ADDTEXT_8" xml:space="preserve"><value>TRIPLE GAP BONUS!!!</value></data>
+  <data name="TEXT_TEXT_UNLOCK_FULL_GAME" xml:space="preserve"><value>Unlock full game to continue Zuma's adventures !!!</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_DES_1" xml:space="preserve"><value>Complete the Challenge Mode</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_DES_2" xml:space="preserve"><value>Win a Challenge Level</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_DES_3" xml:space="preserve"><value>Beat a regular rail level without moving the frog</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_DES_4" xml:space="preserve"><value>Build your score multiplier up to 5X</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_DES_5" xml:space="preserve"><value>Shoot 15 balls and make 15 matches... in a row!</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_DES_6" xml:space="preserve"><value>Make a match by shooting a ball through a gap in the curve</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_DES_7" xml:space="preserve"><value>Defeat Zhaka Mu and discover the secret of the island!</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_DES_8" xml:space="preserve"><value>Just win a regular level. Easy hu?!</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_DES_9" xml:space="preserve"><value>Defeat Cephalo Ka and his Inky Ink Attack</value></data>
+  <data name="TEXT_TEXT_TRIAL_END" xml:space="preserve"><value>Hey young frog!
+ You just reached the end of this Trial version.
+ Do you want to buy the full game 
+ to continue your adventures?</value></data>
+  <data name="TEXT_TEXT_BOARD_OVERLAY_5" xml:space="preserve"><value>Deaths This Level:</value></data>
+  <data name="TEXT_TEXT_BOARD_OVERLAY_4" xml:space="preserve"><value>Ace Time:</value></data>
+  <data name="TEXT_TEXT_BOARD_OVERLAY_7" xml:space="preserve"><value>Challenge Target:</value></data>
+  <data name="TEXT_TEXT_BOARD_OVERLAY_6" xml:space="preserve"><value>Lives Remaining:</value></data>
+  <data name="TEXT_TEXT_BOARD_OVERLAY_1" xml:space="preserve"><value>Iron Frog $1 - $2</value></data>
+  <data name="TEXT_TEXT_BOARD_OVERLAY_3" xml:space="preserve"><value>Time Elapsed:</value></data>
+  <data name="TEXT_TEXT_BOARD_OVERLAY_2" xml:space="preserve"><value>Level $1 - $2</value></data>
+  <data name="TEXT_TEXT_BOARD_OVERLAY_8" xml:space="preserve"><value>Ace Target:</value></data>
+  <data name="TEXT_TEXT_DIALOG_2" xml:space="preserve"><value>No</value></data>
+  <data name="TEXT_TEXT_DIALOG_3" xml:space="preserve"><value>ARE YOU SURE?</value></data>
+  <data name="TEXT_TEXT_DIALOG_1" xml:space="preserve"><value>Yes</value></data>
+  <data name="TEXT_TEXT_DIALOG_6" xml:space="preserve"><value>Your progress will be saved.
+Do you wish to end your game?</value></data>
+  <data name="TEXT_TEXT_DIALOG_7" xml:space="preserve"><value>Are you sure?
+A restart from here
+will set your score to zero.</value></data>
+  <data name="TEXT_TEXT_DIALOG_4" xml:space="preserve"><value>Challenge mode games are
+NOT SAVED!
+End this game anyway?</value></data>
+  <data name="TEXT_TEXT_DIALOG_5" xml:space="preserve"><value>Iron Frog mode games are
+NOT SAVED!
+End this game anyway?</value></data>
+  <data name="TEXT_TEXT_DIALOG_8" xml:space="preserve"><value>Are you sure you wish to quit?
+This will make the mighty Zuma angry!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_4" xml:space="preserve"><value>My witchy magic failed me with big aplomb!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_5" xml:space="preserve"><value>I can't even blame my slave tikis this time.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_6" xml:space="preserve"><value>I should've been a lawyer.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_7" xml:space="preserve"><value>What's this? Again you defeat me?</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_1" xml:space="preserve"><value>Coconuts! Shattered! Beyond repair!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_2" xml:space="preserve"><value>My tongue's doing no better than the first time!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_3" xml:space="preserve"><value>You really know your balls!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_8" xml:space="preserve"><value>I don't deserve to call myself Baron Digo.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_9" xml:space="preserve"><value>What's that, Pookie? You still believe in me? Yay! </value></data>
+  <data name="TEXT_TEXT_BOSS_SQUID_EX_1" xml:space="preserve"><value>MY SHIELD BREACHED! UNTHINKABLE!</value></data>
+  <data name="TEXT_TEXT_BOSS_SQUID_EX_2" xml:space="preserve"><value>Bah, hit me frog! Next time it shall not be this easy!</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_14" xml:space="preserve"><value>Tysen</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_10" xml:space="preserve"><value>Ben</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_11" xml:space="preserve"><value>Sukhbir</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_12" xml:space="preserve"><value>Jason</value></data>
+  <data name="TEXT_TEXT_PROFILE_DEFAULT_NAME_13" xml:space="preserve"><value>Brian</value></data>
+  <data name="TEXT_TEXT_EA_LEGAL" xml:space="preserve"><value>By purchasing and/or using this application, you agree to the terms of the End User License Agreement and EA's Privacy Policy and Terms of Service.
+Certain Wi-Fi security settings will allow you to connect but not use the application's network features, including Leaderboards. Network fees may apply.
+
+© 2012 Electronic Arts Inc. PopCap, PopCap logo, EA, EA logo and Zuma's Revenge are trademarks of Electronic Arts Inc.
+Customer service: Send email to help%eamobile.com</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_15" xml:space="preserve"><value>I guess this is pretty much your island now.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_14" xml:space="preserve"><value>My guru said I needed to chill but it didn't help.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_17" xml:space="preserve"><value>But you stomped all over me in every way.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_16" xml:space="preserve"><value>Wow. Just wow. I've played a lot of Zuma.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_11" xml:space="preserve"><value>I talked a big game and left the same holes in my defense.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_10" xml:space="preserve"><value>Well, there it was.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_13" xml:space="preserve"><value>Oh, foof! Why does this keep happening?</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_12" xml:space="preserve"><value>Am I ever going to learn, even a little bit?</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_19" xml:space="preserve"><value>'Cuz this mode is FINISHED!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_HARD_18" xml:space="preserve"><value>Try the Iron Frog mode or the Challenges!</value></data>
+  <data name="TEXT_STRING_UPDATE_GAME" xml:space="preserve"><value>Update Game to communicate with Xbox LIVE</value></data>
+  <data name="TEXT_TEXT_DARK_FROG_5" xml:space="preserve"><value>Maybe he should be the star of Revenge of Zuma's Revenge!</value></data>
+  <data name="TEXT_TEXT_DARK_FROG_4" xml:space="preserve"><value>This evil frog version looks pretty cool, huh?</value></data>
+  <data name="TEXT_TEXT_DARK_FROG_6" xml:space="preserve"><value>Anyway, en garde!</value></data>
+  <data name="TEXT_TEXT_DARK_FROG_1" xml:space="preserve"><value>Spooky, no? It's like a dark mirror.</value></data>
+  <data name="TEXT_TEXT_DARK_FROG_3" xml:space="preserve"><value>how can you defeat... yourself?</value></data>
+  <data name="TEXT_TEXT_DARK_FROG_2" xml:space="preserve"><value>Something like that. Either way,</value></data>
+  <data name="TEXT_TEXT_MAINMENU_WELCOME" xml:space="preserve"><value>Welcome to Zuma's Revenge!</value></data>
+  <data name="TEXT_TEXT_GUN_2" xml:space="preserve"><value>SLOOOOOOW-MO!</value></data>
+  <data name="TEXT_TEXT_GUN_1" xml:space="preserve"><value>POISONED!</value></data>
+  <data name="TEXT_TEXT_MAP_4" xml:space="preserve"><value>LOCKED!</value></data>
+  <data name="TEXT_TEXT_MAP_2" xml:space="preserve"><value>Jungle of Mystery</value></data>
+  <data name="TEXT_TEXT_MAP_3" xml:space="preserve"><value>Unlocked!</value></data>
+  <data name="TEXT_TEXT_MAP_1" xml:space="preserve"><value>Tap to enter</value></data>
+  <data name="TEXT_TEXT_TIP_7" xml:space="preserve"><value>Shoot ^dfa925^fruit^oldclr^ to fill the Zuma bar even faster!
+
+^49d63a^SHOOT THE FRUIT!</value></data>
+  <data name="TEXT_TEXT_TIP_6" xml:space="preserve"><value>Tap the frog to swap balls!</value></data>
+  <data name="TEXT_TEXT_TIP_5" xml:space="preserve"><value>Tap here to jump!</value></data>
+  <data name="TEXT_TEXT_TIP_4" xml:space="preserve"><value>Don't let the balls reach the skull pit!</value></data>
+  <data name="TEXT_TEXT_TIP_3" xml:space="preserve"><value>Fill the ^dfa925^Zuma Bar^oldclr^ to stop new balls rolling out.
+
+^49d63a^TAP TO PLAY!</value></data>
+  <data name="TEXT_TEXT_TIP_2" xml:space="preserve"><value>Match ^dfa925^3 or more^oldclr^ balls of the same color!</value></data>
+  <data name="TEXT_TEXT_TIP_1" xml:space="preserve"><value>Tap Here to Fire!</value></data>
+  <data name="TEXT_TEXT_BOSS_LAME_5" xml:space="preserve"><value>Catch you later! Enjoy the fake credits!</value></data>
+  <data name="TEXT_TEXT_BOSS_LAME_4" xml:space="preserve"><value>Oof! Got me! Well, I gotta run.</value></data>
+  <data name="TEXT_TEXT_BOSS_LAME_1" xml:space="preserve"><value>No! You are much too powerful!</value></data>
+  <data name="TEXT_TEXT_BOSS_LAME_3" xml:space="preserve"><value>I yield to your amphibian agility!</value></data>
+  <data name="TEXT_TEXT_BOSS_LAME_2" xml:space="preserve"><value>Even my doomy chicken legs were useless.</value></data>
+  <data name="TEXT_STR_BUY_FULL_GAME" xml:space="preserve"><value>Buy Full Game</value></data>
+  <data name="TEXT_TEXT_BOARD_ADDTEXT_10" xml:space="preserve"><value>GAP BONUS!</value></data>
+  <data name="TEXT_TEXT_BOARD_ADDTEXT_11" xml:space="preserve"><value>CHAIN BONUS</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_59" xml:space="preserve"><value>Go for the gold! You're almost there!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_58" xml:space="preserve"><value>I've got a whole new
+mystery for you!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_51" xml:space="preserve"><value>Welcome back, Frog!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_50" xml:space="preserve"><value>I'm incredibly mad
+about my keys!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_53" xml:space="preserve"><value>Even I can't
+get this far!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_52" xml:space="preserve"><value>Wow, you're great
+at this mode!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_55" xml:space="preserve"><value>Can't resist the challenge, huh?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_54" xml:space="preserve"><value>I've never seen
+ball-spitting like
+yours!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_57" xml:space="preserve"><value>I'm Zhaka Mu,
+by the way.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_56" xml:space="preserve"><value>Frog, I name thee 'Hero of Modes!'</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_48" xml:space="preserve"><value>My new serenity
+will be your end.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_49" xml:space="preserve"><value>Wait! I lost my
+keys! ARRRG!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_40" xml:space="preserve"><value>Back away, frog!
+Just back away!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_41" xml:space="preserve"><value>I know you, Frog.
+You defeated me.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_42" xml:space="preserve"><value>I was angry before. Now I'm cold.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_43" xml:space="preserve"><value>My steely disposition is my new shield.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_44" xml:space="preserve"><value>I am unflappable.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_45" xml:space="preserve"><value>I am calm like a lake.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_46" xml:space="preserve"><value>Nothing makes
+me angry.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_47" xml:space="preserve"><value>I see now that my rage defeated me.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_60" xml:space="preserve"><value>So close to the
+final mystery!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_19" xml:space="preserve"><value>My witch muscles
+are huge!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_18" xml:space="preserve"><value>I practically live
+at the gym!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_15" xml:space="preserve"><value>My slave: You
+will be it!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_14" xml:space="preserve"><value>My tikis have been training hard!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_17" xml:space="preserve"><value>I've been monitoring my diet!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_16" xml:space="preserve"><value>Float like an ooga, sting like a booga!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_11" xml:space="preserve"><value>Kahtiki says you
+have improved!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_10" xml:space="preserve"><value>Rematch!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_13" xml:space="preserve"><value>My Witch magic is hula strong now!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_12" xml:space="preserve"><value>I'm hardly worried!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_39" xml:space="preserve"><value>My insects are the knees of bees!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_38" xml:space="preserve"><value>Are you ready for moths and ants?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_37" xml:space="preserve"><value>I've got lots more insects this time!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_36" xml:space="preserve"><value>Seriously, frog.
+You're done.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_35" xml:space="preserve"><value>Trust me, buddy,
+there's no way!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_34" xml:space="preserve"><value>Can you beat my
+flies a second time?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_33" xml:space="preserve"><value>So, you up for another shot?</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_32" xml:space="preserve"><value>I know you, Frog.
+All too well!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_31" xml:space="preserve"><value>Well, well, well. . .
+If it isn't the Frog.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_30" xml:space="preserve"><value>Face your enemy:
+me, Baron Digo!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_28" xml:space="preserve"><value>No arrow will pierce my hide!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_29" xml:space="preserve"><value>Baron Digo delivers 24-hour DOOM!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_26" xml:space="preserve"><value>I checked my
+mail and remembered:
+Baron Digo</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_27" xml:space="preserve"><value>Now I've got more confidence than ever!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_24" xml:space="preserve"><value>Your beating induced amnesia in me.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_25" xml:space="preserve"><value>I wandered nameless for a time.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_22" xml:space="preserve"><value>Yep! Baron Digo.
+That's my name.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_23" xml:space="preserve"><value>For a while I forgot who I was.</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_20" xml:space="preserve"><value>Ding ding!
+Let's go!</value></data>
+  <data name="TEXT_TEXT_BOSS_1_TAUNT_HARD_21" xml:space="preserve"><value>I'm still Baron Digo!</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_10" xml:space="preserve"><value>Darkness Falls</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_11" xml:space="preserve"><value>Kahtiki Khan</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_12" xml:space="preserve"><value>Watering Hole</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_13" xml:space="preserve"><value>Overgrown Plaza</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_14" xml:space="preserve"><value>Lilypad Leap</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_15" xml:space="preserve"><value>Sandspirals</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_16" xml:space="preserve"><value>Abandoned Well</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_17" xml:space="preserve"><value>Face Your Fear</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_18" xml:space="preserve"><value>Seven Sides (minus one)</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_19" xml:space="preserve"><value>Vines of Vengeance</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_32" xml:space="preserve"><value>Double Danger</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_33" xml:space="preserve"><value>Baron Digo</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_30" xml:space="preserve"><value>Lichen Lair</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_31" xml:space="preserve"><value>Ghosts of the Past</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_36" xml:space="preserve"><value>Stagnant Ponds</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_37" xml:space="preserve"><value>Brackish Pool</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_34" xml:space="preserve"><value>Swamp Spin</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_35" xml:space="preserve"><value>Deadmarsh</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_38" xml:space="preserve"><value>Justified and Ancient</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_39" xml:space="preserve"><value>Ancient Inlay</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_54" xml:space="preserve"><value>Shark Den</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_55" xml:space="preserve"><value>Cephalo Ka</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_56" xml:space="preserve"><value>Flowing Tiki Rage</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_57" xml:space="preserve"><value>Subterran Solaris</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_50" xml:space="preserve"><value>Ocean Floor</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_51" xml:space="preserve"><value>Smuggler's Depth</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_52" xml:space="preserve"><value>Pacific Divide</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_53" xml:space="preserve"><value>The Deep</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_58" xml:space="preserve"><value>Reflection in Magma</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_59" xml:space="preserve"><value>Obsidian Isle</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_23" xml:space="preserve"><value>Ancient Cistern</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_22" xml:space="preserve"><value>Maga Maga</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_21" xml:space="preserve"><value>The Horseshoe</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_20" xml:space="preserve"><value>Logroller</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_27" xml:space="preserve"><value>Mossy Square</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_26" xml:space="preserve"><value>Ancestral Tongue</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_25" xml:space="preserve"><value>Empty Cistern</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_24" xml:space="preserve"><value>Blossom Grove</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_29" xml:space="preserve"><value>Strange Smile</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_28" xml:space="preserve"><value>Mosaic Mayhem</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_76" xml:space="preserve"><value>Creeper Creeps</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_77" xml:space="preserve"><value>Web Two Point Oh</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_74" xml:space="preserve"><value>Fossil Food</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_75" xml:space="preserve"><value>What is that thing?</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_72" xml:space="preserve"><value>Lot's Wife</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_73" xml:space="preserve"><value>Future Fuels</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_70" xml:space="preserve"><value>Serpent Stare</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_71" xml:space="preserve"><value>Fungal Fatality</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_78" xml:space="preserve"><value>As The Worm Turns</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_79" xml:space="preserve"><value>Chew Your Food</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_45" xml:space="preserve"><value>Coral Catch</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_44" xml:space="preserve"><value>Kolo Kamari</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_47" xml:space="preserve"><value>Submergathon</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_46" xml:space="preserve"><value>Wave Babies</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_41" xml:space="preserve"><value>Moai Slide</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_40" xml:space="preserve"><value>Secret Circle</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_43" xml:space="preserve"><value>Skull Coral</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_42" xml:space="preserve"><value>Tide Pools</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_49" xml:space="preserve"><value>Coelacanth Cave</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_48" xml:space="preserve"><value>Anglers Cove</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_67" xml:space="preserve"><value>Ultimate Boss Zhaka Mu</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_66" xml:space="preserve"><value>Torchlit Sanctum</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_65" xml:space="preserve"><value>Descent into Anguish</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_64" xml:space="preserve"><value>Searing Visage</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_63" xml:space="preserve"><value>Basaltic Approach</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_62" xml:space="preserve"><value>Molten Dais</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_61" xml:space="preserve"><value>Thermal Vortex</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_60" xml:space="preserve"><value>Underworld Remnants</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_69" xml:space="preserve"><value>Shadow Frog</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_68" xml:space="preserve"><value>His Crumbliness</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_81" xml:space="preserve"><value>Smugglers Depth</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_80" xml:space="preserve"><value>Seven Sides</value></data>
+  <data name="TEXT_TEXT_LEVEL_DISPLAY_NAME_82" xml:space="preserve"><value>Drumstick Willie</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_3" xml:space="preserve"><value>I bet you're good and crunchy!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_2" xml:space="preserve"><value>You will make a fine meal!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_1" xml:space="preserve"><value>I hunger for plenty!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_7" xml:space="preserve"><value>I cannot be beaten!
+I'm unbeatable!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_6" xml:space="preserve"><value>Nothing can harm me!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_5" xml:space="preserve"><value>I'll bake you in a frog pot pie!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_4" xml:space="preserve"><value>What goes well with toasted frog?</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_9" xml:space="preserve"><value>I went to the best voodoo school!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_8" xml:space="preserve"><value>See how strong my magics are?</value></data>
+  <data name="TEXT_STRING_UPLOAD_FAILED" xml:space="preserve"><value>There was an error uploading your score. Please check your network connection and try again.</value></data>
+  <data name="TEXT_TEXT_BOARD_IRON_FROG_WIN_1" xml:space="preserve"><value>Time:</value></data>
+  <data name="TEXT_TEXT_BOARD_IRON_FROG_WIN_2" xml:space="preserve"><value>Score:</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_30" xml:space="preserve"><value>This frown means death!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_31" xml:space="preserve"><value>I am a rock,
+I am this island.</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_32" xml:space="preserve"><value>I am the totem of despair!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_33" xml:space="preserve"><value>I crush you!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_34" xml:space="preserve"><value>You sully our island!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_35" xml:space="preserve"><value>The blood of the volcano awaits!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_36" xml:space="preserve"><value>No living thing can survive!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_37" xml:space="preserve"><value>Your soul shall be forfeit!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_12" xml:space="preserve"><value>Baron Digo delivers the damage!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_13" xml:space="preserve"><value>I am Baron of Digo!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_10" xml:space="preserve"><value>Step it up, slave tikis! What do I pay you for?</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_11" xml:space="preserve"><value>Whoop! Skeleton warriors attack!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_16" xml:space="preserve"><value>I'm grinnin' like crazy!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_17" xml:space="preserve"><value>Bite, my pretties, bite!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_14" xml:space="preserve"><value>Baron Digo rules with skeletons!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_15" xml:space="preserve"><value>Who's the Baron?
+Me! I am!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_18" xml:space="preserve"><value>It's all about the stinging!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_19" xml:space="preserve"><value>Confuse him, my tiny buddies!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_21" xml:space="preserve"><value>I'm overly bitter!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_20" xml:space="preserve"><value>I love the sound of insects in the morning!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_23" xml:space="preserve"><value>I'm affronted!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_22" xml:space="preserve"><value>I'm annoyed!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_25" xml:space="preserve"><value>You nettle me!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_24" xml:space="preserve"><value>I'm irritable!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_27" xml:space="preserve"><value>Consider me maddened!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_26" xml:space="preserve"><value>You infuriate me!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_29" xml:space="preserve"><value>I have no heart to care!</value></data>
+  <data name="TEXT_TEXT_BOSS_HINT_28" xml:space="preserve"><value>Stern I am, and stone!</value></data>
+  <data name="TEXT_TEXT_LOADING" xml:space="preserve"><value>Loading</value></data>
+  <data name="TEXT_TEXT_BOARD_BOSS6_HARD_1" xml:space="preserve"><value>Just one more stage!</value></data>
+  <data name="TEXT_TEXT_BOARD_BOSS6_HARD_2" xml:space="preserve"><value>Let's watch some special effects!</value></data>
+  <data name="TEXT_TEXT_BOARD_BOSS6_HARD_3" xml:space="preserve"><value>Wheeeeeeee!</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_MENU_EX_12" xml:space="preserve"><value>Choose a level.</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_MENU_EX_10" xml:space="preserve"><value>Beat an available challenge to unlock more levels.</value></data>
+  <data name="TEXT_TEXT_CHALLENGE_MENU_EX_11" xml:space="preserve"><value>Beat all previous challenges to unlock this cup.</value></data>
+  <data name="TEXT_TEXT_LEGAL_10" xml:space="preserve"><value>User Sharing</value></data>
+  <data name="TEXT_TEXT_BOSS_LAME_EX_1" xml:space="preserve"><value>Baaawwwk! I am Zhaka Mu! Fear me!</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_UNLOCK" xml:space="preserve"><value>Unlock Achievement: </value></data>
+  <data name="TEXT_TEXT_PLAY_EX_8" xml:space="preserve"><value>New Challenge Zone Unlocked!</value></data>
+  <data name="TEXT_TEXT_PLAY_EX_9" xml:space="preserve"><value>Dazed!</value></data>
+  <data name="TEXT_TEXT_PLAY_EX_4" xml:space="preserve"><value>You didn't beat the Challenge Score</value></data>
+  <data name="TEXT_TEXT_PLAY_EX_5" xml:space="preserve"><value>You beat the Challenge Score!</value></data>
+  <data name="TEXT_TEXT_PLAY_EX_6" xml:space="preserve"><value>You beat the Ace Score!</value></data>
+  <data name="TEXT_TEXT_PLAY_EX_7" xml:space="preserve"><value>Challenge Mode Unlocked!</value></data>
+  <data name="TEXT_TEXT_PLAY_EX_1" xml:space="preserve"><value>Level</value></data>
+  <data name="TEXT_TEXT_PLAY_EX_2" xml:space="preserve"><value>Level $1
+Challenge:
+$2
+Ace:
+$3</value></data>
+  <data name="TEXT_TEXT_PLAY_EX_3" xml:space="preserve"><value>Bonus Ball Points: $1   Best Bonus:  $2</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_52" xml:space="preserve"><value>Ultimate devil spirit</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_53" xml:space="preserve"><value>This is the sanctum of evil.But only in darkness will the final demon reveal himself.</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_50" xml:space="preserve"><value>TAP TO BATTLE</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_51" xml:space="preserve"><value>ZHAKA MU</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_56" xml:space="preserve"><value>You have discovered the secret of Tiki Island!</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_54" xml:space="preserve"><value>Congratulations!</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_55" xml:space="preserve"><value>Conitnue</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_34" xml:space="preserve"><value>Final Score:</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_35" xml:space="preserve"><value>TAP TO BATTLE</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_36" xml:space="preserve"><value>MAGA MAGA</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_37" xml:space="preserve"><value>The shaman controlled two slave tikis who guarded him day and night. So long as they stood,nothing colud harm him.</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_30" xml:space="preserve"><value>More Games</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_31" xml:space="preserve"><value>Final Stats</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_32" xml:space="preserve"><value>Time:</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_33" xml:space="preserve"><value>Score:</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_38" xml:space="preserve"><value>TAP TO BATTLE</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_39" xml:space="preserve"><value>KOLO KAMARI</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_43" xml:space="preserve"><value>No arrow could pierce his stony hide,yet wicked baron digo cut up his soul and hid it in the ribcages of his victims.</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_42" xml:space="preserve"><value>BARON DIGO</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_41" xml:space="preserve"><value>TAP TO BATTLE</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_40" xml:space="preserve"><value>The vermin of the insect god drained the blood and life of their prey.Only a great blast of fire and noise could drive the demon away.</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_47" xml:space="preserve"><value>TAP TO BATTLE</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_46" xml:space="preserve"><value>The inky darkness and shields of power hide the monster's secret weakness... His soft and fleshy underside.</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_45" xml:space="preserve"><value>CEPHALO KA</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_44" xml:space="preserve"><value>TAP TO BATTLE</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_49" xml:space="preserve"><value>Elders tell of a lost city in the jungle,where a stone demon takes the heads of men.None who go ever return.</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_48" xml:space="preserve"><value>Kahtiki Khan</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_16" xml:space="preserve"><value>Paused</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_17" xml:space="preserve"><value>Try Again!</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_14" xml:space="preserve"><value>CONTINUE!</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_15" xml:space="preserve"><value>CONTINUE GAME</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_12" xml:space="preserve"><value>Click to Enter</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_13" xml:space="preserve"><value>Revisit Past Zones</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_10" xml:space="preserve"><value>Ribbit!</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_11" xml:space="preserve"><value>Options</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_18" xml:space="preserve"><value>ADVENTURE</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_19" xml:space="preserve"><value>CHALLENGE</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_25" xml:space="preserve"><value>Tap to continue…</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_24" xml:space="preserve"><value>Continue game from last checkpoint?</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_27" xml:space="preserve"><value>Zuma's Revenge!</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_26" xml:space="preserve"><value>BONUS</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_21" xml:space="preserve"><value>MAIN MENU</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_20" xml:space="preserve"><value>High Scores:</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_23" xml:space="preserve"><value>Success!</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_22" xml:space="preserve"><value>Victory!</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_29" xml:space="preserve"><value>…any unlocked zone!</value></data>
+  <data name="TEXT_STR_ART_HARD_CODE_28" xml:space="preserve"><value>Start a new game from…</value></data>
+  <data name="TEXT_TEXT_BOARD_TAP_TO_CONTINUE" xml:space="preserve"><value>Tap to continue</value></data>
+  <data name="TEXT_TEXT_LEGAL_9" xml:space="preserve"><value>If you no longer wish to send anonymous game play information to PopCap, slide the box and we will disable the transmission of such information.</value></data>
+  <data name="TEXT_TEXT_LEGAL_8" xml:space="preserve"><value>Minimize Zuma's Revenge! and go to external website?</value></data>
+  <data name="TEXT_TEXT_LEGAL_1" xml:space="preserve"><value>License Agreement</value></data>
+  <data name="TEXT_TEXT_LEGAL_3" xml:space="preserve"><value>Terms Of Service</value></data>
+  <data name="TEXT_TEXT_LEGAL_2" xml:space="preserve"><value>Privacy Policy</value></data>
+  <data name="TEXT_TEXT_LEGAL_5" xml:space="preserve"><value>LEGAL</value></data>
+  <data name="TEXT_TEXT_LEGAL_4" xml:space="preserve"><value>OK</value></data>
+  <data name="TEXT_TEXT_LEGAL_7" xml:space="preserve"><value>Visit Website?</value></data>
+  <data name="TEXT_TEXT_LEGAL_6" xml:space="preserve"><value>version </value></data>
+  <data name="TEXT_TEXT_LEVEL_8" xml:space="preserve"><value>Kill those torches!</value></data>
+  <data name="TEXT_TEXT_LEVEL_9" xml:space="preserve"><value>Extinguish the torches!</value></data>
+  <data name="TEXT_TEXT_LEVEL_4" xml:space="preserve"><value>Hey, Frog, it's me again!</value></data>
+  <data name="TEXT_TEXT_LEVEL_5" xml:space="preserve"><value>I'm the chicken guy pretending to be Zhaka Mu!</value></data>
+  <data name="TEXT_TEXT_LEVEL_6" xml:space="preserve"><value>Way too bright!</value></data>
+  <data name="TEXT_TEXT_LEVEL_7" xml:space="preserve"><value>In darkness I await.</value></data>
+  <data name="TEXT_TEXT_LEVEL_1" xml:space="preserve"><value>Tremble, frog!</value></data>
+  <data name="TEXT_TEXT_LEVEL_2" xml:space="preserve"><value>You face Zhaka Mu!</value></data>
+  <data name="TEXT_TEXT_LEVEL_3" xml:space="preserve"><value>Prepare to witness my true form!</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_43" xml:space="preserve"><value>Solid frog, dare you do battle once more?</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_42" xml:space="preserve"><value>My hat carries golden idol of greatness.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_41" xml:space="preserve"><value>I have been holding this for a looooooong time.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_40" xml:space="preserve"><value>He who lights the torches carries the flame.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_45" xml:space="preserve"><value>Sun sets over angry island. Let's party with balls!</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_44" xml:space="preserve"><value>Sometimes yearn I for nice comfy desk job.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_29" xml:space="preserve"><value>I find this breeze pleasingly cool.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_28" xml:space="preserve"><value>They say the balls roll always!</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_25" xml:space="preserve"><value>Welcome back, frog of great mastery!</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_24" xml:space="preserve"><value>Again once you return, eager frog!</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_27" xml:space="preserve"><value>UFOs avoid this island for reasons!</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_26" xml:space="preserve"><value>It is very dangerous to run with a stick.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_21" xml:space="preserve"><value>Current color no good?  Tap the frog to swap.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_20" xml:space="preserve"><value>Do not want laser?  Tap frog to swiftly deactivate.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_23" xml:space="preserve"><value>Earnest frog!  Welcome is yet your return!</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_22" xml:space="preserve"><value>For great precision, tap down and drag to aim carefully.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_38" xml:space="preserve"><value>I need to get more surfing in.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_39" xml:space="preserve"><value>My nose begins now to itch!</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_34" xml:space="preserve"><value>We have not enough sand on this island.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_35" xml:space="preserve"><value>The volcano is acting up again...</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_36" xml:space="preserve"><value>Tiki Bosses like to assert themselves!</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_37" xml:space="preserve"><value>Courage goes a long way on Tiki Island.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_30" xml:space="preserve"><value>The meaning of Zuma is highly mysterious!</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_31" xml:space="preserve"><value>Once you get to know him, the Golden Skull is not so bad.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_32" xml:space="preserve"><value>Where do balls come from? Where do they go?</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_33" xml:space="preserve"><value>I enjoy red balls best. No, wait... green!</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_18" xml:space="preserve"><value>Tri-shot powerup destroys great swath of balls.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_19" xml:space="preserve"><value>Lightning powerup breaks all balls of one color.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_16" xml:space="preserve"><value>Four shots only you have with the laser powerup.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_17" xml:space="preserve"><value>Laser powerup slows curve when active.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_14" xml:space="preserve"><value>Rewind powerup pulls balls back for short time.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_15" xml:space="preserve"><value>Laser powerup can break any ball, but powerup ball best.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_12" xml:space="preserve"><value>Bomb powerup destroys nearby balls.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_13" xml:space="preserve"><value>Rollout moves too fast?  Seek slow powerup.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_10" xml:space="preserve"><value>A wise frog has eyes open always for powerups.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_11" xml:space="preserve"><value>Use powerups to collect fruit blocked by balls.</value></data>
+  <data name="TEXT_TEXT_CREDITS_EX_1" xml:space="preserve"><value>(Tap and hold to fast forward)</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_9" xml:space="preserve"><value>Risk much in gap shots.  A smaller gap earns many more points.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_8" xml:space="preserve"><value>Chains win early, but a masterful frog learns all tricks.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_7" xml:space="preserve"><value>Make match after match for ever growing chain bonus.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_6" xml:space="preserve"><value>Knock balls far back with great combo.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_5" xml:space="preserve"><value>Halt fast curves with many small combos.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_4" xml:space="preserve"><value>Make many matches with one shot for combo bonus.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_3" xml:space="preserve"><value>Shoot tasty fruit for delicious fruit bonus.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_2" xml:space="preserve"><value>Break balls behind gaps for gap shot bonus.</value></data>
+  <data name="TEXT_TEXT_MAINMENU_TIKI_TALK_1" xml:space="preserve"><value>Kill curve completely for large curve clear bonus.</value></data>
+  <data name="TEXT_TEXT_BOSS_MOSQUITO_EX_1" xml:space="preserve"><value>You'll need something more explosive to hurt me!</value></data>
+  <data name="TEXT_TEXT_BOSS_TIGER_TUTORIAL_10" xml:space="preserve"><value>Let us test your mettle. SHOOT ME IF YOU DARE!</value></data>
+  <data name="TEXT_TEXT_BOARD_STATUS_2" xml:space="preserve"><value>Ace Time
+Your Time
+Bonus
+Best</value></data>
+  <data name="TEXT_TEXT_BOARD_STATUS_1" xml:space="preserve"><value>Max Combo
+Max Chain
+Gap Shots
+Fruit</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_15" xml:space="preserve"><value>Oh, well, have fun dying on the volcano!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_14" xml:space="preserve"><value>I really let myself down. Next time I'll be angrier.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_17" xml:space="preserve"><value>You have long thought yourself alone.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_16" xml:space="preserve"><value>You have won, so I reveal one final truth.</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_11" xml:space="preserve"><value>But you exploded me in no time flat!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_10" xml:space="preserve"><value>I threw every insect in the book at you!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_13" xml:space="preserve"><value>My arm! It's broken! And it doesn't even have bones!</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_12" xml:space="preserve"><value>Beat it, Frog! Go swimming, why don't you?</value></data>
+  <data name="TEXT_TEXT_BOSS_DEATH_18" xml:space="preserve"><value>But... you are not the last of your kind.</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_5" xml:space="preserve"><value>C-C-C-C-Chain Bonus!</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_4" xml:space="preserve"><value>Power Player</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_7" xml:space="preserve"><value>Time for Tadpoles!</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_6" xml:space="preserve"><value>Thread the Needle</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_1" xml:space="preserve"><value>Fe Frog</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_3" xml:space="preserve"><value>Frozen Frog</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_2" xml:space="preserve"><value>Challenge Accepted</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_9" xml:space="preserve"><value>Cephalopod Smashe</value></data>
+  <data name="TEXT_TEXT_ACHIEVEMENT_NAME_8" xml:space="preserve"><value>You Win!</value></data>
+  <data name="TEXT_STRING_UPDATE_AVAILABLE" xml:space="preserve"><value>Title Update Available</value></data>
+  <data name="TEXT_STR_GAMERTAG" xml:space="preserve"><value>Gamertag</value></data>
+  <data name="TEXT_TEXT_DEATH_SKULL_4" xml:space="preserve"><value>1 Life Left</value></data>
+  <data name="TEXT_TEXT_DEATH_SKULL_1" xml:space="preserve"><value>Try Again!</value></data>
+  <data name="TEXT_TEXT_DEATH_SKULL_2" xml:space="preserve"><value>Lives Replenished!</value></data>
+  <data name="TEXT_TEXT_DEATH_SKULL_3" xml:space="preserve"><value>$1 Lives Left</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_11" xml:space="preserve"><value>Use the Laser powerup to trigger
+other powerups!</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_10" xml:space="preserve"><value>You can jump to an empty lily pad
+by tapping on it.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_13" xml:space="preserve"><value>Shooting through gaps increases
+the points you get for a match!</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_12" xml:space="preserve"><value>Shoot fruit for extra points
+and a Zuma bar boost.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_15" xml:space="preserve"><value>Beating Ace Time on a level will
+give you a bonus.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_14" xml:space="preserve"><value>Beating a level without dying
+will earn a Perfect Level Bonus.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_17" xml:space="preserve"><value>The Laser powerup can be used to
+collect fruit!</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_16" xml:space="preserve"><value>The Laser powerup slows time so
+you can make precise shots.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_19" xml:space="preserve"><value>The Accuracy powerup makes your
+shots faster for a short period.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_18" xml:space="preserve"><value>Fill the Zuma bar to stop new
+balls from coming.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_22" xml:space="preserve"><value>Beat Adventure mode to unlock
+other modes!</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_23" xml:space="preserve"><value>Once you've beaten a zone,
+try it again in Challenge mode!</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_20" xml:space="preserve"><value>You receive a Chain Bonus for
+each consecutive match after
+five in a row.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_21" xml:space="preserve"><value>Get multiple matches in a single
+shot for a Combo Bonus.</value></data>
+  <data name="TEXT_TEXT_POWERUP_1" xml:space="preserve"><value>PROXIMITY BOMB</value></data>
+  <data name="TEXT_TEXT_POWERUP_2" xml:space="preserve"><value>Bomb</value></data>
+  <data name="TEXT_TEXT_POWERUP_3" xml:space="preserve"><value>SLOW</value></data>
+  <data name="TEXT_TEXT_POWERUP_4" xml:space="preserve"><value>Slow</value></data>
+  <data name="TEXT_TEXT_POWERUP_5" xml:space="preserve"><value>ACCURACY</value></data>
+  <data name="TEXT_TEXT_POWERUP_6" xml:space="preserve"><value>Accuracy</value></data>
+  <data name="TEXT_TEXT_POWERUP_7" xml:space="preserve"><value>REVERSE</value></data>
+  <data name="TEXT_TEXT_POWERUP_8" xml:space="preserve"><value>Reverse</value></data>
+  <data name="TEXT_TEXT_POWERUP_9" xml:space="preserve"><value>TRI-SHOT</value></data>
+  <data name="TEXT_TOTAL_LINES" xml:space="preserve"><value /></data>
+  <data name="TEXT_TEXT_BOSS_2" xml:space="preserve"><value>THE BOSS IS GROWING IMPATIENT!</value></data>
+  <data name="TEXT_TEXT_BOSS_1" xml:space="preserve"><value>BERZERK!</value></data>
+  <data name="TEXT_TEXT_TITLE_UPDATE_1" xml:space="preserve"><value>A New Version Update Available</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_1" xml:space="preserve"><value>The Reverse powerup
+rolls the balls in the
+opposite direction.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_2" xml:space="preserve"><value>The Slowdown powerup
+reduces the speed of
+balls on the curve.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_3" xml:space="preserve"><value>The Accuracy powerup
+makes your shots faster
+and easier to target.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_4" xml:space="preserve"><value>The Tri-shot fires three
+destructive balls of doom!</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_5" xml:space="preserve"><value>The Lightning powerup
+destroys all balls of
+your target's color.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_6" xml:space="preserve"><value>The Laser zaps balls
+and fruit with
+pinpoint accuracy.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_7" xml:space="preserve"><value>Use the right mouse button to
+cancel the Laser powerup.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_8" xml:space="preserve"><value>When changing lily pads try
+using the right mouse button.</value></data>
+  <data name="TEXT_TEXT_SCORE_TIP_9" xml:space="preserve"><value>Use the right mouse button to
+swap between ball colors.</value></data>
+  <data name="TEXT_TEXT_HELP_3" xml:space="preserve"><value>Rolls the balls backwards.</value></data>
+  <data name="TEXT_TEXT_HELP_2" xml:space="preserve"><value>Destroys nearby balls in its fiery wake.</value></data>
+  <data name="TEXT_TEXT_HELP_1" xml:space="preserve"><value>HELP</value></data>
+  <data name="TEXT_TEXT_HELP_7" xml:space="preserve"><value>Zaps balls with pinpoint accuracy.</value></data>
+  <data name="TEXT_TEXT_HELP_6" xml:space="preserve"><value>Fires 3 balls at once.</value></data>
+  <data name="TEXT_TEXT_HELP_5" xml:space="preserve"><value>Destroys every ball of the target color.</value></data>
+  <data name="TEXT_TEXT_HELP_4" xml:space="preserve"><value>Slows ball speed for a short period of time.</value></data>
+  </root>
