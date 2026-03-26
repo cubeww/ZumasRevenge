@@ -244,18 +244,23 @@ public class GameMain : Game
 		SexyZuma.OnServiceDeactivated();
 	}
 
+	public void HandleHardwareBackButton()
+	{
+		if (isLoading)
+		{
+			Exit();
+		}
+		else
+		{
+			SexyZuma.OnHardwareBackButtonPressed();
+		}
+	}
+
 	private void UpdateInput(GameTime gameTime)
 	{
 		if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
 		{
-			if (isLoading)
-			{
-				Exit();
-			}
-			else
-			{
-				SexyZuma.OnHardwareBackButtonPressed();
-			}
+			HandleHardwareBackButton();
 		}
 		TouchCollection state = TouchPanel.GetState();
 		if (state.Count == 0)

@@ -1,7 +1,9 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Runtime;
 using Android.Views;
+using Android.Window;
 using Microsoft.Phone.Shell;
 using Microsoft.Xna.Framework;
 using ZumasRevenge;
@@ -13,12 +15,15 @@ namespace ZumasRevenge.AndroidHost;
 	Icon = "@mipmap/appicon",
 	MainLauncher = true,
 	AlwaysRetainTaskState = true,
+	EnableOnBackInvokedCallback = true,
 	LaunchMode = LaunchMode.SingleTask,
 	ScreenOrientation = ScreenOrientation.SensorLandscape,
 	ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.ScreenSize | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize | ConfigChanges.UiMode)]
 public class MainActivity : AndroidGameActivity
 {
 	private GameMain mGame;
+
+	private HardwareBackInvokedCallback mBackInvokedCallback;
 
 	protected override void OnCreate(Bundle savedInstanceState)
 	{
@@ -29,6 +34,7 @@ public class MainActivity : AndroidGameActivity
 		ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
 		view.LayoutParameters = layoutParams;
 		SetContentView(view, layoutParams);
+		RegisterBackCallback();
 		mGame.Run();
 	}
 
@@ -56,9 +62,65 @@ public class MainActivity : AndroidGameActivity
 
 	protected override void OnDestroy()
 	{
+		UnregisterBackCallback();
 		mGame?.Dispose();
 		mGame = null;
 		base.OnDestroy();
+	}
+
+	public override bool DispatchKeyEvent(KeyEvent e)
+	{
+		if (e != null && e.KeyCode == Keycode.Back)
+		{
+			if (e.Action == KeyEventActions.Down)
+			{
+				return true;
+			}
+			if (e.Action == KeyEventActions.Up && DispatchHardwareBackButton())
+			{
+				return true;
+			}
+		}
+		return base.DispatchKeyEvent(e);
+	}
+
+	public override void OnBackPressed()
+	{
+		if (DispatchHardwareBackButton())
+		{
+			return;
+		}
+		base.OnBackPressed();
+	}
+
+	private bool DispatchHardwareBackButton()
+	{
+		if (mGame == null)
+		{
+			return false;
+		}
+		mGame.HandleHardwareBackButton();
+		return true;
+	}
+
+	private void RegisterBackCallback()
+	{
+		if (Build.VERSION.SdkInt < BuildVersionCodes.Tiramisu || mBackInvokedCallback != null)
+		{
+			return;
+		}
+		mBackInvokedCallback = new HardwareBackInvokedCallback(this);
+		OnBackInvokedDispatcher?.RegisterOnBackInvokedCallback(IOnBackInvokedDispatcher.PriorityDefault, mBackInvokedCallback);
+	}
+
+	private void UnregisterBackCallback()
+	{
+		if (Build.VERSION.SdkInt < BuildVersionCodes.Tiramisu || mBackInvokedCallback == null)
+		{
+			return;
+		}
+		OnBackInvokedDispatcher?.UnregisterOnBackInvokedCallback(mBackInvokedCallback);
+		mBackInvokedCallback = null;
 	}
 
 	private void ApplyImmersiveMode()
@@ -82,6 +144,21 @@ public class MainActivity : AndroidGameActivity
 		if (Window.DecorView != null)
 		{
 			Window.DecorView.SystemUiVisibility = (StatusBarVisibility)(SystemUiFlags.LayoutStable | SystemUiFlags.LayoutHideNavigation | SystemUiFlags.LayoutFullscreen | SystemUiFlags.HideNavigation | SystemUiFlags.Fullscreen | SystemUiFlags.ImmersiveSticky);
+		}
+	}
+
+	private sealed class HardwareBackInvokedCallback : Java.Lang.Object, IOnBackInvokedCallback
+	{
+		private readonly MainActivity mActivity;
+
+		public HardwareBackInvokedCallback(MainActivity activity)
+		{
+			mActivity = activity;
+		}
+
+		public void OnBackInvoked()
+		{
+			mActivity.DispatchHardwareBackButton();
 		}
 	}
 }
