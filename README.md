@@ -105,3 +105,73 @@ Known-good outcome after the current fix:
 - lightning frames render correctly instead of yellow blocks
 - corrupted intermediate intro frames are removed
 - the lightning-to-loading transition includes a white fade-out instead of a hard cut
+
+## Iron Frog / Heroic Frog Notes
+
+The original game unlocks two post-game modes:
+
+- `Iron Frog`: a separate chapter/zone
+- `Heroic Frog`: a harder replay of Adventure mode
+
+This port still contains important pieces of both systems, but they are not in the same state.
+
+### Iron Frog
+
+Current findings:
+
+- Iron Frog level content is present in `Content/levels`.
+- `levels.xml.xnb` defines a dedicated zone 7 starting at `ironfrog1`.
+- `ironfrog1` through `ironfrog10` are present and marked with `ironfrog="true"`.
+- `LevelMgr` still remaps Iron Frog levels into zone 7 and tracks first/last Iron Frog level.
+- `GameApp.StartIronFrogMode()` still exists, and board/gameplay code still contains Iron Frog-specific flow, stats, win handling, and UI text.
+
+Important caveat:
+
+- The visible main-menu button set currently does not appear to expose a normal Iron Frog entry.
+- `MainMenu.cs` still contains leftover logic for an Iron Frog button (`id=15`), but the currently constructed menu widgets do not obviously create that button.
+
+Practical conclusion:
+
+- Iron Frog is not missing as gameplay content.
+- It looks much more like an "entry/UI wiring is incomplete or removed" problem than a missing-data problem.
+
+### Heroic Frog
+
+Current findings:
+
+- Heroic mode has separate profile/state storage (`mHeroicModeVars`, `mHeroicStats`, heroic save-game naming, heroic beta stats).
+- Map and stats code still contain heroic-specific branches.
+- The repository contains many `_hard.dat` level files under `Content/levels`, which strongly suggests a dedicated harder curve/path set still exists.
+- Both `LevelMgr` and `LevelsXmlReader` contain logic that appends `_hard` to curve paths when `mIsHardConfig` is enabled.
+- `GameApp` still defines `mHardLevelXML = "levels/levels_hard"`.
+- Multiple bosses still contain hard-mode branches that remove beginner/tutorial leniency or otherwise make behavior stricter.
+
+Examples of remaining hard-mode evidence:
+
+- Boss tutorial/leniency branches still check `IsHardMode()`.
+- Some boss logic also treats "already beat this zone once" as equivalent to harder behavior, which suggests the original code path was designed around replay/hard-mode escalation.
+
+Important caveats:
+
+- `GameApp.IsHardMode()` currently returns `false` unconditionally.
+- No current menu path was found that sets `mClickedHardMode = true`.
+- No active code path was found that sets `LevelMgr.mIsHardConfig = true`.
+- No separate `levels_hard.xnb` content file was found in `Content/levels`; only `levels.xnb` and `levels.xml.xnb` are present.
+
+Practical conclusion:
+
+- Heroic Frog is not just a name left in UI text. There is real evidence of intended hard-mode data and gameplay differences.
+- However, the activation chain appears broken/incomplete in the current port.
+- In its current state, Heroic looks like a partially preserved system rather than a fully usable mode.
+
+### Future Implementation Guidance
+
+- If Iron Frog is restored, start from menu/flow wiring first, not from level data.
+- If Heroic is restored, verify all of the following together:
+  - how the mode is selected from UI
+  - how `mClickedHardMode` is set
+  - how `IsHardMode()` should report runtime state
+  - how `LevelMgr.mIsHardConfig` is supposed to be enabled
+  - whether a real `levels_hard` content asset must be generated or loaded differently in this port
+- Do not assume `_hard.dat` files alone are enough to make Heroic work. The mode-selection, save-game, level-manager, and content-loading chain all need to agree.
+- Before implementing either mode, test both a fresh profile and a post-game-unlocked profile, because some unlock logic depends on zone-completion counters.
