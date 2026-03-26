@@ -604,6 +604,98 @@ public class LoadingScreen : Widget, ButtonListener
 		return mAndroidLightningSequenceStep == 1 || mAndroidLightningSequenceStep == 3 || mAndroidLightningSequenceStep == 5;
 	}
 
+	private void BeginAndroidLightningSequence()
+	{
+		mAndroidLightningWarmupFrames = 0;
+		mAndroidLightningFlashHoldFrames = 0;
+		mAndroidLightningSequenceStep = 1;
+		mAndroidLightningSequenceTimer = Common._M2(10);
+		mLightningFrame = 2;
+		mLightningTimer = 0;
+		mLightningOn = false;
+		mFlashAlpha = 255f;
+		mLogoLightning.Clear();
+	}
+
+	private void AdvanceAndroidLightningSequence(int nextStep, int nextTimer, int lightningFrame = -1, bool resetFlash = false)
+	{
+		mAndroidLightningSequenceStep = nextStep;
+		mAndroidLightningSequenceTimer = nextTimer;
+		if (lightningFrame >= 0)
+		{
+			mLightningFrame = lightningFrame;
+		}
+		if (resetFlash)
+		{
+			mFlashAlpha = 255f;
+		}
+	}
+
+	private void UpdateAndroidLightningFlashAlpha()
+	{
+		if (mFlashAlpha > 0f)
+		{
+			mFlashAlpha -= Common._M1(10f);
+			if (mFlashAlpha < 0f)
+			{
+				mFlashAlpha = 0f;
+			}
+		}
+	}
+
+	private bool UpdateAndroidLightningSequence()
+	{
+		UpdateAndroidLightningFlashAlpha();
+		switch (mAndroidLightningSequenceStep)
+		{
+		case 0:
+			if (--mAndroidLightningSequenceTimer <= 0)
+			{
+				AdvanceAndroidLightningSequence(1, Common._M2(10), 2, resetFlash: true);
+			}
+			return true;
+		case 1:
+			if (--mAndroidLightningSequenceTimer <= 0)
+			{
+				AdvanceAndroidLightningSequence(2, Common._M3(15));
+			}
+			return true;
+		case 2:
+			if (--mAndroidLightningSequenceTimer <= 0)
+			{
+				AdvanceAndroidLightningSequence(3, Common._M4(15), 3, resetFlash: true);
+			}
+			return true;
+		case 3:
+			if (--mAndroidLightningSequenceTimer <= 0)
+			{
+				AdvanceAndroidLightningSequence(4, Common._M(10));
+			}
+			return true;
+		case 4:
+			if (--mAndroidLightningSequenceTimer <= 0)
+			{
+				AdvanceAndroidLightningSequence(5, Common._M1(10), 4, resetFlash: true);
+			}
+			return true;
+		case 5:
+			if (--mAndroidLightningSequenceTimer <= 0)
+			{
+				AdvanceAndroidLightningSequence(6, Common._M2(10));
+			}
+			return true;
+		case 6:
+			if (--mAndroidLightningSequenceTimer <= 0)
+			{
+				mFlashAlpha = 255f;
+				mState++;
+			}
+			return true;
+		default:
+			return false;
+		}
+	}
+
 	private void DrawLogoFrame(Graphics g, Image logoFrame, int x, int y)
 	{
 		DrawLogoFrame(g, logoFrame, x, y, 255);
@@ -940,15 +1032,7 @@ public class LoadingScreen : Widget, ButtonListener
 					mState++;
 					if (OperatingSystem.IsAndroid())
 					{
-						mAndroidLightningWarmupFrames = 0;
-						mAndroidLightningFlashHoldFrames = 0;
-						mAndroidLightningSequenceStep = 1;
-						mAndroidLightningSequenceTimer = Common._M2(10);
-						mLightningFrame = 2;
-						mLightningTimer = 0;
-						mLightningOn = false;
-						mFlashAlpha = 255f;
-						mLogoLightning.Clear();
+						BeginAndroidLightningSequence();
 					}
 					GameApp.gApp.InitMetricsManager();
 				}
@@ -956,74 +1040,9 @@ public class LoadingScreen : Widget, ButtonListener
 		}
 		else if (mState == 1)
 		{
-			if (OperatingSystem.IsAndroid())
+			if (OperatingSystem.IsAndroid() && UpdateAndroidLightningSequence())
 			{
-				if (mFlashAlpha > 0f)
-				{
-					mFlashAlpha -= Common._M1(10f);
-					if (mFlashAlpha < 0f)
-					{
-						mFlashAlpha = 0f;
-					}
-				}
-				switch (mAndroidLightningSequenceStep)
-				{
-				case 0:
-					if (--mAndroidLightningSequenceTimer <= 0)
-					{
-						mAndroidLightningSequenceStep = 1;
-						mAndroidLightningSequenceTimer = Common._M2(10);
-						mLightningFrame = 2;
-						mFlashAlpha = 255f;
-					}
-					return;
-				case 1:
-					if (--mAndroidLightningSequenceTimer <= 0)
-					{
-						mAndroidLightningSequenceStep = 2;
-						mAndroidLightningSequenceTimer = Common._M3(15);
-					}
-					return;
-				case 2:
-					if (--mAndroidLightningSequenceTimer <= 0)
-					{
-						mAndroidLightningSequenceStep = 3;
-						mAndroidLightningSequenceTimer = Common._M4(15);
-						mLightningFrame = 3;
-						mFlashAlpha = 255f;
-					}
-					return;
-				case 3:
-					if (--mAndroidLightningSequenceTimer <= 0)
-					{
-						mAndroidLightningSequenceStep = 4;
-						mAndroidLightningSequenceTimer = Common._M(10);
-					}
-					return;
-				case 4:
-					if (--mAndroidLightningSequenceTimer <= 0)
-					{
-						mAndroidLightningSequenceStep = 5;
-						mAndroidLightningSequenceTimer = Common._M1(10);
-						mLightningFrame = 4;
-						mFlashAlpha = 255f;
-					}
-					return;
-				case 5:
-					if (--mAndroidLightningSequenceTimer <= 0)
-					{
-						mAndroidLightningSequenceStep = 6;
-						mAndroidLightningSequenceTimer = Common._M2(10);
-					}
-					return;
-				case 6:
-					if (--mAndroidLightningSequenceTimer <= 0)
-					{
-						mFlashAlpha = 0f;
-						mState++;
-					}
-					return;
-				}
+				return;
 			}
 			if (mAndroidLightningWarmupFrames > 0)
 			{
@@ -1621,10 +1640,6 @@ public class LoadingScreen : Widget, ButtonListener
 					{
 						DrawLogoFrame(g, imageByID6, pts[mLightningFrame].mX, (mLightningFrame == 0) ? pts[mLightningFrame].mY : 0);
 					}
-				}
-				else if (OperatingSystem.IsAndroid() && (mAndroidLightningWarmupFrames > 0 || mAndroidLightningFlashHoldFrames > 0))
-				{
-					DrawLogoFrame(g, GetLogoFrame(0), pts[0].mX, pts[0].mY);
 				}
 				else if (mLightningOn)
 				{
