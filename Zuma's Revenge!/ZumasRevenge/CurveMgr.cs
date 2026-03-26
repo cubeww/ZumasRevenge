@@ -697,13 +697,10 @@ public class CurveMgr
 			{
 				num9 = 10;
 			}
-			if (mLevel.mBoss != null && !mLevel.IsFinalBossLevel())
-			{
-				SoundAttribs soundAttribs2 = new SoundAttribs();
-				soundAttribs2.pitch = num9;
-				soundAttribs2.delay = 1;
-				mBoard.mApp.mSoundPlayer.Play(Res.GetSoundByID(ResID.SOUND_CHAIN_BONUS), soundAttribs2);
-			}
+			SoundAttribs soundAttribs2 = new SoundAttribs();
+			soundAttribs2.pitch = num9;
+			soundAttribs2.delay = 1;
+			mBoard.mApp.mSoundPlayer.Play(Res.GetSoundByID(ResID.SOUND_CHAIN_BONUS), soundAttribs2);
 		}
 	}
 
