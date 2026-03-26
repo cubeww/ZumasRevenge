@@ -401,9 +401,103 @@ public class BaseXNARenderDevice : RenderDevice3D
 		}
 		if (inImage.mAtlasImage != null)
 		{
+			if (TryMaterializeAtlasImage(inImage))
+			{
+				return inImage;
+			}
 			return inImage.mAtlasImage;
 		}
 		return inImage;
+	}
+
+	private bool TryMaterializeAtlasImage(Image sourceImage)
+	{
+		if (!OperatingSystem.IsAndroid() || sourceImage == null || sourceImage.mAtlasImage == null)
+		{
+			return false;
+		}
+		MemoryImage memoryImage = sourceImage.AsMemoryImage();
+		if (memoryImage == null)
+		{
+			return false;
+		}
+		if (memoryImage.GetRenderData() is XNATextureData xNATextureData && xNATextureData.mTextures[0] != null && xNATextureData.mTextures[0].mTexture != null)
+		{
+			return true;
+		}
+		uint[] bits = memoryImage.GetBits();
+		if (bits == null || bits.Length == 0 || memoryImage.mWidth <= 0 || memoryImage.mHeight <= 0)
+		{
+			return false;
+		}
+		XNATextureData xNATextureData2 = new XNATextureData(this);
+		memoryImage.SetRenderData(xNATextureData2);
+		xNATextureData2.mTexPieceWidth = memoryImage.mWidth;
+		xNATextureData2.mTexPieceHeight = memoryImage.mHeight;
+		xNATextureData2.mTexVecWidth = 1;
+		xNATextureData2.mTexVecHeight = 1;
+		xNATextureData2.mMaxTotalU = 1f;
+		xNATextureData2.mMaxTotalV = 1f;
+		xNATextureData2.mTextures[0].mWidth = memoryImage.mWidth;
+		xNATextureData2.mTextures[0].mHeight = memoryImage.mHeight;
+		xNATextureData2.CreateTextures(ref memoryImage, this, commitBits: true);
+		return xNATextureData2.mTextures[0] != null && xNATextureData2.mTextures[0].mTexture != null;
+	}
+
+	private XNATextureData GetTextureDataForImage(Image sourceImage)
+	{
+		if (sourceImage == null)
+		{
+			return null;
+		}
+		Image image = SetupAtlasState(0, sourceImage);
+		MemoryImage inImage = image?.AsMemoryImage();
+		if (inImage == null)
+		{
+			return null;
+		}
+		if (!CreateImageRenderData(ref inImage))
+		{
+			return null;
+		}
+		return inImage.GetRenderData() as XNATextureData;
+	}
+
+	private Vector2 GetTextureCoordinate(Image sourceImage, XNATextureData textureData, float u, float v)
+	{
+		if (sourceImage.GetRenderData() == textureData)
+		{
+			return new Vector2(u, v);
+		}
+		sourceImage.InitAtalasState();
+		if (sourceImage.mAtlasImage == null || textureData == null || textureData.mTextures[0] == null)
+		{
+			return sourceImage.mVectorBase + sourceImage.mVectorU * u + sourceImage.mVectorV * v;
+		}
+		float num = textureData.mTextures[0].mWidth;
+		float num2 = textureData.mTextures[0].mHeight;
+		if (num <= 0f || num2 <= 0f)
+		{
+			return sourceImage.mVectorBase + sourceImage.mVectorU * u + sourceImage.mVectorV * v;
+		}
+		float x = (float)sourceImage.mAtlasStartX / num;
+		float num3 = (float)sourceImage.mAtlasStartY / num2;
+		float x2 = (float)sourceImage.mAtlasEndX / num;
+		float num4 = (float)sourceImage.mAtlasEndY / num2;
+		Vector2 vector = new Vector2(x, num3);
+		Vector2 value;
+		Vector2 value2;
+		if (num4 < num3)
+		{
+			value = new Vector2(x, num4) - vector;
+			value2 = new Vector2(x2, num3) - vector;
+		}
+		else
+		{
+			value = new Vector2(x2, num3) - vector;
+			value2 = new Vector2(x, num4) - vector;
+		}
+		return vector + value * u + value2 * v;
 	}
 
 	public override void DrawPrimitiveEx(uint theVertexFormat, Graphics3D.EPrimitiveType thePrimitiveType, SexyVertex2D[] theVertices, int thePrimitiveCount, SexyFramework.Graphics.Color theColor, int theDrawMode, float tx, float ty, bool blend, uint theFlags)
@@ -437,7 +531,7 @@ public class BaseXNARenderDevice : RenderDevice3D
 		mStateMgr.PushState();
 		Microsoft.Xna.Framework.Color color = new Microsoft.Xna.Framework.Color(theColor.mRed, theColor.mGreen, theColor.mBlue, theColor.mAlpha);
 		SetupDrawMode(theDrawMode);
-		mImage.InitAtalasState();
+		XNATextureData textureDataForImage = GetTextureDataForImage(mImage);
 		VertexPositionColorTexture[] array = new VertexPositionColorTexture[num];
 		if ((theVertexFormat & 4) != 0 && (color.PackedValue != 0 || tx != 0f || ty != 0f || mTransformStack.Count != 0))
 		{
@@ -463,7 +557,7 @@ public class BaseXNARenderDevice : RenderDevice3D
 			array[j].Position.X = theVertices[j].x;
 			array[j].Position.Y = theVertices[j].y;
 			array[j].Position.Z = 0f;
-			array[j].TextureCoordinate = mImage.mVectorBase + mImage.mVectorU * theVertices[j].u + mImage.mVectorV * theVertices[j].v;
+			array[j].TextureCoordinate = GetTextureCoordinate(mImage, textureDataForImage, theVertices[j].u, theVertices[j].v);
 			if (theVertices[j].color == SexyFramework.Graphics.Color.Zero)
 			{
 				array[j].Color = color;
@@ -1160,6 +1254,7 @@ public class BaseXNARenderDevice : RenderDevice3D
 	public void Init(int width, int height)
 	{
 		mDevice.IsFullScreen = false;
+		mSupportedTextureFormats = 3u;
 		int num = (mDevice.PreferredBackBufferWidth = PhysicalBackBufferWidth);
 		mScreenWidth = num;
 		int num3 = (mDevice.PreferredBackBufferHeight = PhysicalBackBufferHeight);
@@ -1298,7 +1393,6 @@ public class BaseXNARenderDevice : RenderDevice3D
 	public void BltTransformHelper(Image theImage, Rect theClipRect, SexyFramework.Graphics.Color theColor, int theDrawMode, Rect theSrcRect, SexyTransform2D theTransform, bool linearFilter, float theX, float theY, bool center)
 	{
 		Image image = theImage;
-		image.InitAtalasState();
 		theImage = SetupAtlasState(0, theImage);
 		int mX = theSrcRect.mX;
 		int mY = theSrcRect.mY;
@@ -1351,22 +1445,22 @@ public class BaseXNARenderDevice : RenderDevice3D
 		mTmpVPCTBuffer[0].Position.Y = num12;
 		mTmpVPCTBuffer[0].Position.Z = z;
 		mTmpVPCTBuffer[0].Color = color;
-		mTmpVPCTBuffer[0].TextureCoordinate = image.mVectorBase + image.mVectorU * u + image.mVectorV * v;
+		mTmpVPCTBuffer[0].TextureCoordinate = GetTextureCoordinate(image, xNATextureData, u, v);
 		mTmpVPCTBuffer[1].Position.X = num11;
 		mTmpVPCTBuffer[1].Position.Y = num12 + (float)num4;
 		mTmpVPCTBuffer[1].Position.Z = z;
 		mTmpVPCTBuffer[1].Color = color;
-		mTmpVPCTBuffer[1].TextureCoordinate = image.mVectorBase + image.mVectorU * u + image.mVectorV * v2;
+		mTmpVPCTBuffer[1].TextureCoordinate = GetTextureCoordinate(image, xNATextureData, u, v2);
 		mTmpVPCTBuffer[2].Position.X = num11 + (float)num3;
 		mTmpVPCTBuffer[2].Position.Y = num12;
 		mTmpVPCTBuffer[2].Position.Z = z;
 		mTmpVPCTBuffer[2].Color = color;
-		mTmpVPCTBuffer[2].TextureCoordinate = image.mVectorBase + image.mVectorU * u2 + image.mVectorV * v;
+		mTmpVPCTBuffer[2].TextureCoordinate = GetTextureCoordinate(image, xNATextureData, u2, v);
 		mTmpVPCTBuffer[3].Position.X = num11 + (float)num3;
 		mTmpVPCTBuffer[3].Position.Y = num12 + (float)num4;
 		mTmpVPCTBuffer[3].Position.Z = z;
 		mTmpVPCTBuffer[3].Color = color;
-		mTmpVPCTBuffer[3].TextureCoordinate = image.mVectorBase + image.mVectorU * u2 + image.mVectorV * v2;
+		mTmpVPCTBuffer[3].TextureCoordinate = GetTextureCoordinate(image, xNATextureData, u2, v2);
 		Matrix matrix = theTransform.mMatrix;
 		for (int i = 0; i < 4; i++)
 		{
@@ -1408,7 +1502,6 @@ public class BaseXNARenderDevice : RenderDevice3D
 	public override void DrawSprite(Image theImage, SexyFramework.Graphics.Color theColor, int theDrawMode, SexyTransform2D theTransform, Rect theSrcRect, bool center)
 	{
 		Image image = theImage;
-		image.InitAtalasState();
 		theImage = SetupAtlasState(0, theImage);
 		MemoryImage inImage = theImage as MemoryImage;
 		if (CreateImageRenderData(ref inImage))
@@ -1440,7 +1533,6 @@ public class BaseXNARenderDevice : RenderDevice3D
 	public void BltHelper(Image theImage, float theX, float theY, Rect theSrcRect, SexyFramework.Graphics.Color theColor, int theDrawMode, bool linearFilter)
 	{
 		Image image = theImage;
-		image.InitAtalasState();
 		theImage = SetupAtlasState(0, theImage);
 		MemoryImage inImage = theImage as MemoryImage;
 		if (CreateImageRenderData(ref inImage))
@@ -1471,22 +1563,22 @@ public class BaseXNARenderDevice : RenderDevice3D
 				mTmpVPCTBuffer[0].Position.Y = num7;
 				mTmpVPCTBuffer[0].Position.Z = z;
 				mTmpVPCTBuffer[0].Color = color;
-				mTmpVPCTBuffer[0].TextureCoordinate = image.mVectorBase + image.mVectorU * u + image.mVectorV * v;
+				mTmpVPCTBuffer[0].TextureCoordinate = GetTextureCoordinate(image, xNATextureData, u, v);
 				mTmpVPCTBuffer[1].Position.X = theX;
 				mTmpVPCTBuffer[1].Position.Y = num7 + (float)num4;
 				mTmpVPCTBuffer[1].Position.Z = z;
 				mTmpVPCTBuffer[1].Color = color;
-				mTmpVPCTBuffer[1].TextureCoordinate = image.mVectorBase + image.mVectorU * u + image.mVectorV * v2;
+				mTmpVPCTBuffer[1].TextureCoordinate = GetTextureCoordinate(image, xNATextureData, u, v2);
 				mTmpVPCTBuffer[2].Position.X = theX + (float)num3;
 				mTmpVPCTBuffer[2].Position.Y = num7;
 				mTmpVPCTBuffer[2].Position.Z = z;
 				mTmpVPCTBuffer[2].Color = color;
-				mTmpVPCTBuffer[2].TextureCoordinate = image.mVectorBase + image.mVectorU * u2 + image.mVectorV * v;
+				mTmpVPCTBuffer[2].TextureCoordinate = GetTextureCoordinate(image, xNATextureData, u2, v);
 				mTmpVPCTBuffer[3].Position.X = theX + (float)num3;
 				mTmpVPCTBuffer[3].Position.Y = num7 + (float)num4;
 				mTmpVPCTBuffer[3].Position.Z = z;
 				mTmpVPCTBuffer[3].Color = color;
-				mTmpVPCTBuffer[3].TextureCoordinate = image.mVectorBase + image.mVectorU * u2 + image.mVectorV * v2;
+				mTmpVPCTBuffer[3].TextureCoordinate = GetTextureCoordinate(image, xNATextureData, u2, v2);
 				SetTextureDirect(0, texture);
 				BufferedDrawPrimitive(5, 2, mTmpVPCTBuffer, 32, mDefaultVertexFVF, Matrix.Identity);
 			}

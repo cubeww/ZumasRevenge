@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using JeffLib;
+using Microsoft.Xna.Framework.Graphics;
 using SexyFramework;
 using SexyFramework.Drivers;
+using SexyFramework.Drivers.Graphics;
 using SexyFramework.Graphics;
 using SexyFramework.Misc;
 using SexyFramework.Widget;
@@ -197,6 +199,14 @@ public class LoadingScreen : Widget, ButtonListener
 
 	protected List<int> mSeenLoadingTextIndices = new List<int>();
 
+	protected int mAndroidLightningWarmupFrames;
+
+	protected int mAndroidLightningFlashHoldFrames;
+
+	protected int mAndroidLightningSequenceStep;
+
+	protected int mAndroidLightningSequenceTimer;
+
 	protected int mOffsetParticle = 85;
 
 	protected bool mUserProfileLoaded;
@@ -255,6 +265,14 @@ public class LoadingScreen : Widget, ButtonListener
 
 	protected Point[] pts = new Point[5];
 
+	protected Image[] mAndroidLogoFrames = new Image[5];
+
+	protected Image[] mAndroidLightningImages = new Image[2];
+
+	protected Image mAndroidBlackOverlay;
+
+	protected Image mAndroidWhiteOverlay;
+
 	protected int mCenterOffX;
 
 	protected int mCenterOffY;
@@ -286,6 +304,10 @@ public class LoadingScreen : Widget, ButtonListener
 
 	protected void DrawLightning(Graphics g, int x, int cloud_num)
 	{
+		if (OperatingSystem.IsAndroid() && mState < 2)
+		{
+			return;
+		}
 		LoadingCloud loadingCloud = mClouds[cloud_num];
 		if (loadingCloud.mLightning != null)
 		{
@@ -308,11 +330,20 @@ public class LoadingScreen : Widget, ButtonListener
 
 	public override void DrawOverlay(Graphics g)
 	{
-		if (mBlackFadeAlpha > 0f)
+		if (mBlackFadeAlpha > 0f && !(OperatingSystem.IsAndroid() && mState == 0 && !mFadeToMainMenu))
 		{
 			g.PushState();
-			g.SetColor(0, 0, 0, (int)mBlackFadeAlpha);
-			g.FillRect(GlobalMembers.gSexyApp.mScreenBounds);
+			if (OperatingSystem.IsAndroid() && mState < 2 && mAndroidBlackOverlay != null)
+			{
+				g.SetColorizeImages(colorizeImages: true);
+				g.SetColor(255, 255, 255, (int)mBlackFadeAlpha);
+				g.DrawImage(mAndroidBlackOverlay, 0, 0, GlobalMembers.gSexyApp.mScreenBounds.mWidth, GlobalMembers.gSexyApp.mScreenBounds.mHeight);
+			}
+			else
+			{
+				g.SetColor(0, 0, 0, (int)mBlackFadeAlpha);
+				g.FillRect(GlobalMembers.gSexyApp.mScreenBounds);
+			}
 			g.PopState();
 		}
 		g.PushState();
@@ -427,6 +458,7 @@ public class LoadingScreen : Widget, ButtonListener
 		mDarkIslandAlpha = 255;
 		mLogoHoldTime = 200;
 		Init();
+		BuildAndroidLogoFrames();
 		mWaitingForConfirmation = false;
 		if (GameApp.gApp.mFromReInit)
 		{
@@ -472,6 +504,139 @@ public class LoadingScreen : Widget, ButtonListener
 		}
 	}
 
+	private void BuildAndroidLogoFrames()
+	{
+		if (!OperatingSystem.IsAndroid() || GlobalMembers.gSexyAppBase.mGraphicsDriver is not XNAGraphicsDriver xNAGraphicsDriver)
+		{
+			return;
+		}
+		for (int i = 0; i < mAndroidLogoFrames.Length; i++)
+		{
+			Image imageByID = Res.GetImageByID((ResID)(1154 + i));
+			MemoryImage memoryImage = imageByID?.AsMemoryImage();
+			if (memoryImage == null)
+			{
+				continue;
+			}
+			uint[] bits = memoryImage.GetBits();
+			if (bits == null || bits.Length == 0)
+			{
+				continue;
+			}
+			uint[] array = new uint[bits.Length];
+			Array.Copy(bits, array, bits.Length);
+			Texture2D texture2D = new Texture2D(xNAGraphicsDriver.mXNARenderDevice.mDevice.GraphicsDevice, memoryImage.mWidth, memoryImage.mHeight, false, SurfaceFormat.Color);
+			texture2D.SetData(array);
+			texture2D.Name = imageByID.mNameForRes;
+			DeviceImage optimizedImage = xNAGraphicsDriver.mXNARenderDevice.GetOptimizedImage(texture2D, commitBits: false, allowTriReps: false);
+			optimizedImage.mNameForRes = imageByID.mNameForRes;
+			optimizedImage.mFileName = imageByID.mFileName;
+			optimizedImage.mFilePath = imageByID.mFilePath;
+			mAndroidLogoFrames[i] = optimizedImage;
+		}
+		for (int j = 0; j < mAndroidLightningImages.Length; j++)
+		{
+			Image imageByID2 = Res.GetImageByID((ResID)(1151 + j));
+			MemoryImage memoryImage2 = imageByID2?.AsMemoryImage();
+			if (memoryImage2 == null)
+			{
+				continue;
+			}
+			uint[] bits2 = memoryImage2.GetBits();
+			if (bits2 == null || bits2.Length == 0)
+			{
+				continue;
+			}
+			uint[] array2 = new uint[bits2.Length];
+			Array.Copy(bits2, array2, bits2.Length);
+			Texture2D texture2D2 = new Texture2D(xNAGraphicsDriver.mXNARenderDevice.mDevice.GraphicsDevice, memoryImage2.mWidth, memoryImage2.mHeight, false, SurfaceFormat.Color);
+			texture2D2.SetData(array2);
+			texture2D2.Name = imageByID2.mNameForRes;
+			DeviceImage optimizedImage2 = xNAGraphicsDriver.mXNARenderDevice.GetOptimizedImage(texture2D2, commitBits: false, allowTriReps: false);
+			optimizedImage2.mNameForRes = imageByID2.mNameForRes;
+			optimizedImage2.mFileName = imageByID2.mFileName;
+			optimizedImage2.mFilePath = imageByID2.mFilePath;
+			mAndroidLightningImages[j] = optimizedImage2;
+		}
+		if (mAndroidBlackOverlay == null)
+		{
+			Texture2D texture2D3 = new Texture2D(xNAGraphicsDriver.mXNARenderDevice.mDevice.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
+			texture2D3.SetData(new uint[1] { 4278190080u });
+			texture2D3.Name = "AndroidBlackOverlay";
+			mAndroidBlackOverlay = xNAGraphicsDriver.mXNARenderDevice.GetOptimizedImage(texture2D3, commitBits: false, allowTriReps: false);
+			mAndroidBlackOverlay.mNameForRes = "AndroidBlackOverlay";
+		}
+		if (mAndroidWhiteOverlay == null)
+		{
+			Texture2D texture2D4 = new Texture2D(xNAGraphicsDriver.mXNARenderDevice.mDevice.GraphicsDevice, 1, 1, false, SurfaceFormat.Color);
+			texture2D4.SetData(new uint[1] { uint.MaxValue });
+			texture2D4.Name = "AndroidWhiteOverlay";
+			mAndroidWhiteOverlay = xNAGraphicsDriver.mXNARenderDevice.GetOptimizedImage(texture2D4, commitBits: false, allowTriReps: false);
+			mAndroidWhiteOverlay.mNameForRes = "AndroidWhiteOverlay";
+		}
+	}
+
+	private Image GetLogoFrame(int frame)
+	{
+		if ((uint)frame < (uint)mAndroidLogoFrames.Length && mAndroidLogoFrames[frame] != null)
+		{
+			return mAndroidLogoFrames[frame];
+		}
+		return Res.GetImageByID((ResID)(1154 + frame));
+	}
+
+	private Image GetLightningImage(int variant)
+	{
+		if ((uint)variant < (uint)mAndroidLightningImages.Length && mAndroidLightningImages[variant] != null)
+		{
+			return mAndroidLightningImages[variant];
+		}
+		return Res.GetImageByID((ResID)(1151 + variant));
+	}
+
+	private bool IsAndroidManualLightningSequenceActive()
+	{
+		return OperatingSystem.IsAndroid() && mState == 1;
+	}
+
+	private bool IsAndroidLightningFrameVisible()
+	{
+		return mAndroidLightningSequenceStep == 1 || mAndroidLightningSequenceStep == 3 || mAndroidLightningSequenceStep == 5;
+	}
+
+	private void DrawLogoFrame(Graphics g, Image logoFrame, int x, int y)
+	{
+		DrawLogoFrame(g, logoFrame, x, y, 255);
+	}
+
+	private void DrawLogoFrame(Graphics g, Image logoFrame, int x, int y, int alpha)
+	{
+		if (logoFrame == null || alpha <= 0)
+		{
+			return;
+		}
+		g.PushState();
+		g.SetDrawMode(0);
+		g.SetColorizeImages(alpha < 255);
+		g.SetColor(255, 255, 255, alpha);
+		g.DrawImage(logoFrame, x, y);
+		g.PopState();
+	}
+
+	private void DrawAndroidFullscreenOverlay(Graphics g, Image overlay, int alpha)
+	{
+		if (overlay == null || alpha <= 0)
+		{
+			return;
+		}
+		g.PushState();
+		g.SetDrawMode(0);
+		g.SetColorizeImages(colorizeImages: true);
+		g.SetColor(255, 255, 255, alpha);
+		g.DrawImage(overlay, 0, 0, GlobalMembers.gSexyApp.mScreenBounds.mWidth, GlobalMembers.gSexyApp.mScreenBounds.mHeight);
+		g.PopState();
+	}
+
 	private void Init()
 	{
 		int seed = (int)SexyFramework.Common.SexyTime();
@@ -491,6 +656,10 @@ public class LoadingScreen : Widget, ButtonListener
 		mLoadingBarAlpha = 0f;
 		mCompleteLoadingBarAlpha = 0f;
 		mBlackFadeAlpha = 255f;
+		mAndroidLightningWarmupFrames = 0;
+		mAndroidLightningFlashHoldFrames = 0;
+		mAndroidLightningSequenceStep = 0;
+		mAndroidLightningSequenceTimer = 0;
 		mLoadingComplete = false;
 		mBlackFadeIn = true;
 		mStormTimer = (mClearTimer = Common._M(100));
@@ -608,7 +777,10 @@ public class LoadingScreen : Widget, ButtonListener
 		}
 		if (mFlashAlpha > 0f)
 		{
-			mFlashAlpha -= ((mState == 2) ? Common._M(1.5f) : Common._M1(10f));
+			if (!IsAndroidManualLightningSequenceActive() && !(OperatingSystem.IsAndroid() && mState == 1 && mAndroidLightningFlashHoldFrames > 0))
+			{
+				mFlashAlpha -= ((mState == 2) ? Common._M(1.5f) : Common._M1(10f));
+			}
 			if (mFlashAlpha < 0f)
 			{
 				mFlashAlpha = 0f;
@@ -766,12 +938,117 @@ public class LoadingScreen : Widget, ButtonListener
 				{
 					GameApp.gApp.PlaySample(Res.GetSoundByID(ResID.SOUND_LS_THUNDERSTRIKE));
 					mState++;
+					if (OperatingSystem.IsAndroid())
+					{
+						mAndroidLightningWarmupFrames = 0;
+						mAndroidLightningFlashHoldFrames = 0;
+						mAndroidLightningSequenceStep = 1;
+						mAndroidLightningSequenceTimer = Common._M2(10);
+						mLightningFrame = 2;
+						mLightningTimer = 0;
+						mLightningOn = false;
+						mFlashAlpha = 255f;
+						mLogoLightning.Clear();
+					}
 					GameApp.gApp.InitMetricsManager();
 				}
 			}
 		}
 		else if (mState == 1)
 		{
+			if (OperatingSystem.IsAndroid())
+			{
+				if (mFlashAlpha > 0f)
+				{
+					mFlashAlpha -= Common._M1(10f);
+					if (mFlashAlpha < 0f)
+					{
+						mFlashAlpha = 0f;
+					}
+				}
+				switch (mAndroidLightningSequenceStep)
+				{
+				case 0:
+					if (--mAndroidLightningSequenceTimer <= 0)
+					{
+						mAndroidLightningSequenceStep = 1;
+						mAndroidLightningSequenceTimer = Common._M2(10);
+						mLightningFrame = 2;
+						mFlashAlpha = 255f;
+					}
+					return;
+				case 1:
+					if (--mAndroidLightningSequenceTimer <= 0)
+					{
+						mAndroidLightningSequenceStep = 2;
+						mAndroidLightningSequenceTimer = Common._M3(15);
+					}
+					return;
+				case 2:
+					if (--mAndroidLightningSequenceTimer <= 0)
+					{
+						mAndroidLightningSequenceStep = 3;
+						mAndroidLightningSequenceTimer = Common._M4(15);
+						mLightningFrame = 3;
+						mFlashAlpha = 255f;
+					}
+					return;
+				case 3:
+					if (--mAndroidLightningSequenceTimer <= 0)
+					{
+						mAndroidLightningSequenceStep = 4;
+						mAndroidLightningSequenceTimer = Common._M(10);
+					}
+					return;
+				case 4:
+					if (--mAndroidLightningSequenceTimer <= 0)
+					{
+						mAndroidLightningSequenceStep = 5;
+						mAndroidLightningSequenceTimer = Common._M1(10);
+						mLightningFrame = 4;
+						mFlashAlpha = 255f;
+					}
+					return;
+				case 5:
+					if (--mAndroidLightningSequenceTimer <= 0)
+					{
+						mAndroidLightningSequenceStep = 6;
+						mAndroidLightningSequenceTimer = Common._M2(10);
+					}
+					return;
+				case 6:
+					if (--mAndroidLightningSequenceTimer <= 0)
+					{
+						mFlashAlpha = 0f;
+						mState++;
+					}
+					return;
+				}
+			}
+			if (mAndroidLightningWarmupFrames > 0)
+			{
+				mAndroidLightningWarmupFrames--;
+				if (mAndroidLightningWarmupFrames == 0)
+				{
+					mAndroidLightningFlashHoldFrames = 6;
+					mFlashAlpha = 255f;
+					mLogoLightning.Clear();
+				}
+				return;
+			}
+			if (OperatingSystem.IsAndroid() && mAndroidLightningFlashHoldFrames > 0)
+			{
+				mAndroidLightningFlashHoldFrames--;
+				mFlashAlpha = 255f;
+				mLogoLightning.Clear();
+				if (mAndroidLightningFlashHoldFrames == 0)
+				{
+					mLightningFrame = 2;
+					mLightningTimer = 0;
+					mLightningOn = true;
+				}
+				return;
+			}
 			int[] array = new int[5]
 			{
 				Common._M(5),
@@ -803,11 +1080,11 @@ public class LoadingScreen : Widget, ButtonListener
 					mState++;
 				}
 			}
-			if (mLogoLightning.Count() < Common._M(3) && MathUtils.SafeRand() % Common._M1(20) == 0)
+			if ((!OperatingSystem.IsAndroid() || mAndroidLightningFlashHoldFrames <= 0) && mLogoLightning.Count() < Common._M(3) && MathUtils.SafeRand() % Common._M1(20) == 0)
 			{
 				mLogoLightning.Add(new LogoLightning());
 				LogoLightning logoLightning = mLogoLightning[mLogoLightning.Count() - 1];
-				logoLightning.mImage = Res.GetImageByID((ResID)(1151 + MathUtils.SafeRand() % 2));
+				logoLightning.mImage = GetLightningImage(MathUtils.SafeRand() % 2);
 				logoLightning.mTimer = (logoLightning.mTimerTarget = MathUtils.IntRange(Common._M(5), Common._M1(25)));
 			}
 			for (int k = 0; k < mLogoLightning.Count(); k++)
@@ -900,9 +1177,15 @@ public class LoadingScreen : Widget, ButtonListener
 		for (int m = 0; m < 3; m++)
 		{
 			LoadingCloud loadingCloud = mClouds[m];
+			if (OperatingSystem.IsAndroid() && mState < 2)
+			{
+				loadingCloud.mLightning = null;
+				loadingCloud.mLightningTimer = 0;
+				continue;
+			}
 			if (loadingCloud.mLightning == null && mExtraProgress == 0f && MathUtils.SafeRand() % Common._M(200) == 0)
 			{
-				loadingCloud.mLightning = Res.GetImageByID((ResID)(1151 + MathUtils.SafeRand() % 1));
+				loadingCloud.mLightning = GetLightningImage(MathUtils.SafeRand() % 1);
 				loadingCloud.mLightningTimer = (loadingCloud.mTimerTarget = MathUtils.IntRange(Common._M(10), Common._M1(25)));
 				loadingCloud.mLightningScale = Common._M(0.75f) - (float)m * Common._M1(0.15f);
 			}
@@ -1023,6 +1306,20 @@ public class LoadingScreen : Widget, ButtonListener
 
 	public override void Dispose()
 	{
+		mAndroidBlackOverlay?.Dispose();
+		mAndroidBlackOverlay = null;
+		mAndroidWhiteOverlay?.Dispose();
+		mAndroidWhiteOverlay = null;
+		for (int i = 0; i < mAndroidLogoFrames.Length; i++)
+		{
+			mAndroidLogoFrames[i]?.Dispose();
+			mAndroidLogoFrames[i] = null;
+		}
+		for (int j = 0; j < mAndroidLightningImages.Length; j++)
+		{
+			mAndroidLightningImages[j]?.Dispose();
+			mAndroidLightningImages[j] = null;
+		}
 		RemoveAllWidgets(doDelete: true, recursive: true);
 		mLeftTorch.Dispose();
 		mRightTorch.Dispose();
@@ -1039,18 +1336,36 @@ public class LoadingScreen : Widget, ButtonListener
 		{
 			GameApp.gApp.GetLoadingThreadProgress();
 		}
+		g.SetDrawMode(0);
+		g.SetColorizeImages(colorizeImages: false);
+		g.SetColor(255, 255, 255, 255);
 		mHasShown = true;
 		if (mWaitingForConfirmation)
 		{
-			g.SetColor(Color.Black);
-			g.FillRect(GlobalMembers.gSexyApp.mScreenBounds);
-			g.DrawImage(IMAGE_LS_LOGO1, (mWidth - IMAGE_LS_LOGO1.mWidth) / 2, (mHeight - IMAGE_LS_LOGO1.mHeight) / 2);
+			Image logoFrame = GetLogoFrame(0);
+			if (OperatingSystem.IsAndroid() && mState < 2 && mAndroidBlackOverlay != null)
+			{
+				DrawAndroidFullscreenOverlay(g, mAndroidBlackOverlay, 255);
+			}
+			else
+			{
+				g.SetColor(Color.Black);
+				g.FillRect(GlobalMembers.gSexyApp.mScreenBounds);
+			}
+			DrawLogoFrame(g, logoFrame, pts[0].mX, pts[0].mY);
 			return;
 		}
 		if (mState < 2)
 		{
-			g.SetColor(Color.Black);
-			g.FillRect(GlobalMembers.gSexyApp.mScreenBounds);
+			if (OperatingSystem.IsAndroid() && mAndroidBlackOverlay != null)
+			{
+				DrawAndroidFullscreenOverlay(g, mAndroidBlackOverlay, 255);
+			}
+			else
+			{
+				g.SetColor(Color.Black);
+				g.FillRect(GlobalMembers.gSexyApp.mScreenBounds);
+			}
 		}
 		float num = 255f - 255f * mExtraProgress;
 		int num2 = ((num < (float)Common._M(128)) ? ((int)num) : Common._M1(128));
@@ -1269,10 +1584,16 @@ public class LoadingScreen : Widget, ButtonListener
 			{
 				if (mPartnerLogos.Count() == 0)
 				{
-					g.SetColorizeImages(colorizeImages: true);
-					g.SetColor(255, 255, 255, 255);
-					g.DrawImage(IMAGE_LS_LOGO1, (mWidth - IMAGE_LS_LOGO1.mWidth) / 2, (mHeight - IMAGE_LS_LOGO1.mHeight) / 2);
-					g.SetColorizeImages(colorizeImages: false);
+					Image logoFrame2 = GetLogoFrame(0);
+					if (OperatingSystem.IsAndroid())
+					{
+						int alpha = 255 - Math.Clamp((int)mBlackFadeAlpha, 0, 255);
+						DrawLogoFrame(g, logoFrame2, pts[0].mX, pts[0].mY, alpha);
+					}
+					else
+					{
+						DrawLogoFrame(g, logoFrame2, pts[0].mX, pts[0].mY);
+					}
 				}
 				else
 				{
@@ -1289,12 +1610,27 @@ public class LoadingScreen : Widget, ButtonListener
 			}
 			else if (mState == 1)
 			{
-				Image imageByID6 = Res.GetImageByID((ResID)(1154 + mLightningFrame));
-				if (mLightningOn)
+				Image imageByID6 = GetLogoFrame(mLightningFrame);
+				if (OperatingSystem.IsAndroid())
 				{
-					g.DrawImage(imageByID6, pts[mLightningFrame].mX, (mLightningFrame == 0) ? pts[mLightningFrame].mY : 0);
+					if (mAndroidLightningSequenceStep <= 0)
+					{
+						DrawLogoFrame(g, GetLogoFrame(0), pts[0].mX, pts[0].mY);
+					}
+					else if (IsAndroidLightningFrameVisible())
+					{
+						DrawLogoFrame(g, imageByID6, pts[mLightningFrame].mX, (mLightningFrame == 0) ? pts[mLightningFrame].mY : 0);
+					}
 				}
-				for (int l = 0; l < mLogoLightning.Count(); l++)
+				else if (OperatingSystem.IsAndroid() && (mAndroidLightningWarmupFrames > 0 || mAndroidLightningFlashHoldFrames > 0))
+				{
+					DrawLogoFrame(g, GetLogoFrame(0), pts[0].mX, pts[0].mY);
+				}
+				else if (mLightningOn)
+				{
+					DrawLogoFrame(g, imageByID6, pts[mLightningFrame].mX, (mLightningFrame == 0) ? pts[mLightningFrame].mY : 0);
+				}
+				for (int l = 0; l < mLogoLightning.Count() && mAndroidLightningWarmupFrames <= 0 && mAndroidLightningFlashHoldFrames <= 0; l++)
 				{
 					LogoLightning logoLightning = mLogoLightning[l];
 					g.SetColor(255, 255, 255, (int)(255f * ((float)logoLightning.mTimer / (float)logoLightning.mTimerTarget)));
@@ -1402,10 +1738,24 @@ public class LoadingScreen : Widget, ButtonListener
 		}
 		if (mFlashAlpha > 0f)
 		{
-			g.SetColor(255, 255, 255, (int)mFlashAlpha);
-			g.FillRect(GlobalMembers.gSexyApp.mScreenBounds);
+			if (OperatingSystem.IsAndroid() && mState < 2 && mAndroidWhiteOverlay != null)
+			{
+				DrawAndroidFullscreenOverlay(g, mAndroidWhiteOverlay, (int)mFlashAlpha);
+			}
+			else
+			{
+				g.SetColor(255, 255, 255, (int)mFlashAlpha);
+				g.FillRect(GlobalMembers.gSexyApp.mScreenBounds);
+			}
 		}
-		DeferOverlay(20);
+		if (OperatingSystem.IsAndroid() && mState < 2)
+		{
+			DrawOverlay(g);
+		}
+		else
+		{
+			DeferOverlay(20);
+		}
 	}
 
 	public void ButtonPress(int id)

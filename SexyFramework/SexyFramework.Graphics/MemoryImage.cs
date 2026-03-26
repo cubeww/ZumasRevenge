@@ -377,7 +377,31 @@ public class MemoryImage : Image
 					if (memoryImage != null)
 					{
 						uint[] bits = memoryImage.GetBits();
-						Array.Copy(bits, mAtlasStartY * memoryImage.mWidth + mAtlasStartX, mBits, 0, mBits.Length);
+						if (mAtlasEndY >= mAtlasStartY)
+						{
+							for (int j = 0; j < mHeight; j++)
+							{
+								int sourceIndex = (mAtlasStartY + j) * memoryImage.mWidth + mAtlasStartX;
+								int destIndex = j * mWidth;
+								Array.Copy(bits, sourceIndex, mBits, destIndex, mWidth);
+							}
+						}
+						else
+						{
+							InitAtalasState();
+							for (int k = 0; k < mHeight; k++)
+							{
+								float v = ((float)k + 0.5f) / (float)mHeight;
+								for (int l = 0; l < mWidth; l++)
+								{
+									float u = ((float)l + 0.5f) / (float)mWidth;
+									Vector2 vector = mVectorBase + mVectorU * u + mVectorV * v;
+									int num2 = Math.Clamp((int)((float)memoryImage.mWidth * vector.X), 0, memoryImage.mWidth - 1);
+									int num3 = Math.Clamp((int)((float)memoryImage.mHeight * vector.Y), 0, memoryImage.mHeight - 1);
+									mBits[k * mWidth + l] = bits[num3 * memoryImage.mWidth + num2];
+								}
+							}
+						}
 					}
 				}
 			}
