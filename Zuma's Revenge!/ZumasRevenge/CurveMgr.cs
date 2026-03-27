@@ -715,27 +715,49 @@ public class CurveMgr
 			{
 				soundAttribs.volume = 1f;
 			}
-			int soundByID = Res.GetSoundByID(ResID.SOUND_BALLDESTROYED5);
-			int soundByID2 = Res.GetSoundByID(ResID.SOUND_COMBO);
+			int soundByID;
+			int soundByID2;
 			switch (inComboCount)
 			{
 			case 0:
 				soundByID = Res.GetSoundByID(ResID.SOUND_BALLDESTROYED1);
+				soundByID2 = Res.GetSoundByID(ResID.SOUND_COMBO);
+				soundAttribs.pitch = 0f;
 				break;
 			case 1:
 				soundByID = Res.GetSoundByID(ResID.SOUND_BALLDESTROYED2);
+				soundByID2 = Res.GetSoundByID(ResID.SOUND_COMBO);
 				soundAttribs.pitch = 2f;
 				break;
 			case 2:
 				soundByID = Res.GetSoundByID(ResID.SOUND_BALLDESTROYED3);
 				soundByID2 = Res.GetSoundByID(ResID.SOUND_COMBO3X);
+				soundAttribs.pitch = 0f;
 				break;
 			case 3:
 				soundByID = Res.GetSoundByID(ResID.SOUND_BALLDESTROYED4);
-				break;
-			default:
 				soundByID2 = Res.GetSoundByID(ResID.SOUND_COMBO3X);
 				soundAttribs.pitch = 2f;
+				break;
+			case 4:
+				soundByID = Res.GetSoundByID(ResID.SOUND_BALLDESTROYED5);
+				soundByID2 = Res.GetSoundByID(ResID.SOUND_COMBO3X);
+				soundAttribs.pitch = 4f;
+				break;
+			case 5:
+				soundByID = Res.GetSoundByID(ResID.SOUND_BALLDESTROYED5);
+				soundByID2 = Res.GetSoundByID(ResID.SOUND_COMBO3X);
+				soundAttribs.pitch = 6f;
+				break;
+			case 6:
+				soundByID = Res.GetSoundByID(ResID.SOUND_BALLDESTROYED5);
+				soundByID2 = Res.GetSoundByID(ResID.SOUND_COMBO3X);
+				soundAttribs.pitch = 8f;
+				break;
+			default:
+				soundByID = Res.GetSoundByID(ResID.SOUND_BALLDESTROYED5);
+				soundByID2 = Res.GetSoundByID(ResID.SOUND_COMBO3X);
+				soundAttribs.pitch = 10f;
 				break;
 			}
 			mApp.mSoundPlayer.Play(soundByID);
