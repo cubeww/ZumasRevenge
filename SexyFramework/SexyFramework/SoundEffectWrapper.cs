@@ -31,8 +31,9 @@ public class SoundEffectWrapper
 		return m_isPlaying;
 	}
 
-	public void play()
+	public void play(bool isLooped)
 	{
+		MediaPlayer.IsRepeating = isLooped;
 		MediaPlayer.Play(m_Song);
 		m_isPlaying = true;
 	}

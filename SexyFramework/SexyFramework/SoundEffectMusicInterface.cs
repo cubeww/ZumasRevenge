@@ -48,8 +48,7 @@ public class SoundEffectMusicInterface : MusicInterface
 		MediaPlayer.Pause();
 		if (m_CurrSong != null)
 		{
-			m_CurrSong.play();
-			MediaPlayer.IsRepeating = !m_CurrSong.mStopOnFade;
+			m_CurrSong.play(!m_CurrSong.mStopOnFade);
 			MediaPlayer.Volume = Common.CaculatePowValume(m_MusicVolume);
 		}
 	}
@@ -94,8 +93,7 @@ public class SoundEffectMusicInterface : MusicInterface
 			m_SoundDict[theSongId].mVolumeAdd = 0.0;
 			if (MediaPlayer.GameHasControl)
 			{
-				m_SoundDict[theSongId].play();
-				MediaPlayer.IsRepeating = !noLoop;
+				m_SoundDict[theSongId].play(!noLoop);
 				MediaPlayer.Volume = Common.CaculatePowValume(m_MusicVolume);
 			}
 		}
@@ -147,8 +145,7 @@ public class SoundEffectMusicInterface : MusicInterface
 		Song activeSong = queue.ActiveSong;
 		if (m_CurrSong.m_Song.Name != activeSong.Name)
 		{
-			m_CurrSong.play();
-			MediaPlayer.IsRepeating = !m_CurrSong.mStopOnFade;
+			m_CurrSong.play(!m_CurrSong.mStopOnFade);
 			MediaPlayer.Volume = Common.CaculatePowValume(m_MusicVolume);
 			SongChangedEventArgs e = new SongChangedEventArgs();
 			e.songID = m_CurrSongID;
@@ -220,8 +217,7 @@ public class SoundEffectMusicInterface : MusicInterface
 			Song activeSong = queue.ActiveSong;
 			if (m_CurrSong.m_Song.Name != activeSong.Name)
 			{
-				m_CurrSong.play();
-				MediaPlayer.IsRepeating = !m_CurrSong.mStopOnFade;
+				m_CurrSong.play(!m_CurrSong.mStopOnFade);
 				MediaPlayer.Volume = Common.CaculatePowValume(m_MusicVolume);
 				SongChangedEventArgs e = new SongChangedEventArgs();
 				e.songID = m_CurrSongID;
@@ -249,8 +245,7 @@ public class SoundEffectMusicInterface : MusicInterface
 			Song activeSong2 = queue2.ActiveSong;
 			if (m_CurrSong.m_Song.Name != activeSong2.Name)
 			{
-				m_CurrSong.play();
-				MediaPlayer.IsRepeating = !m_CurrSong.mStopOnFade;
+				m_CurrSong.play(!m_CurrSong.mStopOnFade);
 				MediaPlayer.Volume = Common.CaculatePowValume(m_MusicVolume);
 				SongChangedEventArgs e2 = new SongChangedEventArgs();
 				e2.songID = m_CurrSongID;
@@ -279,8 +274,7 @@ public class SoundEffectMusicInterface : MusicInterface
 			Song activeSong3 = queue3.ActiveSong;
 			if (m_CurrSong.m_Song.Name != activeSong3.Name)
 			{
-				m_CurrSong.play();
-				MediaPlayer.IsRepeating = !m_CurrSong.mStopOnFade;
+				m_CurrSong.play(!m_CurrSong.mStopOnFade);
 				MediaPlayer.Volume = Common.CaculatePowValume(m_MusicVolume);
 				SongChangedEventArgs e3 = new SongChangedEventArgs();
 				e3.songID = m_CurrSongID;
