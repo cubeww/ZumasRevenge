@@ -556,7 +556,7 @@ public class WP7AppDriver : IAppDriver
 
 	public override Localization.LanguageType GetAppLanguage()
 	{
-		return Localization.LanguageType.Language_EN;
+		return AppLanguageSettings.ResolveLanguage();
 	}
 
 	public void InitXNADriver(Game game)

@@ -13,10 +13,16 @@ public class TextManager
 {
 	protected static TextManager instance = new TextManager();
 
-	private string[] sLangFiles = new string[12]
+	private readonly string[] sLangFiles = new string[12]
 	{
 		"en-US", "fr-FR", "it-IT", "de-DE", "es-ES", "zh-CN", "ru-RU", "pl-PL", "pt-PT", "es-CO",
 		"zh-TW", "pt-BR"
+	};
+
+	private readonly string[] sTextFiles = new string[12]
+	{
+		"text/text_EN.txt", "text/text_FR.txt", "text/text_IT.txt", "text/text_GR.txt", "text/text_SP.txt", "text/text_CH.txt", "text/text_RU.txt", "text/text_PL.txt", "text/text_PG.txt", "text/text_SPC.txt",
+		"text/text_CHT.txt", "text/text_PGB.txt"
 	};
 
 	protected List<string> mStringList = new List<string>(300);
@@ -33,9 +39,18 @@ public class TextManager
 	public bool init()
 	{
 		Localization.LanguageType currentLanguage = Localization.GetCurrentLanguage();
-		CultureInfo currentCulture = new CultureInfo(sLangFiles[(int)currentLanguage]);
+		int languageIndex = GetLanguageIndex(currentLanguage);
+		CultureInfo currentCulture = new CultureInfo(sLangFiles[languageIndex]);
 		Thread.CurrentThread.CurrentCulture = currentCulture;
-		return true;
+		Thread.CurrentThread.CurrentUICulture = currentCulture;
+		AppResources.Culture = currentCulture;
+		releaseTextKit();
+		bool flag = LoadTextKit(sTextFiles[languageIndex]);
+		if (!flag && currentLanguage != Localization.LanguageType.Language_EN)
+		{
+			flag = LoadTextKit(sTextFiles[(int)Localization.LanguageType.Language_EN]);
+		}
+		return flag;
 	}
 
 	public bool LoadTextKitFromStream(Stream s)
@@ -92,8 +107,12 @@ public class TextManager
 
 	public string getString(int id)
 	{
+		if (id >= 0 && id < mStringList.Count)
+		{
+			return mStringList[id];
+		}
 		string stringNameByID = StringID.GetStringNameByID(id);
-		return AppResources.ResourceManager.GetString(stringNameByID, Thread.CurrentThread.CurrentCulture);
+		return AppResources.ResourceManager.GetString(stringNameByID, AppResources.Culture ?? Thread.CurrentThread.CurrentUICulture);
 	}
 
 	public int getIdByString(string s)
@@ -110,5 +129,15 @@ public class TextManager
 			}
 		}
 		throw new Exception("failed to find string - " + s);
+	}
+
+	private int GetLanguageIndex(Localization.LanguageType languageType)
+	{
+		int num = (int)languageType;
+		if (num < 0 || num >= sTextFiles.Length)
+		{
+			return (int)Localization.LanguageType.Language_EN;
+		}
+		return num;
 	}
 }
