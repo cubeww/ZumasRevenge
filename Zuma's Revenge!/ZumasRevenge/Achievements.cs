@@ -212,7 +212,7 @@ public class Achievements : Widget, ButtonListener
 		mHomeButton.mDownImage = IMAGE_UI_CHALLENGESCREEN_HOME_SELECT;
 		float num = (float)(IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetWidth() - IMAGE_UI_CHALLENGESCREEN_HOME.GetWidth()) / 2f;
 		float num2 = (float)(IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetHeight() - IMAGE_UI_CHALLENGESCREEN_HOME.GetHeight()) / 2f;
-		mHomeButton.Resize((int)num, Common._DS(Res.GetOffsetYByID(ResID.IMAGE_UI_CHALLENGESCREEN_HOME_SELECT)) + (int)num2, IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetWidth(), IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetHeight());
+		mHomeButton.Resize(Common._DS(Res.GetOffsetXByID(ResID.IMAGE_UI_CHALLENGESCREEN_HOME_SELECT)) + (int)num, Common._DS(Res.GetOffsetYByID(ResID.IMAGE_UI_CHALLENGESCREEN_HOME_SELECT)) + (int)num2, IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetWidth(), IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetHeight());
 		mHomeButton.mNormalRect = new Rect(0, 0, IMAGE_UI_CHALLENGESCREEN_HOME.GetWidth(), IMAGE_UI_CHALLENGESCREEN_HOME.GetHeight());
 		mHomeButton.mDownRect = new Rect((int)num, (int)num2, IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetWidth() - (int)num, IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetHeight() - (int)num2);
 		AddWidget(mHomeButton);
@@ -334,6 +334,16 @@ public class Achievements : Widget, ButtonListener
 		if (mHomeButton != null)
 		{
 			g.DrawImage(IMAGE_UI_CHALLENGESCREEN_HOME_BACKING, 0, 0);
+			if (mHomeButton.IsButtonDown())
+			{
+				float homeXOff = (IMAGE_UI_CHALLENGESCREEN_HOME.GetWidth() - IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetWidth()) / 2;
+				float homeYOff = (IMAGE_UI_CHALLENGESCREEN_HOME.GetHeight() - IMAGE_UI_CHALLENGESCREEN_HOME_SELECT.GetHeight()) / 2;
+				g.DrawImage(IMAGE_UI_CHALLENGESCREEN_HOME_SELECT, (int)((float)mHomeButton.mX + homeXOff), (int)((float)mHomeButton.mY + homeYOff));
+			}
+			else
+			{
+				g.DrawImage(IMAGE_UI_CHALLENGESCREEN_HOME, mHomeButton.mX, mHomeButton.mY);
+			}
 		}
 		g.DrawImage(IMAGE_UI_CHALLENGESCREEN_BG_SIDE, -GameApp.gApp.mWideScreenXOffset, Common._DS(Res.GetOffsetYByID(ResID.IMAGE_UI_CHALLENGESCREEN_BG_SIDE)));
 		g.DrawImageMirror(IMAGE_UI_CHALLENGESCREEN_BG_SIDE, GameApp.gApp.GetScreenWidth() + GameApp.gApp.mWideScreenXOffset - IMAGE_UI_CHALLENGESCREEN_BG_SIDE.GetWidth(), Common._DS(Res.GetOffsetYByID(ResID.IMAGE_UI_CHALLENGESCREEN_BG_SIDE)));
